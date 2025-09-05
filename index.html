@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minimal FAQ Widget</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;    
+    }
+
+    body {
+      background-color: #204f8d;
+      color: #fbfbfb;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .container {
+      max-width: 800px;
+      width: 100%;
+      text-align: center;
+      padding: 48px 24px;
+    }
+
+    h1 {
+      font-weight: 400;
+      font-size: 2.8rem;
+      margin-bottom: 24px;
+      color: #ffffff;
+    }
+
+    p {
+      color: #ffffff;
+      line-height: 1.7;
+      font-size: 1.1rem;
+      margin-bottom: 32px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .demo-content {
+        background-color: #2c62a9;
+        border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.06);
+      margin-top: 40px;
+    }
+
+    .fab {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: linear-gradient(145deg, #ffffff, #f0f0f0);
+      border: none;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    .fab:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2), 0 0 15px rgba(0, 140, 255, 0.3);
+    }
+
+    .fab i {
+      font-size: 26px;
+      color: #333;
+    }
+
+    .faq-panel {
+      position: fixed;
+      bottom: 100px;
+      right: 32px;
+      width: 360px;
+      height: 70vh;
+      max-height: 600px;
+      background: linear-gradient(20deg, white, rgba(203, 203, 203, 0.861), white);
+      border-radius: 20px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(20px) scale(0.95);
+      transition: all 0.3s ease;
+      pointer-events: none;
+    }
+
+    .faq-panel.active {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      pointer-events: all;
+    }
+
+    .panel-header {
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #f0f0f0;
+      background: linear-gradient(20deg, white, rgba(203, 203, 203, 0.861), white);
+      flex-shrink: 0;
+    }
+
+    .panel-title {
+      font-weight: 600;
+      font-size: 1.3rem;
+      color: #1a1a1a;
+    }
+
+    .toggle-suggestions-btn {
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+      color: #888;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .toggle-suggestions-btn:hover {
+      background: #f7f7f7;
+      color: #333;
+    }
+
+    .close-btn {
+      background: none;
+      border: none;
+      font-size: 1.6rem;
+      cursor: pointer;
+      color: #888;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .close-btn:hover {
+      background: #f7f7f7;
+      color: #333;
+    }
+
+    .suggestions {
+      position: fixed;
+      bottom: 100px;
+      right: 392px; /* Positioned to the left of faq-panel (360px width + 32px gap) */
+      width: 300px;
+      max-height: 600px;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+      z-index: 1000;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateX(100%);
+      transition: all 0.3s ease;
+      pointer-events: none;
+    }
+
+    .suggestions.active {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: all;
+    }
+
+    .suggestions-content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      max-height: 72px;
+      overflow: hidden;
+      position: relative;
+      transition: max-height 0.3s ease;
+    }
+
+    .suggestions.expanded .suggestions-content {
+      max-height: 300px;
+      overflow-y: auto;
+    }
+
+    .suggestions-content::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 30px;
+      background: linear-gradient(to bottom, transparent, white);
+      pointer-events: none;
+      opacity: 1;
+      transition: opacity 0.3s ease;
+    }
+
+    .suggestions.expanded .suggestions-content::after {
+      opacity: 0;
+    }
+
+    .expand-btn {
+      position: absolute;
+      bottom: 5px;
+      right: 25px;
+      z-index: 2;
+      background: white;
+      border: none;
+      color: #4285f4;
+      font-size: 0.8rem;
+      cursor: pointer;
+      padding: 2px 8px;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .suggestion-chip {
+      background: #f4f4f4;
+      color: #333;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      animation: fadeIn 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .suggestion-chip:hover {
+      background: #e8e8e8;
+      transform: translateY(-1px);
+    }
+
+    .faq-list {
+      flex: 1;
+      overflow-y: auto;
+      padding: 0 20px 20px;
+    }
+
+    .faq-item {
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 12px 0;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+      animation: fadeIn 0.4s ease;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.3s ease;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .faq-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 14px rgba(0, 0, 0, 0.1);
+    }
+
+    .faq-item.focused {
+      z-index: 1;
+    }
+
+    .faq-list:has(.faq-item.focused) .faq-item:not(.focused) {
+        /* background: rgba(225, 225, 225, 0.814); */
+      /* filter: blur(.5px); */
+    }
+
+    .faq-question {
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+      color: #1a1a1a;
+    }
+
+    .faq-answer {
+      color: #5c5c5c;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      max-height: 80px;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      position: relative;
+    }
+
+    .faq-item.expanded .faq-answer {
+      max-height: 500px;
+    }
+
+    .faq-answer::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 30px;
+      background: linear-gradient(to bottom, transparent, white);
+      pointer-events: none;
+      opacity: 1;
+      transition: opacity 0.3s ease;
+    }
+
+    .faq-item.expanded .faq-answer::after {
+      opacity: 0;
+    }
+
+    .read-more-btn {
+      background: linear-gradient(145deg, #4285f4, #3367d6);
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      margin-top: 12px;
+      transition: all 0.3s ease;
+      opacity: 0;
+      transform: translateY(10px);
+      display: block;
+      text-decoration: none;
+      text-align: center;
+      width: fit-content;
+    }
+
+    .faq-item.expanded .read-more-btn {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .read-more-btn:hover {
+      background: linear-gradient(145deg, #3367d6, #2a56c6);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(66, 133, 244, 0.3);
+    }
+
+    .search-container {
+      padding: 0 20px 20px;
+      flex-shrink: 0;
+      margin-top: auto;
+    }
+
+    .search-box {
+      position: relative;
+      width: 100%;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 14px 20px 14px 48px;
+      border-radius: 25px;
+      border: none;
+      background: #f7f7f7;
+      font-size: 1rem;
+      color: #333;
+      transition: all 0.3s ease;
+    }
+
+    .search-input:focus {
+      outline: none;
+      background: #f5f5f5;
+      box-shadow: 0 0 0 3px rgba(0, 140, 255, 0.2);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #888;
+      font-size: 1.1rem;
+    }
+
+    .panel-footer {
+      padding: 16px 20px;
+      text-align: center;
+      color: #888;
+      font-size: 0.85rem;
+      border-top: 1px solid #f0f0f0;
+      flex-shrink: 0;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 720px) {
+      .suggestions {
+        right: 20px;
+        width: calc(100% - 40px);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .faq-panel {
+        width: calc(100% - 40px);
+        right: 20px;
+        bottom: 90px;
+        height: 58vh;
+        max-height: 420px;
+        border-radius: 16px;
+      }
+
+      .fab {
+        bottom: 24px;
+        right: 24px;
+        width: 56px;
+        height: 56px;
+      }
+
+      h1 {
+        font-size: 2.2rem;
+      }
+
+      .panel-header { padding: 14px; }
+      .panel-title { font-size: 1.1rem; }
+      .toggle-suggestions-btn { font-size: 1rem; }
+      .close-btn { font-size: 1.4rem; }
+
+      .search-input { font-size: 0.95rem; padding: 12px 16px 12px 44px; }
+
+      .faq-list { padding: 0 14px 14px; }
+      .faq-item { padding: 16px; margin: 10px 0; }
+      .faq-question { font-size: 1rem; margin-bottom: 8px; }
+      .faq-answer { font-size: 0.9rem; max-height: 64px; }
+
+      .suggestions { right: 12px; width: calc(100% - 24px); bottom: 90px; }
+      .suggestion-chip { font-size: 0.85rem; padding: 6px 12px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Ministry of Finance (Demo)</h1>
+    <p>A simple mock page to try the FAQ button and quick links.</p>
+    <div class="demo-content">
+      <h2>Sample content</h2>
+      <p>Placeholder section for page content. Scroll to see the chat button stay in place.</p>
+      <div style="height: 800px;"></div>
+    </div>
+  </div>
+
+  <button class="fab" aria-label="Open FAQ">
+    <i class="fas fa-comment"></i>
+  </button>
+
+  <div class="faq-panel">
+    <div class="panel-header">
+      <button class="toggle-suggestions-btn" aria-label="Toggle Suggestions">
+        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </button>
+      <div class="panel-title">FAQs</div>
+      <button class="close-btn" aria-label="Close FAQ">&times;</button>
+    </div>
+    
+    <div class="faq-list"></div>
+    
+    <div class="search-container">
+      <div class="search-box">
+        <i class="fas fa-search search-icon"></i>
+        <input type="text" class="search-input" placeholder="Search or ask a question...">
+      </div>
+    </div>
+    
+    <div class="panel-footer">
+      Tip: Start typing to see suggested questions.
+    </div>
+  </div>
+
+  <div class="suggestions">
+    <div class="suggestions-content">
+      <!-- Suggestions will be added here -->
+      <button class="expand-btn">Show all</button>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const fab = document.querySelector('.fab');
+      const faqPanel = document.querySelector('.faq-panel');
+      const closeBtn = document.querySelector('.close-btn');
+      const toggleSuggestionsBtn = document.querySelector('.toggle-suggestions-btn');
+      const searchInput = document.querySelector('.search-input');
+      const suggestionsContainer = document.querySelector('.suggestions');
+      const suggestionsContent = document.querySelector('.suggestions-content');
+      const expandBtn = document.querySelector('.expand-btn');
+      const faqList = document.querySelector('.faq-list');
+
+      const faqs = [
+  {
+    id: 1,
+    question: "I have a financial proposal to submit to the government. Do I submit it to the Ministry of Finance?",
+    answer: "No, all proposals must be submitted to sector Ministries, which then forward them to the Ministry of Finance ...",
+  },
+  {
+    id: 2,
+    question: "What is the priority list of projects for any particular year?",
+    answer: "Every year, the list of priority projects is published in the budget at appendix 10c ...",
+  },
+  {
+    id: 3,
+
+    question: "What are the requirements for a Government Authority Letter?",
+    answer: "Requirements include CV, employer’s statement, admission letter, 2 years of work experience, and completed national service ...",
+  },
+  {
+    id: 4,
+
+    
+    question: "How long does it take to receive the government statement after application?",
+    answer: "It usually takes less than 48 hours to receive the government statement after application ...",
+  },
+  {
+    question: "How does the Ministry of Finance do recruitment?",
+    answer: "The Ministry of Finance does not undertake recruitment; it’s handled by the Office of the Head of Civil Service ...",
+  },
+  {
+    question: "How do I get a tax exemption on a Government Contract?",
+    answer: "The MDA must submit an application to MoF with loan agreement, customs reports, packing list, and bill of lading ...",
+  },
+  {
+    question: "How do I get a tax exemption as an NGO?",
+    answer: "NGOs must submit an application to the relevant Ministry with registration documents, donor letter, and other attachments ...",
+  },
+  {
+    question: "How do I get data on tax collections?",
+    answer: "Apply to the Ministry of Finance or the Ghana Revenue Authority (GRA) to obtain tax collection data ...",
+  },
+  {
+    question: "What documents are needed in addition to quotations?",
+    answer: "Required documents include valid Business, VAT, GRA, SSNIT certificates, and Public Procurement Authority registration ...",
+  },
+  {
+    question: "I am a consultant with a proposal for the Ministry of Finance. What do I do?",
+    answer: "Kindly drop your proposal at the registry of the Ministry of Finance for consideration ...",
+  },
+  {
+    question: "Who can apply to the Ministry of Finance for Financial clearance?",
+    answer: "Ministries, Departments, and Agencies (MDAs) can apply for financial clearance from the Ministry of Finance ...",
+  },
+  {
+    question: "What process must MDA’s follow to apply for financial clearance?",
+    answer: "MDAs must submit an application with Technical Clearance from PSC/OHCS and evidence of approved budgetary provision ...",
+  },
+  {
+    question: "What are the requirements for Biometric Registration of New Entrants/Pensioners in the Public Service?",
+    answer: "New Entrants need Financial Clearance, appointment letter, payslip, SSNIT records, state ID, and introductory letter ...",
+  },
+  {
+    question: "What if my introductory letter does not indicate my staff ID?",
+    answer: "Kindly attach your Staff ID to the introductory letter for biometric registration ...",
+  },
+  {
+    question: "After registering as a student, do I need to register again after I complete school?",
+    answer: "No, individuals are required to register only once for biometric registration ...",
+  },
+  {
+    question: "What if my registration has expired?",
+    answer: "Visit the office to have your ID reactivated for continued use ...",
+  },
+  {
+    question: "What if I have mistakenly registered twice?",
+    answer: "The second account will need to be deactivated to resolve the issue ...",
+  },
+  {
+    question: "How do I register as a supplier/contractor for Ministry of Finance tenders?",
+    answer: "Submit company’s introductory letter and certificates to MoF and enroll in GHANEPS ...",
+  },
+  {
+    question: "What is GHANEPS?",
+    answer: "GHANEPS is a web-based system developed to facilitate public procurement processes in Ghana ...",
+  },
+  {
+    question: "Are there specific eligibility criteria for tendering?",
+    answer: "Yes, criteria include valid certificates, technical/financial capacity, and no debarment records ...",
+  },
+  {
+    question: "Where are tenders advertised?",
+    answer: "All open tenders are published on GHANEPS and in widely circulated newspapers ...",
+  },
+  {
+    question: "Can I submit a tender after the deadline?",
+    answer: "No, late tenders are automatically rejected per procurement guidelines ...",
+  },
+  {
+    question: "How are tenders evaluated?",
+    answer: "Tenders are evaluated based on technical compliance, price competitiveness, and past performance ...",
+  },
+  {
+    question: "What documents must accompany a tender?",
+    answer: "Tenders require tender security, statutory documents, and tender forms or proposals ...",
+  },
+  {
+    question: "Is tender security mandatory?",
+    answer: "Tender security is not mandatory for consultancy services or RFQs; check tender documents ...",
+  },
+  {
+    question: "How long does payment take after delivering goods/services?",
+    answer: "Payments are typically processed within 28 days after contract signing, subject to terms ...",
+  },
+  {
+    question: "Can contract terms be negotiated after the award is made?",
+    answer: "No, contracts are binding; minor amendments require written approval from authorities ...",
+  },
+  {
+    question: "How do I challenge a tender award decision?",
+    answer: "File a formal complaint with the Procurement Division within 10 days of notification ...",
+  },
+  {
+    question: "Will my complaint affect future tendering opportunities?",
+    answer: "No, complaints are treated confidentially and impartially by the authorities ...",
+  },
+  {
+    question: "How do I qualify for preferential margins (margin of preference)?",
+    answer: "Qualify by meeting local content conditions for Domestic Goods, like 15% local inputs ...",
+  },
+  {
+    question: "What are the penalties for breaching a contract?",
+    answer: "Penalties include contract cancellation, liquidated damages, suspension, or blacklisting for violations ...",
+  },
+  {
+    question: "How do I report unethical practices by procurement staff?",
+    answer: "Contact the Ministry’s Compliance Unit to lodge complaints about unethical practices ...",
+  },
+  {
+    question: "What is the mode of payment?",
+    answer: "Payments are typically made electronically through GIFMIS to the supplier’s registered bank account ...",
+  },
+  {
+    question: "Where can I get real-time support?",
+    answer: "Contact the Ministry’s Help Desk at 0800900104 for real-time support ...",
+  },
+  {
+    question: "What is Commitment Authorisation?",
+    answer: "Formal approval by the Minister for Finance for public institutions to initiate procurement ...",
+  },
+  {
+    question: "When do you need Commitment Authorisation?",
+    answer: "Commitment Authorisation is needed prior to initiating procurement for goods, services, and works ...",
+  },
+  {
+    question: "Do you need Commitment Authorisation for both new and ongoing projects?",
+    answer: "Required for new projects and ongoing projects exceeding 15% of original contract price ...",
+  },
+  {
+    question: "Is Commitment Authorisation required for all funding sources of Government?",
+    answer: "Yes, Commitment Authorisation is required for all Government funding sources ...",
+  },
+  {
+    question: "Who can request for Commitment Authorisation?",
+    answer: "Procurement Entities undertaking activities that commit Government can request Commitment Authorisation ...",
+  },
+  {
+    question: "How to request for Commitment Authorisation?",
+    answer: "Procurement Entities write to the Minister for Finance detailing items, costs, and funding ...",
+  },
+  {
+    question: "What is Commitment Control Compliance Checklist (CCCC)?",
+    answer: "CCCC lists budget control measures authenticated before funds are committed ...",
+  },
+  {
+    question: "What is the PFM League Table?",
+    answer: "Periodic assessment of MDAs’ compliance with Public Financial Management Laws of Ghana ...",
+  },
+  {
+    question: "What are the core functions of the PFM Compliance Division?",
+    answer: "Enforce PFM compliance, provide technical guidance, capacity building, and knowledge sharing ...",
+  },
+  {
+    question: "What is the PFM Compliance and Enforcement Committee?",
+    answer: "A high-level committee for inquiries on commitment control and expenditure measures ...",
+  },
+  {
+    question: "What are the functions of the PFM Compliance and Enforcement Committee?",
+    answer: "Ensures adherence to PFM Laws and recommends sanctions for defaulting individuals/organizations ...",
+  },
+  {
+    question: "Do State Owned Enterprises (SOEs) require Commitment Authorisation?",
+    answer: "Yes, per PPA Act 663, for procurement financed in whole or part ...",
+  },
+  {
+    question: "Is Internally Generated Funds (IGF) Public Funds?",
+    answer: "Yes, IGF is public funds, requiring authorization for use by institutions ...",
+  },
+  {
+    question: "Do Foreign Loans and Grants funded projects require Commitment Authorisation?",
+    answer: "Yes, Foreign Loans and Grants funded projects require Commitment Authorisation ...",
+  },
+  {
+    question: "Do Development Partners need Commitment Authorisation prior to the signing of a Loan or Grant agreement?",
+    answer: "No, Development Partners do not require Commitment Authorisation for loan/grant agreements ...",
+  }
+];
+
+      const allSuggestions = [
+        "2025 budget statement economic policy",
+        "2025 Mid Year Fiscal Policy Review",
+        "2024 MDAs Annual Budget Performance Report",
+        "2024 Budget Highlights",
+        "2024 Mid Year Fiscal Policy Review"
+      ];
+
+      // Map suggestion text to target URLs. Update values as needed.
+      const suggestionUrlMap = {
+        "2025 budget statement economic policy": "https://mofep.gov.gh/sites/default/files/budget-statements/2025-Budget-Statement-and-Economic-Policy_v5.pdf",
+        "2025 Mid Year Fiscal Policy Review": "https://mofep.gov.gh/sites/default/files/budget-statements/2025-Mid-Year-Fiscal-Policy-Review.pdf",
+        "2024 MDAs Annual Budget Performance Report": "https://mofep.gov.gh/sites/default/files/budget-statements/2024-MDAs-Annual-Budget-Performance-Report.pdf",
+        "2024 Budget Highlights": "https://mofep.gov.gh/sites/default/files/budget-statements/2024%20-Budget-Highlights_.pdf",
+        "2024 Mid Year Fiscal Policy Review": "https://mofep.gov.gh/sites/default/files/budget-statements/2024%20Mid-Year-Policy-Review_new.pdf"
+      };
+
+      fab.addEventListener('click', () => {
+        faqPanel.classList.toggle('active');
+      });
+
+      closeBtn.addEventListener('click', () => {
+        faqPanel.classList.remove('active');
+        suggestionsContainer.classList.remove('active');
+        searchInput.value = '';
+        updateSuggestions('');
+        renderFAQs(faqs);
+        suggestionsContainer.classList.remove('expanded');
+        expandBtn.textContent = 'Show all';
+      });
+
+      document.addEventListener('click', (e) => {
+        if (faqPanel.classList.contains('active') &&
+            !faqPanel.contains(e.target) &&
+            !suggestionsContainer.contains(e.target) &&
+            !fab.contains(e.target)) {
+          faqPanel.classList.remove('active');
+          suggestionsContainer.classList.remove('active');
+          searchInput.value = '';
+          updateSuggestions('');
+          renderFAQs(faqs);
+          suggestionsContainer.classList.remove('expanded');
+          expandBtn.textContent = 'Show all';
+        }
+      });
+
+      toggleSuggestionsBtn.addEventListener('click', () => {
+        suggestionsContainer.classList.toggle('active');
+      });
+
+      expandBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        suggestionsContainer.classList.toggle('expanded');
+        expandBtn.textContent = suggestionsContainer.classList.contains('expanded') ? 'Show less' : 'Show all';
+      });
+
+      function renderFAQs(faqsToDisplay) {
+        faqList.innerHTML = '';
+        faqsToDisplay.forEach((faq, index) => {
+          // Generate the correct ID format to match faqs.html (faq-1, faq-2, etc.)
+          const faqId = `faq-${index + 1}`;
+          const faqElement = document.createElement('div');
+          faqElement.className = 'faq-item';
+          faqElement.innerHTML = `
+            <div class="faq-question">${faq.question}</div>
+            <div class="faq-answer">${faq.answer}</div>
+            <a href="http://127.0.0.1:5500/faqs.html?id=${faqId}" class="read-more-btn" >Read More</a>
+          `;
+          faqElement.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isFocused = faqElement.classList.contains('focused');
+            // Remove focus from all items
+            document.querySelectorAll('.faq-item').forEach(item => {
+              item.classList.remove('focused');
+            });
+            // Toggle expanded and focus
+            faqElement.classList.toggle('expanded');
+            if (!isFocused) {
+              faqElement.classList.add('focused');
+            }
+          });
+          faqList.appendChild(faqElement);
+        });
+      }
+
+      function updateSuggestions(query) {
+        // Clear previous suggestions but keep the expand button
+        const chips = suggestionsContent.querySelectorAll('.suggestion-chip');
+        chips.forEach(chip => chip.remove());
+        
+        if (!query) {
+          // Show default suggestions when query is empty
+          allSuggestions.slice(0, 6).forEach(suggestion => {
+            const chip = createSuggestionChip(suggestion);
+            suggestionsContent.insertBefore(chip, expandBtn);
+          });
+          return;
+        }
+
+        const filtered = allSuggestions.filter(suggestion =>
+          suggestion.toLowerCase().includes(query.toLowerCase())
+        );
+
+        filtered.forEach(suggestion => {
+          const chip = createSuggestionChip(suggestion);
+          suggestionsContent.insertBefore(chip, expandBtn);
+        });
+      }
+
+      function createSuggestionChip(text) {
+        const chip = document.createElement('a');
+        chip.className = 'suggestion-chip';
+        chip.textContent = text;
+        const slugUrl = '/' + text.toLowerCase().replace(/[^a-z0-9\s]/g, '').replace(/\s+/g, '-');
+        chip.href = suggestionUrlMap[text] || slugUrl;
+        chip.target = '_blank';
+        chip.rel = 'noopener noreferrer';
+        chip.addEventListener('click', (e) => {
+          e.stopPropagation(); // Prevent triggering suggestions expand
+          // Navigation is handled by the href
+        });
+        return chip;
+      }
+
+      searchInput.addEventListener('input', () => {
+        const query = searchInput.value;
+        updateSuggestions(query);
+        const filtered = faqs.filter(faq =>
+          faq.question.toLowerCase().includes(query.toLowerCase()) ||
+          faq.answer.toLowerCase().includes(query.toLowerCase())
+        );
+        renderFAQs(filtered.length ? filtered : faqs);
+      });
+
+      // Initialize with default suggestions and FAQs
+      updateSuggestions('');
+      renderFAQs(faqs);
+    });
+  </script>
+</body>
+</html>

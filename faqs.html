@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #f0f2f5;
+    }
+
+    /* FAQ Container */
+    .faq-section {
+        font-family: Arial, sans-serif;
+        max-width: 900px;
+        height: 80vh;
+        overflow-y: auto;
+        margin: 30px auto;
+        border: 1px solid #ddd;
+        border-radius: 12px;
+        background-color: #fff;
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    }
+
+    /* FAQ Item */
+    .faq-item {
+        border-top: 1px solid #e5e7eb;
+        margin: 15px 0;
+        padding: 0 20px;
+        scroll-margin-top: 30px;
+        transition: background-color 0.4s ease, box-shadow 0.3s ease;
+    }
+
+    .faq-item:first-child {
+        border-top: none;
+        margin-top: 10px;
+    }
+
+    .faq-item:hover {
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .faq-item.selected {
+        background-color: #e6f0fa;
+        border-left: 4px solid #007bff;
+        animation: highlightFade 1.2s ease-in-out;
+    }
+
+    @keyframes highlightFade {
+        0% { background-color: #d1e7ff; }
+        100% { background-color: #e6f0fa; }
+    }
+
+    /* FAQ Title Button */
+    .faq-title {
+        width: 100%;
+        text-align: left;
+        padding: 20px 30px;
+        font-weight: bold;
+        font-size: 17px;
+        background: #ffffff;
+        border: none;
+        border-radius: 8px;
+        outline: none;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    .faq-title:hover {
+        background: #e8ecef;
+        transform: scale(1.01);
+    }
+
+    /* FAQ Content */
+    .faq-content {
+        padding: 0 30px;
+        background: #fff;
+        font-size: 15px;
+        line-height: 1.8;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: max-height 0.8s ease-in-out, padding 0.8s ease-in-out, opacity 0.8s ease-in-out;
+    }
+
+    .faq-content p {
+        margin: 25px 0;
+    }
+
+    .faq-content p:first-child {
+        margin-top: 0;
+    }
+
+    .faq-content p:last-child {
+        margin-bottom: 0;
+    }
+
+    .faq-content ul {
+        padding-left: 25px;
+        margin: 20px 0;
+    }
+
+    .faq-content li {
+        font-style: italic;
+        margin-bottom: 10px;
+    }
+
+    /* Open Item */
+    .faq-item.open .faq-content {
+        max-height: 1000px;
+        padding: 30px;
+        opacity: 1;
+    }
+
+    /* FAQ Icon */
+    .faq-icon {
+        font-weight: bold;
+        font-size: 22px;
+        transition: transform 0.6s ease-in-out;
+    }
+
+    .faq-item.open .faq-icon {
+        transform: rotate(180deg);
+    }
+</style>
+</head>
+<body>
+
+    <section class="faq-section">
+        <div class="faq-item" id="faq-1">
+            <button class="faq-title">
+                I have a financial proposal to submit to the government. Do I submit it to the Ministry of Finance?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-content">
+                <p><em>No. All proposals are to be submitted to the sector Ministries. These sector ministries will then follow due process and forward them to the Ministry of Finance.</em></p>
+            </div>
+        </div>
+    
+        <div class="faq-item" id="faq-2">
+            <button class="faq-title">
+                What is the priority list of projects for any particular year?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-content">
+                <p><em>Every year the list of priority projects is published in the budget at appendix 10c</em></p>
+            </div>
+        </div>
+    
+        <div class="faq-item" id="faq-3">
+            <button class="faq-title">
+                What are the requirements for a Government Authority Letter?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-content">
+                <ul>
+                    <li>CV</li>
+                    <li>Employer’s statement</li>
+                    <li>Admission letter.</li>
+                    <li>Should have worked for at least 2 years</li>
+                    <li>Should have completed national service</li>
+                </ul>
+            </div>
+        </div>
+    
+        <div class="faq-item" id="faq-4">
+            <button class="faq-title">
+                How long does it take to receive the government statement after application?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-content">
+                <p><em>Usually, less than 48 hours.</em></p>
+            </div>
+        </div>
+    
+        <div class="faq-item" id="faq-5">
+            <button class="faq-title">
+                How does the Ministry of Finance do recruitment?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-content">
+                <p><em>The Ministry of Finance does not undertake recruitment. All Civil Service recruitments are done by the Office of the Head of Civil Service.</em></p>
+            </div>
+        </div>
+    
+        <div class="faq-item" id="faq-6">
+            <button class="faq-title">
+                How do I get a tax exemption on a Government Contract?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-content">
+                <p><em>The MDA must submit an application for tax exemption to MoF, with the following attached documents;</em></p>
+                <ul>
+                    <li>A copy of the loan agreement</li>
+                    <li>Customs validation and valuation reports</li>
+                    <li>Packing list.</li>
+                    <li>Bill of lading</li>
+                </ul>
+            </div>
+        </div>
+    
+        <div class="faq-item" id="faq-7">
+            <button class="faq-title">
+                How do I get a tax exemption as an NGO?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-content">
+                <p><em>NGOS must submits application letter to the relevant Ministry with the following attachments;</em></p>
+                <ul>
+                    <li>Registration documents of the NGO</li>
+                    <li>Letter from donor (If consignment was donated to the applicant).</li>
+                    <li>Bills of lading of the consignment.</li>
+                    <li>Packing list.</li>
+                    <li>The relevant Ministry recommends the application to MoF.</li>
+                </ul>
+            </div>
+        </div>
+    
+        <div class="faq-item" id="faq-8">
+            <button class="faq-title">
+                How do I get data on tax collections?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-content">
+                <p><em>By applying to Ministry of Finance or GRA.</em></p>
+            </div>
+        </div>
+    
+        <div class="faq-item" id="faq-9">
+            <button class="faq-title">
+                What documents are needed in addition to quotations?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-content">
+                <ul>
+                    <li>Valid Business Certificate</li>
+                    <li>Valid VAT certificate</li>
+                    <li>Valid GRA certificate</li>
+                    <li>SSNIT certificate</li>
+                    <li>Public Procurement Authority</li>
+                </ul>
+            </div>
+        </div>
+    
+        <div class="faq-item" id="faq-10">
+            <button class="faq-title">
+                I am a consultant with a proposal for the Ministry of Finance. What do I do?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-content">
+                <p><em>Kindly drop your proposal at the registry of the Ministry of Finance</em></p>
+            </div>
+        </div>
+    
+        <div class="faq-item" id="faq-11">
+            <button class="faq-title">
+                Who can apply to the Ministry of Finance for Financial clearance?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-content">
+                <p><em>MDA’s can apply for financial clearance from the Ministry of Finance.</em></p>
+            </div>
+        </div>
+    
+        <div class="faq-item" id="faq-12">
+            <button class="faq-title">
+                What process must MDA’s follow to apply for financial clearance?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-content">
+                <p><em>MDAs must submit application for financial clearance with the following attachments;</em></p>
+                <ul>
+                    <li>Technical Clearance from PSC/OHCS.</li>
+                    <li>Evidence of approved budgetary provision for the recruitment.</li>
+                </ul>
+            </div>
+        </div>
+    
+        <div class="faq-item" id="faq-13">
+            <button class="faq-title">
+                What are the requirements for Biometric Registration of New Entrants/Pensioners in the Public Service?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-content">
+                <p><strong>For New Entrants:</strong></p>
+                <ul>
+                    <li>Financial Clearance</li>
+                    <li>Original copy of appointment letter or Approval letter of replacement</li>
+                    <li>Most recent payslip</li>
+                    <li>SSNIT Records (SSNIT Number)</li>
+                    <li>State Issued ID</li>
+                    <li>Introductory letter (containing staff ID)</li>
+                </ul>
+                <p><strong>For Pensioners:</strong></p>
+                <ul>
+                    <li>Release letter</li>
+                    <li>Valid National ID</li>
+                    <li>Pensioners ID</li>
+                    <li>Initial pension payment letter</li>
+                </ul>
+            </div>
+        </div>
+    
+        <div class="faq-item" id="faq-14">
+            <button class="faq-title">
+                What if my introductory letter does not indicate my staff ID?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-content">
+                <p><em>Kindly attach Staff ID to introductory letter.</em></p>
+            </div>
+        </div>
+    
+        <div class="faq-item" id="faq-15">
+            <button class="faq-title">
+                After registering as a student, do I need to register again after I complete school?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-content">
+                <p><em>No. Individuals can only register once.</em></p>
+            </div>
+        </div>
+    
+        <div class="faq-item" id="faq-16">
+            <button class="faq-title">
+                What if my registration has expired?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-content">
+                <p><em>Kindly come to the office and your ID will be reactivated</em></p>
+            </div>
+        </div>
+    
+        <div class="faq-item" id="faq-17">
+            <button class="faq-title">
+                What if I have mistakenly registered twice?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-content">
+                <p><em>The second account will have to be deactivated.</em></p>
+            </div>
+        </div>
+    
+        <div class="faq-item" id="faq-18">
+            <button class="faq-title">
+                How do I register as a supplier/contractor for Ministry of Finance tenders?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-content">
+                <p><em>Registration is facilitated by the submission of Company’s introductory letter/profile (including Business Registration Certificates and Public Procurement Authority’s (PPA) Registration Certificate) addressed to the Director, Administration of the Ministry of Finance. P.O. Box MB 40, Ministries, Accra. The Supplier/Contractor/Service Provider should also take steps to be on rolled onto the Ghana Electronic Procurement Systems (GHANEPS). Officials of the PPA are available to offer the necessary assistance.</em></p>
+            </div>
+        </div>
+    
+        <div class="faq-item" id="faq-19">
+            <button class="faq-title">
+                What is GHANEPS?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-content">
+                <p><em>GHANEPS (Ghana Electronic Procurement System) is a web-based, collaborative system, developed in accordance with the requirement of public procurement laws, to facilitate public procurement processes in Ghana. It offers a secure, interactive, dynamic environment for carrying out procurement of all categories, complexity or value. GHANEPS supports processes of procuring Goods, Works, Consultancy, Non-Consultancy and Disposal of assets. The system supports various public procurement procedures including user registration, tender notification, tender preparation and submission, online tender evaluation, contract awarding, creation and management of catalogue, creation and management of framework agreements and auctions and payments</em></p>
+            </div>
+        </div>
+    
+        <div class="faq-item" id="faq-20">
+            <button class="faq-title">
+                Are there specific eligibility criteria for tendering?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-content">
+                <p><em>Yes. Criteria vary per tender but typically include: - Valid Business Registration Certificates, PPA Registration Certificate, SSNIT Clearance Certificates, GRA Tax Clearance Certificate - Relevant technical/financial capacity. - Sector-specific certifications (for example, Works & Housing Certificate for works procurement). - No debarment records.</em></p>
+            </div>
+        </div>
+    
+        <div class="faq-item" id="faq-21">
+            <button class="faq-title">
+                Where are tenders advertised?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-content">
+                <p><em>All open tenders are published on the Ghana Electronic Procurement System (GHANEPS) and widely circulated newspapers.</em></p>
+            </div>
+        </div>
+    
+        <div class="faq-item" id="faq-22">
+            <button class="faq-title">
+                Can I submit a tender after the deadline?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-content">
+                <p><em>No. Late tenders are automatically rejected per procurement guidelines.</em></p>
+            </div>
+        </div>
+    
+        <div class="faq-item" id="faq-23">
+            <button class="faq-title">
+                How are tenders evaluated?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-content">
+                <p><em>Based on: - Technical compliance (scope/Terms of Reference, specifications, Bill of Quantities). - Price competitiveness. - Past performance (where applicable).</em></p>
+            </div>
+        </div>
+    
+        <div class="faq-item" id="faq-24">
+            <button class="faq-title">
+                What documents must accompany a tender?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-content">
+                <p><em>Typically: - tender security or tender securing declaration (if required). - Statutory documents - Tender forms & price schedules or Technical & financial proposals (separate sealed envelopes).</em></p>
+            </div>
+        </div>
+    
+        <div class="faq-item" id="faq-25">
+            <button class="faq-title">
+                Is tender security mandatory?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-content">
+                <p><em>Not for consultancy services and Request for Quotations. Check tender documents (specifically, tender data sheet) for details.</em></p>
+            </div>
+        </div>
+    
+        <div class="faq-item" id="faq-26">
+            <button class="faq-title">
+                How long does payment take after delivering goods/services?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-content">
+                <p><em>Payments are usually processed within 28 days after contract signing, but are subject to contract terms.</em></p>
+            </div>
+        </div>
+    
+        <div class="faq-item" id="faq-27">
+            <button class="faq-title">
+                Can contract terms be negotiated after the award is made?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-content">
+                <p><em>No. Contracts are binding as awarded. Minor amendments require written approval from the relevant authorities.</em></p>
+            </div>
+        </div>
+    
+        <div class="faq-item" id="faq-28">
+            <button class="faq-title">
+                How do I challenge a tender award decision?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-content">
+                <p><em>File a formal complaint: : Submit to the Procurement Division within 10 days of award notification.</em></p>
+            </div>
+        </div>
+    
+        <div class="faq-item" id="faq-29">
+            <button class="faq-title">
+                Will my complaint affect future tendering opportunities?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-content">
+                <p><em>No. Complaints are treated confidentially and impartially.</em></p>
+            </div>
+        </div>
+    
+        <div class="faq-item" id="faq-30">
+            <button class="faq-title">
+                How do I qualify for preferential margins (margin of preference)?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-content">
+                <p><em>To qualify under Domestic Goods, the following conditions should be met;</em></p>
+                <ul>
+                    <li>Where local labour, raw materials and components from within Ghana account for 15 percent or more of the Ex-Works (EXW) price of the product offered.</li>
+                    <li>Where imported raw materials or components constitute the bulk of the inputs and local labour and additional components are required for processing into finished products and the proportion of domestic value added is equal to 10 percent or more of the Ex Works (EXW) price of the product offered.</li>
+                </ul>
+                <p><em>NB: Goods satisfying Condition (1) will attract a margin of preference of 20 percent and those meeting Condition (2) will attract 15 percent.</em></p>
+            </div>
+        </div>
+    
+        <div class="faq-item" id="faq-31">
+            <button class="faq-title">
+                What are the penalties for breaching a contract?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-content">
+                <p><em>Penalties may include: - Cancellation of Contract - Liquidated damages for delays. - Suspension from future tenders. - Blacklisting for serious violations.</em></p>
+            </div>
+        </div>
+    
+        <div class="faq-item" id="faq-32">
+            <button class="faq-title">
+                How do I report unethical practices by procurement staff?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-content">
+                <p><em>Contact and lodge complaints with the Ministry’s Compliance Unit</em></p>
+            </div>
+        </div>
+    
+        <div class="faq-item" id="faq-33">
+            <button class="faq-title">
+                What is the mode of payment?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-content">
+                <p><em>Payments are typically made electronically through GIFMIS directly into the supplier’s/contractor’s or consultant’s bank account as registered on the Ghana Integrated Financial Management Information System (GIFMIS). Cheques are increasingly rare but might still be used in some context. In essence, payment relies on verification of delivery/compliance, certification of correctness and funds and authorization of funds.</em></p>
+            </div>
+        </div>
+    
+        <div class="faq-item" id="faq-34">
+            <button class="faq-title">
+                Where can I get real-time support?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-content">
+                <p><em>Contact the Ministry’s Help Desk :0800900104</em></p>
+            </div>
+        </div>
+    
+        <div class="faq-item" id="faq-35">
+            <button class="faq-title">
+                What is Commitment Authorisation
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-content">
+                <p><em>A formal approval issued by the Minister for Finance to Public Institutions prior to initiating procurement activities Section 24 (1) (A)&(B), Public Procurement Amendment Act (Act 1139)</em></p>
+            </div>
+        </div>
+    
+        <div class="faq-item" id="faq-36">
+            <button class="faq-title">
+                When do you need Commitment Authorisation
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-content">
+                <p><em>Prior to initiating procurement activities (Goods, Service and Works)</em></p>
+            </div>
+        </div>
+    
+        <div class="faq-item" id="faq-37">
+            <button class="faq-title">
+                Do you need Commitment Authorisation for both new and ongoing projects
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-content">
+                <p><em>Commitment Authorisation is required for new projects and for ongoing projects that may require additional funding exceeding 15% of the original contract price</em></p>
+            </div>
+        </div>
+    
+        <div class="faq-item" id="faq-38">
+            <button class="faq-title">
+                Is Commitment Authorisation required for all funding sources of Government
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-content">
+                <p><em>Yes, Commitment Authorisation is required for all Government funding sources</em></p>
+            </div>
+        </div>
+    
+        <div class="faq-item" id="faq-39">
+            <button class="faq-title">
+                Who can request for Commitment Authorisation
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-content">
+                <p><em>Procurement Entities that intend to undertake procurement activities which commit Government.</em></p>
+            </div>
+        </div>
+    
+        <div class="faq-item" id="faq-40">
+            <button class="faq-title">
+                How to request for Commitment Authorisation
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-content">
+                <p><em>Procurement Entities write to seek approval from the Minister for Finance detailing the items to be procured and their estimated cost. The letter must state the source of funding for each item and confirm the availability of funds that cover the amount requested. The request must be routed through the mother Ministry of the requesting institution</em></p>
+            </div>
+        </div>
+    
+        <div class="faq-item" id="faq-41">
+            <button class="faq-title">
+                What is Commitment Control Compliance Checklist (CCCC)
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-content">
+                <p><em>List of Budget Commitment Control Measures to be in place before funds are committed. These are authenticated by the Head of Internal Audit of the requesting Institution, who, if satisfied, issues a certificate. This certificate is required prior to signing of a contract. Signing the contract without the certified CCCC is an affront to the PFM Laws and it is a sanctionable offence</em></p>
+            </div>
+        </div>
+    
+        <div class="faq-item" id="faq-42">
+            <button class="faq-title">
+                What is the PFM League Table
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-content">
+                <p><em>Periodic assessment of MDAs based on their compliance with the Public Financial Management Laws of Ghana</em></p>
+            </div>
+        </div>
+    
+        <div class="faq-item" id="faq-43">
+            <button class="faq-title">
+                What are the core functions of the PFM Compliance Division
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-content">
+                <p><em>Enforce compliance and provide support to Government Institutions implementing PFM laws, policies, and guidelines by offering technical guidance, capacity building, and knowledge sharing</em></p>
+            </div>
+        </div>
+    
+        <div class="faq-item" id="faq-44">
+            <button class="faq-title">
+                What is the PFM Compliance and Enforcement Committee
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-content">
+                <p><em>A high-level committee that serves as a body of inquiry on issues relating to commitment control and expenditure measures</em></p>
+            </div>
+        </div>
+    
+        <div class="faq-item" id="faq-45">
+            <button class="faq-title">
+                What are the functions of the PFM Compliance and Enforcement Committee
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-content">
+                <p><em>The committee ensures adherence to the PFM Laws and recommends appropriate sanctions to defaulting individuals and organizations.</em></p>
+            </div>
+        </div>
+    
+        <div class="faq-item" id="faq-46">
+            <button class="faq-title">
+                Do State Owned Enterprises (SOEs) require Commitment Authorisation
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-content">
+                <p><em>Yes, per Section 14 of PPA Act 663, once a procurement activity is financed in whole or in part, Commitment Authorisation is required prior to initiating that procurement activity</em></p>
+            </div>
+        </div>
+    
+        <div class="faq-item" id="faq-47">
+            <button class="faq-title">
+                Is Internally Generated Funds (IGF) Public Funds
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-content">
+                <p><em>Yes, it is public funds. Managers of Institution that generates and manage IGF do so on behalf of Government and must therefore apply for authorization</em></p>
+            </div>
+        </div>
+    
+        <div class="faq-item" id="faq-48">
+            <button class="faq-title">
+                Do Foreign Loans and Grants funded projects require Commitment Authorisation
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-content">
+                <p><em>Yes, they do require Commitment Authorisation.</em></p>
+            </div>
+        </div>
+    
+        <div class="faq-item" id="faq-49">
+            <button class="faq-title">
+                Do Development Partners need Commitment Authorisation prior to the signing of a Loan or Grant agreement
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-content">
+                <p><em>No, they do not require Commitment Authorization.</em></p>
+            </div>
+        </div>
+    </section>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        const faqItems = document.querySelectorAll(".faq-item");
+        const faqSection = document.querySelector(".faq-section");
+
+        // Toggle FAQ items on click
+        faqItems.forEach(item => {
+          const title = item.querySelector(".faq-title");
+          const icon = item.querySelector(".faq-icon");
+
+          title.addEventListener("click", () => {
+            // Close all other items
+            faqItems.forEach(i => {
+              if (i !== item) {
+                i.classList.remove("open");
+                i.classList.remove("selected");
+                i.querySelector(".faq-icon").textContent = "+";
+              }
+            });
+
+            // Toggle current item
+            item.classList.toggle("open");
+            if (item.classList.contains("open")) {
+              item.classList.add("selected");
+            } else {
+              item.classList.remove("selected");
+            }
+            icon.textContent = item.classList.contains("open") ? "−" : "+";
+          });
+        });
+
+        // Handle URL parameter for scrolling and opening
+        const params = new URLSearchParams(window.location.search);
+        let id = params.get("id");
+
+        // Normalize ID to match faq-<number> format
+        if (id) {
+          // Remove 'faq-' prefix if present, keep only the number
+          id = id.replace(/^faq-/, "");
+          const targetFaq = document.getElementById(`faq-${id}`);
+
+          if (targetFaq) {
+            // Reset scroll position of the faq-section
+            faqSection.scrollTop = 0;
+
+            // Scroll to the target FAQ with offset for scroll-margin-top
+            setTimeout(() => {
+              const rect = targetFaq.getBoundingClientRect();
+              const sectionRect = faqSection.getBoundingClientRect();
+              const offsetTop = rect.top - sectionRect.top + faqSection.scrollTop - 30; // Account for scroll-margin-top
+              faqSection.scrollTo({
+                top: offsetTop,
+                behavior: "smooth"
+              });
+            }, 500); // Increased delay to ensure DOM rendering
+
+            // Open and highlight the target FAQ
+            setTimeout(() => {
+              faqItems.forEach(i => {
+                i.classList.remove("open");
+                i.classList.remove("selected");
+                i.querySelector(".faq-icon").textContent = "+";
+              });
+              targetFaq.classList.add("open");
+              targetFaq.classList.add("selected");
+              targetFaq.querySelector(".faq-icon").textContent = "−";
+            }, 700); // Slightly longer delay for opening
+          } else {
+            console.warn(`FAQ with ID faq-${id} not found.`);
+          }
+        }
+      });
+    </script>
+</body>
+</html>
