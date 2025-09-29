@@ -266,6 +266,24 @@
       padding: 0 20px 20px;
     }
 
+    .faq-category {
+      margin: 18px 0 8px;
+    }
+
+    .faq-category-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      color: #4a4a4a;
+      text-transform: uppercase;
+      padding: 8px 6px;
+      border-left: 4px solid #4285f4;
+      background: #f7f9ff;
+      border-radius: 8px;
+      margin: 14px 0 6px;
+      margin-top: 5rem;
+    }
+
     .faq-item {
       background: #fff;
       border-radius: 12px;
@@ -287,10 +305,7 @@
       z-index: 1;
     }
 
-    .faq-list:has(.faq-item.focused) .faq-item:not(.focused) {
-        /* background: rgba(225, 225, 225, 0.814); */
-      /* filter: blur(.5px); */
-    }
+    /* Intentionally left out dimming non-focused items for clarity */
 
     .faq-question {
       font-weight: 600;
@@ -825,32 +840,96 @@
         expandBtn.textContent = suggestionsContainer.classList.contains('expanded') ? 'Show less' : 'Show all';
       });
 
+      // Category helpers
+      const CATEGORY_ORDER = [
+        'PROPOSALS AND PRIORITY PROJECTS',
+        'GOVERNMENT AUTHORITY LETTERS',
+        'RECRUITMENT',
+        'TAX EXEMPTION',
+        'PROCUREMENT',
+        'FINANCIAL CLEARANCE',
+        'BIOMETRIC REGISTRATION',
+        'PAYMENTS',
+        'COMMITMENT AUTHORISATION',
+        'PFM COMPLIANCE',
+        'OTHER'
+      ];
+
+      function getCategory(faq) {
+        const q = (faq.question + ' ' + faq.answer).toLowerCase();
+        if (q.includes('proposal') || q.includes('priority project')) return 'PROPOSALS AND PRIORITY PROJECTS';
+        if (q.includes('authority letter')) return 'GOVERNMENT AUTHORITY LETTERS';
+        if (q.includes('recruitment') || q.includes('consultant')) return 'RECRUITMENT';
+        if (q.includes('tax exemption') || q.includes('exemption')) return 'TAX EXEMPTION';
+        if (
+          q.includes('tender') || q.includes('ghaneps') || q.includes('procurement') ||
+          q.includes('contract') || q.includes('bid')
+        ) return 'PROCUREMENT';
+        if (q.includes('financial clearance') || q.includes('clearance')) return 'FINANCIAL CLEARANCE';
+        if (q.includes('biometric') || q.includes('registration') || q.includes('pensioner') || q.includes('staff id')) return 'BIOMETRIC REGISTRATION';
+        if (q.includes('payment') || q.includes('paid') || q.includes('gifmis')) return 'PAYMENTS';
+        if (q.includes('commitment authorisation') || q.includes('commitment authorization')) return 'COMMITMENT AUTHORISATION';
+        if (q.includes('pfm') || q.includes('compliance') || q.includes('league table') || q.includes('cccc')) return 'PFM COMPLIANCE';
+        return 'OTHER';
+      }
+
+      function groupByCategory(faqsToDisplay) {
+        const groups = {};
+        faqsToDisplay.forEach(f => {
+          const cat = getCategory(f);
+          if (!groups[cat]) groups[cat] = [];
+          groups[cat].push(f);
+        });
+        return groups;
+      }
+
       function renderFAQs(faqsToDisplay) {
         faqList.innerHTML = '';
-        faqsToDisplay.forEach((faq) => {
-          // Use the actual FAQ ID from the faq object, not the array index
-          const faqId = `faq-${faq.id}`;
-          const faqElement = document.createElement('div');
-          faqElement.className = 'faq-item';
-          faqElement.innerHTML = `
-            <div class="faq-question">${faq.question}</div>
-            <div class="faq-answer">${faq.answer}</div>
-            <a href="./faqs.html?id=${faqId}" class="read-more-btn" >Read More</a>
-          `;
-          faqElement.addEventListener('click', (e) => {
-            e.stopPropagation();
-            const isFocused = faqElement.classList.contains('focused');
-            // Remove focus from all items
-            document.querySelectorAll('.faq-item').forEach(item => {
-              item.classList.remove('focused');
+        if (!faqsToDisplay || faqsToDisplay.length === 0) {
+          const empty = document.createElement('div');
+          empty.className = 'faq-category';
+          empty.innerHTML = '<div class="faq-category-title">No results</div>';
+          faqList.appendChild(empty);
+          return;
+        }
+
+        const groups = groupByCategory(faqsToDisplay);
+        CATEGORY_ORDER.forEach(categoryName => {
+          const items = groups[categoryName];
+          if (!items || items.length === 0) return;
+
+          const section = document.createElement('div');
+          section.className = 'faq-category';
+
+          const header = document.createElement('div');
+          header.className = 'faq-category-title';
+          header.textContent = categoryName;
+          section.appendChild(header);
+
+          items.forEach(faq => {
+            const faqId = `faq-${faq.id}`;
+            const faqElement = document.createElement('div');
+            faqElement.className = 'faq-item';
+            faqElement.innerHTML = `
+              <div class="faq-question">${faq.question}</div>
+              <div class="faq-answer">${faq.answer}</div>
+              <a href="./faqs.html?id=${faqId}" class="read-more-btn" >Read More</a>
+            `;
+            faqElement.addEventListener('click', (e) => {
+              e.stopPropagation();
+              const isFocused = faqElement.classList.contains('focused');
+              document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('focused');
+              });
+              faqElement.classList.toggle('expanded');
+              if (!isFocused) {
+                faqElement.classList.add('focused');
+              }
             });
-            // Toggle expanded and focus
-            faqElement.classList.toggle('expanded');
-            if (!isFocused) {
-              faqElement.classList.add('focused');
-            }
+            section.appendChild(faqElement);
           });
-          faqList.appendChild(faqElement);
+
+          faqList.appendChild(section);
         });
       }
 
