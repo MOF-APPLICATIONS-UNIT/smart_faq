@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categorized FAQ System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .faq-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .categories-sidebar {
+            flex: 1;
+            min-width: 250px;
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            height: fit-content;
+        }
+
+        .categories-sidebar h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #3498db;
+        }
+
+        .category-list {
+            list-style: none;
+        }
+
+        .category-item {
+            margin-bottom: 12px;
+        }
+
+        .category-btn {
+            width: 100%;
+            padding: 12px 15px;
+            background: #f8f9fa;
+            border: none;
+            border-radius: 8px;
+            text-align: left;
+            font-size: 1rem;
+            color: #2c3e50;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .category-btn:hover {
+            background: #e9ecef;
+            transform: translateX(5px);
+        }
+
+        .category-btn.active {
+            background: #3498db;
+            color: white;
+        }
+
+        .category-count {
+            background: #e74c3c;
+            color: white;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+        }
+
+        .category-btn.active .category-count {
+            background: white;
+            color: #3498db;
+        }
+
+        .faq-content {
+            flex: 3;
+            min-width: 300px;
+        }
+
+        .category-section {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+
+        .category-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .category-title {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #3498db;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #ecf0f1;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #2c3e50;
+        }
+
+        .faq-question:hover {
+            color: #3498db;
+        }
+
+        .faq-icon {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.open .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, padding 0.3s ease;
+            color: #7f8c8d;
+            line-height: 1.7;
+        }
+
+        .faq-item.open .faq-answer {
+            max-height: 1000px;
+            padding-top: 15px;
+        }
+
+        .search-container {
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 15px 20px 15px 50px;
+            border: 2px solid #e0e0e0;
+            border-radius: 50px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .search-box:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 2px 15px rgba(52, 152, 219, 0.2);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #7f8c8d;
+            font-size: 1.2rem;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 40px;
+            color: #7f8c8d;
+            font-size: 1.1rem;
+        }
+
+        .highlight {
+            background-color: #fff9c4;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+
+        @media (max-width: 768px) {
+            .faq-container {
+                flex-direction: column;
+            }
+            
+            .categories-sidebar {
+                width: 100%;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+     
+        <div class="search-container">
+            <i class="search-icon">🔍</i>
+            <input type="text" class="search-box" placeholder="Search for questions or answers...">
+        </div>
+
+        <div class="faq-container">
+            <div class="categories-sidebar">
+                <h2>Categories</h2>
+                <ul class="category-list" id="categoryList">
+                    <!-- Categories will be populated by JavaScript -->
+                </ul>
+            </div>
+
+            <div class="faq-content" id="faqContent">
+                <!-- FAQ content will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JSON data for FAQs
+        const faqData = {
+            "categories": [
+                {
+                    "id": "proposals",
+                    "name": "PROPOSALS AND PRIORITY PROJECTS",
+                    "faqs": [
+                        {
+                            "id": 1,
+                            "question": "I have a financial proposal to submit to the government. Do I submit it to the Ministry of Finance?",
+                            "answer": "No. All proposals are to be submitted to the sector Ministries. These sector ministries will then follow due process and forward them to the Ministry of Finance."
+                        },
+                        {
+                            "id": 2,
+                            "question": "What is the priority list of projects for any particular year?",
+                            "answer": "Every year the list of priority projects is published in the budget at appendix 10c."
+                        },
+                        {
+                            "id": 10,
+                            "question": "I am a consultant with a proposal for the Ministry of Finance. What do I do?",
+                            "answer": "Kindly drop your proposal at the registry of the Ministry of Finance."
+                        }
+                    ]
+                },
+                {
+                    "id": "authority-letters",
+                    "name": "GOVERNMENT AUTHORITY LETTERS",
+                    "faqs": [
+                        {
+                            "id": 3,
+                            "question": "What are the requirements for a Government Authority Letter?",
+                            "answer": "Requirements include:<ul><li>CV</li><li>Employer's statement</li><li>Admission letter</li><li>Should have worked for at least 2 years</li><li>Should have completed national service</li></ul>"
+                        },
+                        {
+                            "id": 4,
+                            "question": "How long does it take to receive the government statement after application?",
+                            "answer": "Usually, less than 48 hours."
+                        }
+                    ]
+                },
+                {
+                    "id": "recruitment",
+                    "name": "RECRUITMENT",
+                    "faqs": [
+                        {
+                            "id": 5,
+                            "question": "How does the Ministry of Finance do recruitment?",
+                            "answer": "The Ministry of Finance does not undertake recruitment. All Civil Service recruitments are done by the Office of the Head of Civil Service."
+                        }
+                    ]
+                },
+                {
+                    "id": "tax-exemption",
+                    "name": "TAX EXEMPTION",
+                    "faqs": [
+                        {
+                            "id": 6,
+                            "question": "How do I get a tax exemption on a Government Contract?",
+                            "answer": "The MDA must submit an application for tax exemption to MoF, with the following attached documents:<ul><li>A copy of the loan agreement</li><li>Customs validation and valuation reports</li><li>Packing list</li><li>Bill of lading</li></ul>"
+                        },
+                        {
+                            "id": 7,
+                            "question": "How do I get a tax exemption as an NGO?",
+                            "answer": "NGOs must submit an application letter to the relevant Ministry with the following attachments:<ul><li>Registration documents of the NGO</li><li>Letter from donor (If consignment was donated to the applicant)</li><li>Bills of lading of the consignment</li><li>Packing list</li><li>The relevant Ministry recommends the application to MoF</li></ul>"
+                        },
+                        {
+                            "id": 8,
+                            "question": "How do I get data on tax collections?",
+                            "answer": "By applying to Ministry of Finance or GRA."
+                        }
+                    ]
+                },
+                {
+                    "id": "procurement",
+                    "name": "PROCUREMENT",
+                    "faqs": [
+                        {
+                            "id": 9,
+                            "question": "What documents are needed in addition to quotations?",
+                            "answer": "<ul><li>Valid Business Certificate</li><li>Valid VAT certificate</li><li>Valid GRA certificate</li><li>SSNIT certificate</li><li>Public Procurement Authority</li></ul>"
+                        },
+                        {
+                            "id": 18,
+                            "question": "How do I register as a supplier/contractor for Ministry of Finance tenders?",
+                            "answer": "Registration is facilitated by the submission of Company's introductory letter/profile (including Business Registration Certificates and Public Procurement Authority's (PPA) Registration Certificate) addressed to the Director, Administration of the Ministry of Finance. P.O. Box MB 40, Ministries, Accra. The Supplier/Contractor/Service Provider should also take steps to be on rolled onto the Ghana Electronic Procurement Systems (GHANEPS). Officials of the PPA are available to offer the necessary assistance."
+                        },
+                        {
+                            "id": 19,
+                            "question": "What is GHANEPS?",
+                            "answer": "GHANEPS (Ghana Electronic Procurement System) is a web-based, collaborative system, developed in accordance with the requirement of public procurement laws, to facilitate public procurement processes in Ghana. It offers a secure, interactive, dynamic environment for carrying out procurement of all categories, complexity or value. GHANEPS supports processes of procuring Goods, Works, Consultancy, Non-Consultancy and Disposal of assets. The system supports various public procurement procedures including user registration, tender notification, tender preparation and submission, online tender evaluation, contract awarding, creation and management of catalogue, creation and management of framework agreements and auctions and payments."
+                        }
+                    ]
+                },
+                {
+                    "id": "financial-clearance",
+                    "name": "FINANCIAL CLEARANCE",
+                    "faqs": [
+                        {
+                            "id": 11,
+                            "question": "Who can apply to the Ministry of Finance for Financial clearance?",
+                            "answer": "MDA's can apply for financial clearance from the Ministry of Finance."
+                        },
+                        {
+                            "id": 12,
+                            "question": "What process must MDA's follow to apply for financial clearance?",
+                            "answer": "MDAs must submit application for financial clearance with the following attachments:<ul><li>Technical Clearance from PSC/OHCS</li><li>Evidence of approved budgetary provision for the recruitment</li></ul>"
+                        }
+                    ]
+                },
+                {
+                    "id": "biometric-registration",
+                    "name": "BIOMETRIC REGISTRATION",
+                    "faqs": [
+                        {
+                            "id": 13,
+                            "question": "What are the requirements for Biometric Registration of New Entrants/Pensioners in the Public Service?",
+                            "answer": "<p><strong>For New Entrants:</strong></p><ul><li>Financial Clearance</li><li>Original copy of appointment letter or Approval letter of replacement</li><li>Most recent payslip</li><li>SSNIT Records (SSNIT Number)</li><li>State Issued ID</li><li>Introductory letter (containing staff ID)</li></ul><p><strong>For Pensioners:</strong></p><ul><li>Release letter</li><li>Valid National ID</li><li>Pensioners ID</li><li>Initial pension payment letter</li></ul>"
+                        },
+                        {
+                            "id": 14,
+                            "question": "What if my introductory letter does not indicate my staff ID?",
+                            "answer": "Kindly attach Staff ID to introductory letter."
+                        },
+                        {
+                            "id": 15,
+                            "question": "After registering as a student, do I need to register again after I complete school?",
+                            "answer": "No. Individuals can only register once."
+                        }
+                    ]
+                },
+                {
+                    "id": "commitment-authorization",
+                    "name": "COMMITMENT AUTHORIZATION",
+                    "faqs": [
+                        {
+                            "id": 35,
+                            "question": "What is Commitment Authorisation?",
+                            "answer": "A formal approval issued by the Minister for Finance to Public Institutions prior to initiating procurement activities Section 24 (1) (A)&(B), Public Procurement Amendment Act (Act 1139)."
+                        },
+                        {
+                            "id": 36,
+                            "question": "When do you need Commitment Authorisation?",
+                            "answer": "Prior to initiating procurement activities (Goods, Service and Works)."
+                        },
+                        {
+                            "id": 37,
+                            "question": "Do you need Commitment Authorisation for both new and ongoing projects?",
+                            "answer": "Commitment Authorisation is required for new projects and for ongoing projects that may require additional funding exceeding 15% of the original contract price."
+                        }
+                    ]
+                }
+            ]
+        };
+
+        // Initialize the FAQ system
+        document.addEventListener('DOMContentLoaded', function() {
+            const categoryList = document.getElementById('categoryList');
+            const faqContent = document.getElementById('faqContent');
+            const searchBox = document.querySelector('.search-box');
+            
+            // Populate categories sidebar
+            faqData.categories.forEach(category => {
+                const listItem = document.createElement('li');
+                listItem.className = 'category-item';
+                
+                const button = document.createElement('button');
+                button.className = 'category-btn';
+                button.setAttribute('data-category', category.id);
+                button.innerHTML = `
+                    ${category.name}
+                    <span class="category-count">${category.faqs.length}</span>
+                `;
+                
+                listItem.appendChild(button);
+                categoryList.appendChild(listItem);
+            });
+            
+            // Populate FAQ content
+            faqData.categories.forEach(category => {
+                const section = document.createElement('div');
+                section.className = 'category-section';
+                section.id = `category-${category.id}`;
+                
+                const title = document.createElement('h2');
+                title.className = 'category-title';
+                title.textContent = category.name;
+                section.appendChild(title);
+                
+                category.faqs.forEach(faq => {
+                    const faqItem = document.createElement('div');
+                    faqItem.className = 'faq-item';
+                    faqItem.setAttribute('data-id', faq.id);
+                    
+                    const question = document.createElement('div');
+                    question.className = 'faq-question';
+                    question.innerHTML = `
+                        ${faq.question}
+                        <span class="faq-icon">+</span>
+                    `;
+                    
+                    const answer = document.createElement('div');
+                    answer.className = 'faq-answer';
+                    answer.innerHTML = faq.answer;
+                    
+                    faqItem.appendChild(question);
+                    faqItem.appendChild(answer);
+                    section.appendChild(faqItem);
+                });
+                
+                faqContent.appendChild(section);
+            });
+            
+            // Set first category as active
+            const firstCategoryBtn = document.querySelector('.category-btn');
+            const firstCategorySection = document.querySelector('.category-section');
+            if (firstCategoryBtn && firstCategorySection) {
+                firstCategoryBtn.classList.add('active');
+                firstCategorySection.classList.add('active');
+            }
+            
+            // Category switching functionality
+            document.querySelectorAll('.category-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons and sections
+                    document.querySelectorAll('.category-btn').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    document.querySelectorAll('.category-section').forEach(section => {
+                        section.classList.remove('active');
+                    });
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Show corresponding section
+                    const categoryId = this.getAttribute('data-category');
+                    const targetSection = document.getElementById(`category-${categoryId}`);
+                    if (targetSection) {
+                        targetSection.classList.add('active');
+                    }
+                });
+            });
+            
+            // FAQ item toggle functionality
+            document.querySelectorAll('.faq-question').forEach(question => {
+                question.addEventListener('click', function() {
+                    const faqItem = this.parentElement;
+                    const isOpen = faqItem.classList.contains('open');
+                    
+                    // Close all FAQ items
+                    document.querySelectorAll('.faq-item').forEach(item => {
+                        item.classList.remove('open');
+                    });
+                    
+                    // Open clicked item if it wasn't already open
+                    if (!isOpen) {
+                        faqItem.classList.add('open');
+                    }
+                });
+            });
+            
+            // Search functionality
+            searchBox.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase().trim();
+                
+                if (searchTerm === '') {
+                    // Reset to normal view if search is empty
+                    document.querySelectorAll('.category-section').forEach(section => {
+                        section.classList.remove('active');
+                    });
+                    
+                    const activeCategoryBtn = document.querySelector('.category-btn.active');
+                    if (activeCategoryBtn) {
+                        const categoryId = activeCategoryBtn.getAttribute('data-category');
+                        const targetSection = document.getElementById(`category-${categoryId}`);
+                        if (targetSection) {
+                            targetSection.classList.add('active');
+                        }
+                    }
+                    
+                    // Remove highlights
+                    document.querySelectorAll('.highlight').forEach(el => {
+                        const parent = el.parentNode;
+                        parent.replaceChild(document.createTextNode(el.textContent), el);
+                        parent.normalize();
+                    });
+                    
+                    return;
+                }
+                
+                // Hide all sections initially
+                document.querySelectorAll('.category-section').forEach(section => {
+                    section.classList.remove('active');
+                });
+                
+                // Remove highlights from previous search
+                document.querySelectorAll('.highlight').forEach(el => {
+                    const parent = el.parentNode;
+                    parent.replaceChild(document.createTextNode(el.textContent), el);
+                    parent.normalize();
+                });
+                
+                let hasResults = false;
+                
+                // Search through all FAQs
+                faqData.categories.forEach(category => {
+                    const section = document.getElementById(`category-${category.id}`);
+                    const faqItems = section.querySelectorAll('.faq-item');
+                    let categoryHasResults = false;
+                    
+                    faqItems.forEach(item => {
+                        const question = item.querySelector('.faq-question');
+                        const answer = item.querySelector('.faq-answer');
+                        const questionText = question.textContent.toLowerCase();
+                        const answerText = answer.textContent.toLowerCase();
+                        
+                        if (questionText.includes(searchTerm) || answerText.includes(searchTerm)) {
+                            item.style.display = 'block';
+                            categoryHasResults = true;
+                            hasResults = true;
+                            
+                            // Highlight matching text
+                            highlightText(question, searchTerm);
+                            highlightText(answer, searchTerm);
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                    
+                    // Show category if it has results
+                    if (categoryHasResults) {
+                        section.classList.add('active');
+                    }
+                });
+                
+                // Show message if no results found
+                if (!hasResults) {
+                    faqContent.innerHTML = `
+                        <div class="no-results">
+                            <p>No results found for "${searchTerm}". Try different keywords or browse the categories.</p>
+                        </div>
+                    `;
+                }
+            });
+            
+            // Function to highlight search terms
+            function highlightText(element, searchTerm) {
+                const text = element.textContent;
+                const regex = new RegExp(`(${searchTerm})`, 'gi');
+                const newText = text.replace(regex, '<span class="highlight">$1</span>');
+                element.innerHTML = newText;
+            }
+            
+            // Handle URL parameters for direct linking to FAQs
+            const urlParams = new URLSearchParams(window.location.search);
+            const faqId = urlParams.get('id');
+            
+            if (faqId) {
+                // Find the FAQ with the matching ID
+                let targetFaq = null;
+                let targetCategory = null;
+                
+                for (const category of faqData.categories) {
+                    for (const faq of category.faqs) {
+                        if (faq.id == faqId) {
+                            targetFaq = faq;
+                            targetCategory = category;
+                            break;
+                        }
+                    }
+                    if (targetFaq) break;
+                }
+                
+                if (targetFaq && targetCategory) {
+                    // Activate the category
+                    const categoryBtn = document.querySelector(`.category-btn[data-category="${targetCategory.id}"]`);
+                    if (categoryBtn) {
+                        categoryBtn.click();
+                    }
+                    
+                    // Open the FAQ after a short delay to allow for rendering
+                    setTimeout(() => {
+                        const faqElement = document.querySelector(`.faq-item[data-id="${targetFaq.id}"]`);
+                        if (faqElement) {
+                            faqElement.classList.add('open');
+                            
+                            // Scroll to the FAQ
+                            faqElement.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'center'
+                            });
+                        }
+                    }, 300);
+                }
+            }
+        });
+    </script>
+</body>
+</html>

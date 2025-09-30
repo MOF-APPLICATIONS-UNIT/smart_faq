@@ -3,751 +3,3036 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Frequently asked questions</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-<style>
-    body {
-        margin: 0;
-        padding: 0;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: #f0f2f5;
-    }
+    <!-- ===========================================
+         CSS STYLES
+         =========================================== -->
+    <style>
+        /* ===========================================
+           FONT IMPORTS
+           =========================================== */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
-    /* FAQ Container */
-    .faq-section {
-        font-family: Arial, sans-serif;
-        max-width: 900px;
-        height: 80vh;
-        overflow-y: auto;
-        margin: 30px auto;
-        border: 1px solid #ddd;
-        border-radius: 12px;
-        background-color: #fff;
-        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
-    }
+        /* ===========================================
+           GLOBAL RESET & BASE STYLES
+           =========================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Roboto", sans-serif;
+            font-optical-sizing: auto;    
+        }
 
-    /* FAQ Item */
-    .faq-item {
-        border-top: 1px solid #e5e7eb;
-        margin: 15px 0;
-        padding: 0 20px;
-        scroll-margin-top: 30px;
-        transition: background-color 0.4s ease, box-shadow 0.3s ease;
-    }
+        /* ===========================================
+           BODY LAYOUT
+           =========================================== */
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f2f5;
+            background: #c5deff;
+        }
 
-    .faq-item:first-child {
-        border-top: none;
-        margin-top: 10px;
-    }
+        /* ===========================================
+           MAIN FAQ CONTAINER
+           =========================================== */
+        .faq-section {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            height: 80vh;
+            overflow-y: auto;
+            margin: 30px auto;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            background-color: #fff;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+        }
 
-    .faq-item:hover {
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    }
+        /* ===========================================
+           FAQ ITEM STYLES
+           =========================================== */
+        .faq-item {
+            border-top: 1px solid #e5e7eb;
+            margin: 15px 0;
+            padding: 0 20px;
+            scroll-margin-top: 30px;
+            transition: background-color 0.4s ease, box-shadow 0.3s ease;
+        }
 
-    .faq-item.selected {
-        background-color: #e6f0fa;
-        border-left: 4px solid #007bff;
-        animation: highlightFade 1.2s ease-in-out;
-    }
+        /* Remove top border from first FAQ item */
+        .faq-item:first-child {
+            border-top: none;
+            margin-top: 10px;
+        }
 
-    @keyframes highlightFade {
-        0% { background-color: #d1e7ff; }
-        100% { background-color: #e6f0fa; }
-    }
+        /* Hover effect for FAQ items */
+        .faq-item:hover {
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
 
-    /* FAQ Title Button */
-    .faq-title {
-        width: 100%;
-        text-align: left;
-        padding: 20px 30px;
-        font-weight: bold;
-        font-size: 17px;
-        background: #ffffff;
-        border: none;
-        border-radius: 8px;
-        outline: none;
-        cursor: pointer;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        transition: background 0.3s ease, transform 0.3s ease;
-    }
+        /* Selected/highlighted FAQ item */
+        .faq-item.selected {
+            background-color: #e6f0fa;
+            border-left: 4px solid #007bff;
+            animation: highlightFade 1.2s ease-in-out;
+        }
 
-    .faq-title:hover {
-        background: #e8ecef;
-        transform: scale(1.01);
-    }
+        /* Animation for highlighting selected FAQ */
+        @keyframes highlightFade {
+            0% { background-color: #d1e7ff; }
+            100% { background-color: #e6f0fa; }
+        }
 
-    /* FAQ Content */
-    .faq-content {
-        padding: 0 30px;
-        background: #fff;
-        font-size: 15px;
-        line-height: 1.8;
-        max-height: 0;
-        overflow: hidden;
-        opacity: 0;
-        transition: max-height 0.8s ease-in-out, padding 0.8s ease-in-out, opacity 0.8s ease-in-out;
-    }
+        /* ===========================================
+           FAQ TITLE BUTTON
+           =========================================== */
+        .faq-title {
+            width: 100%;
+            text-align: left;
+            padding: 20px 30px;
+            font-weight: bold;
+            font-size: 17px;
+            background: #ffffff;
+            border: none;
+            border-radius: 8px;
+            outline: none;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
 
-    .faq-content p {
-        margin: 25px 0;
-    }
+        /* Hover effect for FAQ title */
+        .faq-title:hover {
+            background: #e8ecef;
+            transform: scale(1.01);
+        }
 
-    .faq-content p:first-child {
-        margin-top: 0;
-    }
+        /* ===========================================
+           FAQ CONTENT AREA
+           =========================================== */
+        .faq-content {
+            padding: 0 30px;
+            background: #fff;
+            font-size: 15px;
+            line-height: 1.8;
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: max-height 0.8s ease-in-out, padding 0.8s ease-in-out, opacity 0.8s ease-in-out;
+        }
 
-    .faq-content p:last-child {
-        margin-bottom: 0;
-    }
+        /* Paragraph spacing in FAQ content */
+        .faq-content p {
+            margin: 25px 0;
+        }
 
-    .faq-content ul {
-        padding-left: 25px;
-        margin: 20px 0;
-    }
+        .faq-content p:first-child {
+            margin-top: 0;
+        }
 
-    .faq-content li {
-        font-style: italic;
-        margin-bottom: 10px;
-    }
+        .faq-content p:last-child {
+            margin-bottom: 0;
+        }
 
-    /* Open Item */
-    .faq-item.open .faq-content {
-        max-height: 1000px;
-        padding: 30px;
-        opacity: 1;
-    }
+        /* List styling in FAQ content */
+        .faq-content ul {
+            padding-left: 25px;
+            margin: 20px 0;
+        }
 
-    /* FAQ Icon */
-    .faq-icon {
-        font-weight: bold;
-        font-size: 22px;
-        transition: transform 0.6s ease-in-out;
-    }
+        .faq-content li {
+            font-style: italic;
+            margin-bottom: 10px;
+        }
 
-    .faq-item.open .faq-icon {
-        transform: rotate(180deg);
-    }
-</style>
+        /* Expanded FAQ content state */
+        .faq-item.open .faq-content {
+            max-height: 1000px;
+            padding: 30px;
+            opacity: 1;
+        }
+
+        /* ===========================================
+           FAQ ICON (PLUS/MINUS)
+           =========================================== */
+        .faq-icon {
+            font-weight: bold;
+            font-size: 22px;
+            transition: transform 0.6s ease-in-out;
+        }
+
+        /* Rotate icon when FAQ is open */
+        .faq-item.open .faq-icon {
+            transform: rotate(180deg);
+        }
+
+
+        /* ===========================================
+           FLOATING ACTION BUTTON (FAB)
+           =========================================== */
+        .fab {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: linear-gradient(145deg, #2c62a9, #3b79c9);
+            border: none;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        /* Hover effect for floating action button */
+        .fab:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2), 0 0 15px rgba(0, 140, 255, 0.3);
+        }
+
+        /* Icon inside the floating action button */
+        .fab i {
+            font-size: 26px;
+            color: #ffffff;
+        }
+
+        /* ===========================================
+           FAQ PANEL (SLIDING PANEL)
+           =========================================== */
+        .faq-panel {
+            position: fixed;
+            bottom: 100px;
+            right: 32px;
+            width: 360px;
+            height: 70vh;
+            max-height: 600px;
+            background: linear-gradient(20deg, white, rgba(203, 203, 203, 0.861), white);
+            /* Alternative blue gradient: background: linear-gradient(20deg, #2c62a9, #3b79c9); */
+            border-radius: 20px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(20px) scale(0.95);
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+
+        /* Active state for FAQ panel */
+        .faq-panel.active {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            pointer-events: all;
+        }
+
+        /* ===========================================
+           PANEL HEADER
+           =========================================== */
+        .panel-header {
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #f0f0f0;
+            background: linear-gradient(20deg, white, rgba(203, 203, 203, 0.861), white);
+            /* Alternative blue gradient: background: linear-gradient(20deg, #2c62a9, #3b79c9); */
+            flex-shrink: 0;
+        }
+
+        /* Panel title styling */
+        .panel-title {
+            font-weight: 600;
+            font-size: 1.3rem;
+            color: #1a1a1a;
+        }
+
+        /* ===========================================
+           PANEL BUTTONS
+           =========================================== */
+        .toggle-suggestions-btn {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: #888;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .toggle-suggestions-btn:hover {
+            background: #f7f7f7;
+            color: #333;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 1.6rem;
+            cursor: pointer;
+            color: #888;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .close-btn:hover {
+            background: #f7f7f7;
+            color: #333;
+        }
+
+        /* ===========================================
+           SUGGESTIONS PANEL
+           =========================================== */
+        .suggestions {
+            position: fixed;
+            bottom: 100px;
+            right: 392px; /* Positioned to the left of faq-panel (360px width + 32px gap) */
+            width: 300px;
+            max-height: 600px;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            z-index: 1000;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateX(100%);
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+
+        /* Active state for suggestions panel */
+        .suggestions.active {
+            opacity: 1;
+            transform: translateX(0);
+            pointer-events: all;
+        }
+
+        /* ===========================================
+           SUGGESTIONS CONTENT
+           =========================================== */
+        .suggestions-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            max-height: 72px;
+            overflow: hidden;
+            position: relative;
+            transition: max-height 0.3s ease;
+        }
+
+        /* Expanded suggestions content */
+        .suggestions.expanded .suggestions-content {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        /* Fade gradient overlay for collapsed suggestions */
+        .suggestions-content::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 30px;
+            background: linear-gradient(to bottom, transparent, white);
+            pointer-events: none;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Hide gradient when expanded */
+        .suggestions.expanded .suggestions-content::after {
+            opacity: 0;
+        }
+
+        /* Expand/collapse button */
+        .expand-btn {
+            position: absolute;
+            bottom: 5px;
+            right: 25px;
+            z-index: 2;
+            background: white;
+            border: none;
+            color: #4285f4;
+            font-size: 0.8rem;
+            cursor: pointer;
+            padding: 2px 8px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* ===========================================
+           SUGGESTION CHIPS
+           =========================================== */
+        .suggestion-chip {
+            background: #f4f4f4;
+            color: #333;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            animation: fadeIn 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .suggestion-chip:hover {
+            background: #e8e8e8;
+            transform: translateY(-1px);
+        }
+
+        /* ===========================================
+           FAQ LIST CONTAINER
+           =========================================== */
+        .faq-list {
+            flex: 1;
+            overflow-y: auto;
+            padding: 0 20px 20px;
+        }
+
+        /* ===========================================
+           FAQ CATEGORY STYLES
+           =========================================== */
+        .faq-category {
+            margin: 18px 0 8px;
+        }
+
+        .faq-category-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.03em;
+            color: #4a4a4a;
+            text-transform: uppercase;
+            padding: 8px 6px;
+            border-left: 4px solid #4285f4;
+            background: #f7f9ff;
+            border-radius: 8px;
+            margin: 14px 0 6px;
+            margin-top: 5rem;
+        }
+
+        /* ===========================================
+           PANEL FAQ ITEM STYLES (Different from main FAQ)
+           =========================================== */
+        .faq-item {
+            background: #fff;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 12px 0;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            animation: fadeIn 0.4s ease;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        /* Special styling for FAQ items within categories */
+        .faq-category .faq-item {
+            background: linear-gradient(20deg, #fbfdff, #f8fbffac);
+            /* Alternative white text: color: white; */
+        }
+
+        /* Hover effect for panel FAQ items */
+        .faq-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 14px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Focused state for panel FAQ items */
+        .faq-item.focused {
+            z-index: 1;
+        }
+
+        /* Note: Intentionally left out dimming non-focused items for clarity */
+
+        /* ===========================================
+           PANEL FAQ CONTENT
+           =========================================== */
+        .faq-question {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            /* Alternative white text: color: #ffffff; */
+        }
+
+        .faq-answer {
+            color: #1f1f1f;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            max-height: 80px;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            position: relative;
+        }
+
+        /* Expanded answer state */
+        .faq-item.expanded .faq-answer {
+            max-height: 500px;
+        }
+
+        /* Fade gradient for collapsed answers */
+        .faq-answer::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 30px;
+            background: linear-gradient(to bottom, transparent, white);
+            pointer-events: none;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Hide gradient when expanded */
+        .faq-item.expanded .faq-answer::after {
+            opacity: 0;
+        }
+
+        /* ===========================================
+           READ MORE BUTTON
+           =========================================== */
+        .read-more-btn {
+            background: linear-gradient(145deg, #4285f4, #3367d6);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            margin-top: 12px;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(10px);
+            display: block;
+            text-decoration: none;
+            text-align: center;
+            width: fit-content;
+        }
+
+        /* Show read more button when FAQ is expanded */
+        .faq-item.expanded .read-more-btn {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hover effect for read more button */
+        .read-more-btn:hover {
+            background: linear-gradient(145deg, #3367d6, #2a56c6);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(66, 133, 244, 0.3);
+        }
+
+        /* ===========================================
+           SEARCH CONTAINER
+           =========================================== */
+        .search-container {
+            padding: 0 20px 20px;
+            flex-shrink: 0;
+            margin-top: auto;
+        }
+
+        .search-box {
+            position: relative;
+            width: 100%;
+        }
+
+        .search-input {
+            width: 100%;
+            width: 16rem;
+            padding: 14px 20px 14px 48px;
+            border-radius: 25px;
+            border: none;
+            background: #f7f7f7;
+            font-size: 1rem;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        /* Focus state for search input */
+        .search-input:focus {
+            outline: none;
+            background: #f5f5f5;
+            box-shadow: 0 0 0 3px rgba(0, 140, 255, 0.2);
+        }
+
+        /* Search icon */
+        .search-icon {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #888;
+            font-size: 1.1rem;
+        }
+
+        /* ===========================================
+           PANEL FOOTER
+           =========================================== */
+        .panel-footer {
+            padding: 16px 20px;
+            text-align: center;
+            color: #888;
+            font-size: 0.85rem;
+            border-top: 1px solid #f0f0f0;
+            flex-shrink: 0;
+        }
+
+        /* ===========================================
+           ANIMATIONS
+           =========================================== */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===========================================
+           RESPONSIVE DESIGN - TABLET
+           =========================================== */
+        @media (max-width: 720px) {
+            .suggestions {
+                right: 20px;
+                width: calc(100% - 40px);
+            }
+        }
+
+        /* ===========================================
+           RESPONSIVE DESIGN - MOBILE
+           =========================================== */
+        @media (max-width: 480px) {
+            /* FAQ Panel adjustments for mobile */
+            .faq-panel {
+                width: calc(100% - 40px);
+                right: 20px;
+                bottom: 90px;
+                height: 58vh;
+                max-height: 420px;
+                border-radius: 16px;
+            }
+
+            /* Floating action button adjustments */
+            .fab {
+                bottom: 24px;
+                right: 24px;
+                width: 56px;
+                height: 56px;
+            }
+
+            /* Typography adjustments */
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            /* Panel header adjustments */
+            .panel-header { 
+                padding: 14px; 
+            }
+            .panel-title { 
+                font-size: 1.1rem; 
+            }
+            .toggle-suggestions-btn { 
+                font-size: 1rem; 
+            }
+            .close-btn { 
+                font-size: 1.4rem; 
+            }
+
+            /* Search input adjustments */
+            .search-input { 
+                font-size: 0.95rem; 
+                padding: 12px 16px 12px 44px; 
+            }
+
+            /* FAQ list adjustments */
+            .faq-list { 
+                padding: 0 14px 14px; 
+            }
+            .faq-item { 
+                padding: 16px; 
+                margin: 10px 0; 
+            }
+            .faq-question { 
+                font-size: 1rem; 
+                margin-bottom: 8px; 
+            }
+            .faq-answer { 
+                font-size: 0.9rem; 
+                max-height: 64px; 
+            }
+
+            /* Suggestions panel adjustments */
+            .suggestions { 
+                right: 12px; 
+                width: calc(100% - 24px); 
+                bottom: 90px; 
+            }
+            .suggestion-chip { 
+                font-size: 0.85rem; 
+                padding: 6px 12px; 
+            }
+        }
+    </style>
 </head>
+
 <body>
-
-    <section class="faq-section">
-        <div class="faq-item" id="faq-1">
-            <button class="faq-title">
-                I have a financial proposal to submit to the government. Do I submit it to the Ministry of Finance?
-                <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-content">
-                <p><em>No. All proposals are to be submitted to the sector Ministries. These sector ministries will then follow due process and forward them to the Ministry of Finance.</em></p>
-            </div>
-        </div>
-    
-        <div class="faq-item" id="faq-2">
-            <button class="faq-title">
-                What is the priority list of projects for any particular year?
-                <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-content">
-                <p><em>Every year the list of priority projects is published in the budget at appendix 10c</em></p>
-            </div>
-        </div>
-    
-        <div class="faq-item" id="faq-3">
-            <button class="faq-title">
-                What are the requirements for a Government Authority Letter?
-                <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-content">
-                <ul>
-                    <li>CV</li>
-                    <li>Employer’s statement</li>
-                    <li>Admission letter.</li>
-                    <li>Should have worked for at least 2 years</li>
-                    <li>Should have completed national service</li>
-                </ul>
-            </div>
-        </div>
-    
-        <div class="faq-item" id="faq-4">
-            <button class="faq-title">
-                How long does it take to receive the government statement after application?
-                <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-content">
-                <p><em>Usually, less than 48 hours.</em></p>
-            </div>
-        </div>
-    
-        <div class="faq-item" id="faq-5">
-            <button class="faq-title">
-                How does the Ministry of Finance do recruitment?
-                <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-content">
-                <p><em>The Ministry of Finance does not undertake recruitment. All Civil Service recruitments are done by the Office of the Head of Civil Service.</em></p>
-            </div>
-        </div>
-    
-        <div class="faq-item" id="faq-6">
-            <button class="faq-title">
-                How do I get a tax exemption on a Government Contract?
-                <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-content">
-                <p><em>The MDA must submit an application for tax exemption to MoF, with the following attached documents;</em></p>
-                <ul>
-                    <li>A copy of the loan agreement</li>
-                    <li>Customs validation and valuation reports</li>
-                    <li>Packing list.</li>
-                    <li>Bill of lading</li>
-                </ul>
-            </div>
-        </div>
-    
-        <div class="faq-item" id="faq-7">
-            <button class="faq-title">
-                How do I get a tax exemption as an NGO?
-                <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-content">
-                <p><em>NGOS must submits application letter to the relevant Ministry with the following attachments;</em></p>
-                <ul>
-                    <li>Registration documents of the NGO</li>
-                    <li>Letter from donor (If consignment was donated to the applicant).</li>
-                    <li>Bills of lading of the consignment.</li>
-                    <li>Packing list.</li>
-                    <li>The relevant Ministry recommends the application to MoF.</li>
-                </ul>
-            </div>
-        </div>
-    
-        <div class="faq-item" id="faq-8">
-            <button class="faq-title">
-                How do I get data on tax collections?
-                <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-content">
-                <p><em>By applying to Ministry of Finance or GRA.</em></p>
-            </div>
-        </div>
-    
-        <div class="faq-item" id="faq-9">
-            <button class="faq-title">
-                What documents are needed in addition to quotations?
-                <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-content">
-                <ul>
-                    <li>Valid Business Certificate</li>
-                    <li>Valid VAT certificate</li>
-                    <li>Valid GRA certificate</li>
-                    <li>SSNIT certificate</li>
-                    <li>Public Procurement Authority</li>
-                </ul>
-            </div>
-        </div>
-    
-        <div class="faq-item" id="faq-10">
-            <button class="faq-title">
-                I am a consultant with a proposal for the Ministry of Finance. What do I do?
-                <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-content">
-                <p><em>Kindly drop your proposal at the registry of the Ministry of Finance</em></p>
-            </div>
-        </div>
-    
-        <div class="faq-item" id="faq-11">
-            <button class="faq-title">
-                Who can apply to the Ministry of Finance for Financial clearance?
-                <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-content">
-                <p><em>MDA’s can apply for financial clearance from the Ministry of Finance.</em></p>
-            </div>
-        </div>
-    
-        <div class="faq-item" id="faq-12">
-            <button class="faq-title">
-                What process must MDA’s follow to apply for financial clearance?
-                <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-content">
-                <p><em>MDAs must submit application for financial clearance with the following attachments;</em></p>
-                <ul>
-                    <li>Technical Clearance from PSC/OHCS.</li>
-                    <li>Evidence of approved budgetary provision for the recruitment.</li>
-                </ul>
-            </div>
-        </div>
-    
-        <div class="faq-item" id="faq-13">
-            <button class="faq-title">
-                What are the requirements for Biometric Registration of New Entrants/Pensioners in the Public Service?
-                <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-content">
-                <p><strong>For New Entrants:</strong></p>
-                <ul>
-                    <li>Financial Clearance</li>
-                    <li>Original copy of appointment letter or Approval letter of replacement</li>
-                    <li>Most recent payslip</li>
-                    <li>SSNIT Records (SSNIT Number)</li>
-                    <li>State Issued ID</li>
-                    <li>Introductory letter (containing staff ID)</li>
-                </ul>
-                <p><strong>For Pensioners:</strong></p>
-                <ul>
-                    <li>Release letter</li>
-                    <li>Valid National ID</li>
-                    <li>Pensioners ID</li>
-                    <li>Initial pension payment letter</li>
-                </ul>
-            </div>
-        </div>
-    
-        <div class="faq-item" id="faq-14">
-            <button class="faq-title">
-                What if my introductory letter does not indicate my staff ID?
-                <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-content">
-                <p><em>Kindly attach Staff ID to introductory letter.</em></p>
-            </div>
-        </div>
-    
-        <div class="faq-item" id="faq-15">
-            <button class="faq-title">
-                After registering as a student, do I need to register again after I complete school?
-                <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-content">
-                <p><em>No. Individuals can only register once.</em></p>
-            </div>
-        </div>
-    
-        <div class="faq-item" id="faq-16">
-            <button class="faq-title">
-                What if my registration has expired?
-                <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-content">
-                <p><em>Kindly come to the office and your ID will be reactivated</em></p>
-            </div>
-        </div>
-    
-        <div class="faq-item" id="faq-17">
-            <button class="faq-title">
-                What if I have mistakenly registered twice?
-                <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-content">
-                <p><em>The second account will have to be deactivated.</em></p>
-            </div>
-        </div>
-    
-        <div class="faq-item" id="faq-18">
-            <button class="faq-title">
-                How do I register as a supplier/contractor for Ministry of Finance tenders?
-                <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-content">
-                <p><em>Registration is facilitated by the submission of Company’s introductory letter/profile (including Business Registration Certificates and Public Procurement Authority’s (PPA) Registration Certificate) addressed to the Director, Administration of the Ministry of Finance. P.O. Box MB 40, Ministries, Accra. The Supplier/Contractor/Service Provider should also take steps to be on rolled onto the Ghana Electronic Procurement Systems (GHANEPS). Officials of the PPA are available to offer the necessary assistance.</em></p>
-            </div>
-        </div>
-    
-        <div class="faq-item" id="faq-19">
-            <button class="faq-title">
-                What is GHANEPS?
-                <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-content">
-                <p><em>GHANEPS (Ghana Electronic Procurement System) is a web-based, collaborative system, developed in accordance with the requirement of public procurement laws, to facilitate public procurement processes in Ghana. It offers a secure, interactive, dynamic environment for carrying out procurement of all categories, complexity or value. GHANEPS supports processes of procuring Goods, Works, Consultancy, Non-Consultancy and Disposal of assets. The system supports various public procurement procedures including user registration, tender notification, tender preparation and submission, online tender evaluation, contract awarding, creation and management of catalogue, creation and management of framework agreements and auctions and payments</em></p>
-            </div>
-        </div>
-    
-        <div class="faq-item" id="faq-20">
-            <button class="faq-title">
-                Are there specific eligibility criteria for tendering?
-                <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-content">
-                <p><em>Yes. Criteria vary per tender but typically include: - Valid Business Registration Certificates, PPA Registration Certificate, SSNIT Clearance Certificates, GRA Tax Clearance Certificate - Relevant technical/financial capacity. - Sector-specific certifications (for example, Works & Housing Certificate for works procurement). - No debarment records.</em></p>
-            </div>
-        </div>
-    
-        <div class="faq-item" id="faq-21">
-            <button class="faq-title">
-                Where are tenders advertised?
-                <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-content">
-                <p><em>All open tenders are published on the Ghana Electronic Procurement System (GHANEPS) and widely circulated newspapers.</em></p>
-            </div>
-        </div>
-    
-        <div class="faq-item" id="faq-22">
-            <button class="faq-title">
-                Can I submit a tender after the deadline?
-                <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-content">
-                <p><em>No. Late tenders are automatically rejected per procurement guidelines.</em></p>
-            </div>
-        </div>
-    
-        <div class="faq-item" id="faq-23">
-            <button class="faq-title">
-                How are tenders evaluated?
-                <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-content">
-                <p><em>Based on: - Technical compliance (scope/Terms of Reference, specifications, Bill of Quantities). - Price competitiveness. - Past performance (where applicable).</em></p>
-            </div>
-        </div>
-    
-        <div class="faq-item" id="faq-24">
-            <button class="faq-title">
-                What documents must accompany a tender?
-                <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-content">
-                <p><em>Typically: - tender security or tender securing declaration (if required). - Statutory documents - Tender forms & price schedules or Technical & financial proposals (separate sealed envelopes).</em></p>
-            </div>
-        </div>
-    
-        <div class="faq-item" id="faq-25">
-            <button class="faq-title">
-                Is tender security mandatory?
-                <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-content">
-                <p><em>Not for consultancy services and Request for Quotations. Check tender documents (specifically, tender data sheet) for details.</em></p>
-            </div>
-        </div>
-    
-        <div class="faq-item" id="faq-26">
-            <button class="faq-title">
-                How long does payment take after delivering goods/services?
-                <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-content">
-                <p><em>Payments are usually processed within 28 days after contract signing, but are subject to contract terms.</em></p>
-            </div>
-        </div>
-    
-        <div class="faq-item" id="faq-27">
-            <button class="faq-title">
-                Can contract terms be negotiated after the award is made?
-                <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-content">
-                <p><em>No. Contracts are binding as awarded. Minor amendments require written approval from the relevant authorities.</em></p>
-            </div>
-        </div>
-    
-        <div class="faq-item" id="faq-28">
-            <button class="faq-title">
-                How do I challenge a tender award decision?
-                <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-content">
-                <p><em>File a formal complaint: : Submit to the Procurement Division within 10 days of award notification.</em></p>
-            </div>
-        </div>
-    
-        <div class="faq-item" id="faq-29">
-            <button class="faq-title">
-                Will my complaint affect future tendering opportunities?
-                <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-content">
-                <p><em>No. Complaints are treated confidentially and impartially.</em></p>
-            </div>
-        </div>
-    
-        <div class="faq-item" id="faq-30">
-            <button class="faq-title">
-                How do I qualify for preferential margins (margin of preference)?
-                <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-content">
-                <p><em>To qualify under Domestic Goods, the following conditions should be met;</em></p>
-                <ul>
-                    <li>Where local labour, raw materials and components from within Ghana account for 15 percent or more of the Ex-Works (EXW) price of the product offered.</li>
-                    <li>Where imported raw materials or components constitute the bulk of the inputs and local labour and additional components are required for processing into finished products and the proportion of domestic value added is equal to 10 percent or more of the Ex Works (EXW) price of the product offered.</li>
-                </ul>
-                <p><em>NB: Goods satisfying Condition (1) will attract a margin of preference of 20 percent and those meeting Condition (2) will attract 15 percent.</em></p>
-            </div>
-        </div>
-    
-        <div class="faq-item" id="faq-31">
-            <button class="faq-title">
-                What are the penalties for breaching a contract?
-                <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-content">
-                <p><em>Penalties may include: - Cancellation of Contract - Liquidated damages for delays. - Suspension from future tenders. - Blacklisting for serious violations.</em></p>
-            </div>
-        </div>
-    
-        <div class="faq-item" id="faq-32">
-            <button class="faq-title">
-                How do I report unethical practices by procurement staff?
-                <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-content">
-                <p><em>Contact and lodge complaints with the Ministry’s Compliance Unit</em></p>
-            </div>
-        </div>
-    
-        <div class="faq-item" id="faq-33">
-            <button class="faq-title">
-                What is the mode of payment?
-                <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-content">
-                <p><em>Payments are typically made electronically through GIFMIS directly into the supplier’s/contractor’s or consultant’s bank account as registered on the Ghana Integrated Financial Management Information System (GIFMIS). Cheques are increasingly rare but might still be used in some context. In essence, payment relies on verification of delivery/compliance, certification of correctness and funds and authorization of funds.</em></p>
-            </div>
-        </div>
-    
-        <div class="faq-item" id="faq-34">
-            <button class="faq-title">
-                Where can I get real-time support?
-                <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-content">
-                <p><em>Contact the Ministry’s Help Desk :0800900104</em></p>
-            </div>
-        </div>
-    
-        <div class="faq-item" id="faq-35">
-            <button class="faq-title">
-                What is Commitment Authorisation
-                <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-content">
-                <p><em>A formal approval issued by the Minister for Finance to Public Institutions prior to initiating procurement activities Section 24 (1) (A)&(B), Public Procurement Amendment Act (Act 1139)</em></p>
-            </div>
-        </div>
-    
-        <div class="faq-item" id="faq-36">
-            <button class="faq-title">
-                When do you need Commitment Authorisation
-                <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-content">
-                <p><em>Prior to initiating procurement activities (Goods, Service and Works)</em></p>
-            </div>
-        </div>
-    
-        <div class="faq-item" id="faq-37">
-            <button class="faq-title">
-                Do you need Commitment Authorisation for both new and ongoing projects
-                <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-content">
-                <p><em>Commitment Authorisation is required for new projects and for ongoing projects that may require additional funding exceeding 15% of the original contract price</em></p>
-            </div>
-        </div>
-    
-        <div class="faq-item" id="faq-38">
-            <button class="faq-title">
-                Is Commitment Authorisation required for all funding sources of Government
-                <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-content">
-                <p><em>Yes, Commitment Authorisation is required for all Government funding sources</em></p>
-            </div>
-        </div>
-    
-        <div class="faq-item" id="faq-39">
-            <button class="faq-title">
-                Who can request for Commitment Authorisation
-                <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-content">
-                <p><em>Procurement Entities that intend to undertake procurement activities which commit Government.</em></p>
-            </div>
-        </div>
-    
-        <div class="faq-item" id="faq-40">
-            <button class="faq-title">
-                How to request for Commitment Authorisation
-                <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-content">
-                <p><em>Procurement Entities write to seek approval from the Minister for Finance detailing the items to be procured and their estimated cost. The letter must state the source of funding for each item and confirm the availability of funds that cover the amount requested. The request must be routed through the mother Ministry of the requesting institution</em></p>
-            </div>
-        </div>
-    
-        <div class="faq-item" id="faq-41">
-            <button class="faq-title">
-                What is Commitment Control Compliance Checklist (CCCC)
-                <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-content">
-                <p><em>List of Budget Commitment Control Measures to be in place before funds are committed. These are authenticated by the Head of Internal Audit of the requesting Institution, who, if satisfied, issues a certificate. This certificate is required prior to signing of a contract. Signing the contract without the certified CCCC is an affront to the PFM Laws and it is a sanctionable offence</em></p>
-            </div>
-        </div>
-    
-        <div class="faq-item" id="faq-42">
-            <button class="faq-title">
-                What is the PFM League Table
-                <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-content">
-                <p><em>Periodic assessment of MDAs based on their compliance with the Public Financial Management Laws of Ghana</em></p>
-            </div>
-        </div>
-    
-        <div class="faq-item" id="faq-43">
-            <button class="faq-title">
-                What are the core functions of the PFM Compliance Division
-                <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-content">
-                <p><em>Enforce compliance and provide support to Government Institutions implementing PFM laws, policies, and guidelines by offering technical guidance, capacity building, and knowledge sharing</em></p>
-            </div>
-        </div>
-    
-        <div class="faq-item" id="faq-44">
-            <button class="faq-title">
-                What is the PFM Compliance and Enforcement Committee
-                <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-content">
-                <p><em>A high-level committee that serves as a body of inquiry on issues relating to commitment control and expenditure measures</em></p>
-            </div>
-        </div>
-    
-        <div class="faq-item" id="faq-45">
-            <button class="faq-title">
-                What are the functions of the PFM Compliance and Enforcement Committee
-                <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-content">
-                <p><em>The committee ensures adherence to the PFM Laws and recommends appropriate sanctions to defaulting individuals and organizations.</em></p>
-            </div>
-        </div>
-    
-        <div class="faq-item" id="faq-46">
-            <button class="faq-title">
-                Do State Owned Enterprises (SOEs) require Commitment Authorisation
-                <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-content">
-                <p><em>Yes, per Section 14 of PPA Act 663, once a procurement activity is financed in whole or in part, Commitment Authorisation is required prior to initiating that procurement activity</em></p>
-            </div>
-        </div>
-    
-        <div class="faq-item" id="faq-47">
-            <button class="faq-title">
-                Is Internally Generated Funds (IGF) Public Funds
-                <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-content">
-                <p><em>Yes, it is public funds. Managers of Institution that generates and manage IGF do so on behalf of Government and must therefore apply for authorization</em></p>
-            </div>
-        </div>
-    
-        <div class="faq-item" id="faq-48">
-            <button class="faq-title">
-                Do Foreign Loans and Grants funded projects require Commitment Authorisation
-                <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-content">
-                <p><em>Yes, they do require Commitment Authorisation.</em></p>
-            </div>
-        </div>
-    
-        <div class="faq-item" id="faq-49">
-            <button class="faq-title">
-                Do Development Partners need Commitment Authorisation prior to the signing of a Loan or Grant agreement
-                <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-content">
-                <p><em>No, they do not require Commitment Authorization.</em></p>
-            </div>
-        </div>
+    <!-- ===========================================
+         MAIN FAQ SECTION
+         =========================================== -->
+    <section class="faq-section" id="faq-section">
+        <!-- FAQ items will be dynamically inserted here by JavaScript -->
     </section>
+
+    <!-- ===========================================
+         FLOATING ACTION BUTTON
+         =========================================== -->
+    <button class="fab" aria-label="Open FAQ">
+        <i class="fas fa-comment"></i>
+    </button>
+
+    <!-- ===========================================
+         FAQ PANEL (SLIDING PANEL)
+         =========================================== -->
+    <div class="faq-panel">
+        <!-- Panel Header with Controls -->
+        <div class="panel-header">
+            <button class="toggle-suggestions-btn" aria-label="Toggle Suggestions">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </button>
+            <div class="panel-title">FAQs</div>
+            <button class="close-btn" aria-label="Close FAQ">&times;</button>
+        </div>
+        
+        <!-- FAQ List Container -->
+        <div class="faq-list"></div>
+        
+        <!-- Search Container -->
+        <div class="search-container">
+            <div class="search-box">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" class="search-input" placeholder="Search or ask a question...">
+            </div>
+        </div>
+        
+        <!-- Panel Footer -->
+        <div class="panel-footer">
+            Tip: Start typing to see suggested questions.
+        </div>
+    </div>
+
+    <!-- ===========================================
+         SUGGESTIONS PANEL
+         =========================================== -->
+    <div class="suggestions">
+        <div class="suggestions-content">
+            <!-- Suggestions will be dynamically added here -->
+            <button class="expand-btn">Show all</button>
+        </div>
+    </div>
+    
+    <!-- ===========================================
+         MAIN FAQ SCRIPT
+         =========================================== -->
     <script>
-      document.addEventListener("DOMContentLoaded", function() {
-        const faqItems = document.querySelectorAll(".faq-item");
-        const faqSection = document.querySelector(".faq-section");
+        // ===========================================
+        // FAQ DATA - JSON array containing all FAQ items
+        // ===========================================
+        const faqData = [
+      {
+    id: "faq-1",
+    question: "Why are contractors owed up to 2024 not being paid?",
+    answer: "<p><em>All outstanding claims/arrears as at 31st December, 2024 are undergoing audit. Payment will start after validation exercise is completed.</em></p>"
+  },
+  {
+    id: "faq-2",
+    question: "How will government pay the arrears after the audit?",
+    answer: "<p><em>A provision of GH₵ 13.07 billion was made to take care of validated claims under the arrears vote for 2025.</em></p>"
+  },
+  {
+    id: "faq-3", // New item inserted here
+    question: "Who is responsible for preparing the national budget under the PFM Act 921?",
+    answer: "<p><em>The Minister for Finance is responsible for preparing and presenting the national budget to Parliament on behalf of the President.</em></p>"
+  },
+  {
+    id: "faq-4", // Originally faq-3
+    question: "Why do State Owned Enterprises have to seek commitment authorization?",
+    answer: "<p><em>The Public Procurement Act (Amendment), (Act 2025) (Act 1139), requires all procurement entities to obtain a commitment authorization from the Minister for Finance before commencing any procurement process.</em></p>"
+  },
+  {
+    id: "faq-5", // Originally faq-4
+    question: "Do MDAs have to seek commitment authorization for government initiatives (Goods and Services and CAPEX)?",
+    answer: "<p><em>Yes, all MDAs must seek commitment authorization for all Government initiatives, both goods and services and capital expenditure.</em></p>"
+  },
+  {
+    id: "faq-6", // Originally faq-5
+    question: "Who is responsible for preparing the national budget under the PFM Act 921?",
+    answer: "<p><em>The Minister for Finance is responsible for preparing and presenting the national budget to Parliament on behalf of the President.</em></p>"
+  },
+  {
+    id: "faq-7", // Originally faq-6
+    question: "What role do Principal Spending Officers (PSOs) play in budget preparation?",
+    answer: "<p><em>PSOs prepare budget estimates for their institutions within ceilings and guidelines provided by the Ministry of Finance.</em></p>"
+  },
+  {
+    id: "faq-8", // Originally faq-7
+    question: "How does Section 21 of the PFM Act ensure that budget preparation aligns with fiscal policy objectives?",
+    answer: "<p><em>It requires that budget preparation be guided by the Government’s fiscal strategy document and macroeconomic framework.</em></p>"
+  },
+  {
+    id: "faq-9", // Originally faq-8
+    question: "What timelines are set out in the PFM Act 921 for annual budget submission and approval?",
+    answer: "<p><em>The Minister must present the budget to Parliament not later than 15th November of each financial year and approved by 31st December.</em></p>"
+  },
+  {
+    id: "faq-10", // Originally faq-9
+    question: "What information must be included in the annual budget estimates?",
+    answer: "<p><em>Revenue projections, expenditure allocations, financing sources, fiscal targets, and policy priorities.</em></p>"
+  },
+  {
+    id: "faq-11", // Originally faq-10
+    question: "How are ceilings communicated to MDAs during budget preparation?",
+    answer: "<p><em>The Ministry of Finance issues budget guidelines and expenditure ceilings to all MDAs to guide in the preparation of their budget.</em></p>"
+  },
+  {
+    id: "faq-12", // Originally faq-11
+    question: "What role does Parliament play in budget oversight?",
+    answer: "<p><em>Parliament debates, scrutinizes, and approves the annual estimates before the start of the new financial year.</em></p>"
+  },
+  {
+    id: "faq-13", // Originally faq-12
+    question: "How are Internally Generated Funds (IGFs) treated in budget preparation?",
+    answer: "<p><em>IGFs must be prepared and included in the estimates, subject to Ministry of Finance approval.</em></p>"
+  },
+  {
+    id: "faq-14", // Originally faq-13
+    question: "What mechanisms ensure that budgets reflect national priorities?",
+    answer: "<p><em>All MDAs are required to prepare medium-term strategy which is drawn from the National Development Plan based on their vision and mission.</em></p>"
+  },
+  {
+    id: "faq-15", // Originally faq-14
+    question: "What is an Appropriation Bill?",
+    answer: "<p><em>An Appropriation Bill is a law that authorizes the Government to withdraw and spend money from the Consolidated Fund (or public treasury) for specific purposes within a given financial year. It is the legal instrument that gives effect to the budget after it has been presented to Parliament and approved.</em></p>"
+  },
+  {
+    id: "faq-16", // Originally faq-15
+    question: "What is a National Budget Statement and Economic Policy?",
+    answer: "<p><em>The National Budget Statement and Economic Policy is a comprehensive document that the Minister for Finance presents to Parliament on behalf of the President. It outlines the Government’s fiscal and economic intentions for the upcoming financial year, as required by the Public Financial Management Act, 2016 (Act 921) and Articles 179 and 180 of the 1992 Constitution.</em></p>"
+  },
+  {
+    id: "faq-17", // Originally faq-16
+    question: "What is a Citizen’s Budget?",
+    answer: "<p><em>A Citizen’s Budget is a simplified, abridged, and non-technical version of a Government’s official national budget statement. Its primary purpose is to make complex public financial information accessible and understandable to the public, including those without a background in economics or finance.</em></p>"
+  },
+  {
+    id: "faq-18", // Originally faq-17
+    question: "What is a Budget Hearing?",
+    answer: "<p><em>A budget hearing is a formal meeting or series of meetings where public entities – such as government Ministries, Departments, and Agencies (MDAs) or Local Government – present and defend their budget proposals with Ministry of Finance or the General Assembly.</em></p>"
+  },
+  {
+    id: "faq-19", // Originally faq-18
+    question: "What is Public Financial Management?",
+    answer: "<p><em>Public Financial Management (PFM) refers to the system of how a government manages public money. It encompasses all the processes and institutions involved in the collection of public revenues, the allocation of these resources, their spending, accounting for them, and reporting on their use. In essence, PFM is the backbone of effective governance and service delivery. It dictates how a country’s financial resources are mobilized and deployed to achieve its national development goals, such as providing quality education, healthcare, infrastructure, and maintaining security.</em></p>"
+  },
+  {
+    id: "faq-20", // Originally faq-19
+    question: "What is the Budget Calendar?",
+    answer: "<p><em>A budget calendar is an official timetable that sets out the sequence of activities, responsibilities, and deadlines for preparing, approving, implementing, and reviewing the Government’s budget within a financial year. It ensures that all stakeholders (Ministries, Departments, and Agencies, Parliament, and the Public) know what must be done, by whom, and when to keep the budget process timely and coordinated.</em></p>"
+  },
+  {
+    id: "faq-21", // Originally faq-20
+    question: "What is a Mid-year Fiscal Policy Review?",
+    answer: "<p><em>A Mid-year Fiscal Policy Review is a formal assessment of a Government’s budget performance and economic outlook, conducted midway through the financial year (usually done in July).</em></p>"
+  },
+  {
+    id: "faq-22", // Originally faq-21
+    question: "What is a Budget Ceiling?",
+    answer: "<p><em>A budget ceiling is the maximum amount of resources (funds) that the Ministry of Finance (or the central budget authority) allocates to Ministries, Departments, and Agencies (MDAs) during the budget preparation process. It acts as a spending limit or cap, ensuring that proposed expenditure by each MDA stays within the overall resource envelope of the Government.</em></p>"
+  },
+  {
+    id: "faq-23", // Originally faq-22
+    question: "What is meant by Budget Implementation Support and Data Integration?",
+    answer: "<p><em>Delivering technical assistance to Covered Entities and Statutory Fund Agencies on budget preparation through Oracle Hyperion and facilitating the integration of approved budget and project data into the GIFMIS platform is key to the national budget. The support provided includes: Implementation Support and Expenditure Tracking: providing ongoing technical assistance for budget execution on GIFMIS and supporting the monitoring of budget performance through the Ministry of Finance’s Expenditure Tracking System. Through these integrated functions, BTAS plays a critical role in ensuring the stability of budgeting systems, maintaining the integrity of financial data, supporting fiscal transparency, and enabling compliance with public financial management standards across Government operations. Specifically, the Budget implementation and data integration function: makes available monthly Budget implementation reports, makes available the monthly log of requests for re-allocation and codes creations, coordinates the review and streamlining of GIFMIS business processes, and is responsible for GIFMIS training and GIFMIS-related workflow issues.</em></p>"
+  },
+  {
+    id: "faq-24", // Originally faq-23
+    question: "What tools or guidelines does the FDU provide for budget preparation at the local level?",
+    answer: "<p><em>The Unit issues annual composite budget guidelines, reporting templates, and technical manuals to standardize MMDAs budgeting.</em></p>"
+  },
+  {
+    id: "faq-25", // Originally faq-24
+    question: "What is the District Assembly Common Fund (DACF) and how is it allocated to MMDAs?",
+    answer: "<p><em>The DACF is a statutory arrangement backed by the 1992 Constitution to transfer financial resources (not less than 5% of total tax revenue) to MMDAs for developmental projects. The allocation is based on a formula approved by Parliament.</em></p>"
+  },
+  {
+    id: "faq-26", // Originally faq-25
+    question: "What are the guidelines governing the implementation of the 2025 Budget?",
+    answer: "<p><em>The Ministry of Finance released the 2025 Budget Implementation Instructions, in line with the Public Financial Management Act, 2016 (Act 921). These instructions guide Principal Account Holders (Ministers) and Principal Spending Officers (Chief Director) in executing the Appropriation Act, 2025 (Act 1126) and emphasize alignment with the IMF-Supported PC-PEG (Post-COVID-19 Programme for Economic Growth).</em></p>"
+  },
 
-        // Toggle FAQ items on click
-        faqItems.forEach(item => {
-          const title = item.querySelector(".faq-title");
-          const icon = item.querySelector(".faq-icon");
+  //compliance 
+  {
+    "id": "faq-27",
+    "question": "What is Commitment Authorisation?",
+    "answer": "<p><em>A formal approval issued by the Minister for Finance to Public Institutions prior to initiating procurement activities Section 24 (1) (A)&(B), Public Procurement Amendment Act (Act 1139).</em></p>"
+  },
+  {
+    "id": "faq-28",
+    "question": "When do you need Commitment Authorisation?",
+    "answer": "<p><em>Prior to initiating procurement activities (Goods, Service and Works).</em></p>"
+  },
+  {
+    "id": "faq-29",
+    "question": "Do you need Commitment Authorisation for both new and ongoing projects?",
+    "answer": "<p><em>Commitment Authorisation is required for new projects and for ongoing projects that may require additional funding exceeding 15% of the original contract price.</em></p>"
+  },
+  {
+    "id": "faq-30",
+    "question": "Is Commitment Authorisation required for all funding sources of Government?",
+    "answer": "<p><em>Yes, Commitment Authorisation is required for all Government funding sources.</em></p>"
+  },
+  {
+    "id": "faq-31",
+    "question": "Who can request for Commitment Authorisation?",
+    "answer": "<p><em>Procurement Entities that intend to undertake procurement activities which commit Government.</em></p>"
+  },
+  {
+    "id": "faq-32",
+    "question": "How to request for Commitment Authorisation?",
+    "answer": "<p><em>Procurement Entities write to seek approval from the Minister for Finance detailing the items to be procured and their estimated cost. The letter must state the source of funding for each item and confirm the availability of funds that cover the amount requested. The request must be routed through the mother Ministry of the requesting institution.</em></p>"
+  },
+  {
+    "id": "faq-33",
+    "question": "What is Commitment Control Compliance Checklist (CCCC)?",
+    "answer": "<p><em>List of Budget Commitment Control Measures to be in place before funds are committed. These are authenticated by the Head of Internal Audit of the requesting Institution, who, if satisfied, issues a certificate. This certificate is required prior to signing of a contract. Signing the contract without the certified CCCC is an affront to the PFM Laws and it is a sanctionable offence.</em></p>"
+  },
+  {
+    "id": "faq-34",
+    "question": "What is the PFM League Table?",
+    "answer": "<p><em>Periodic assessment of MDAs based on their compliance with the Public Financial Management Laws of Ghana.</em></p>"
+  },
+  {
+    "id": "faq-35",
+    "question": "What are the core functions of the PFM Compliance Division?",
+    "answer": "<p><em>Enforce compliance and provide support to Government Institutions implementing PFM laws, policies, and guidelines by offering technical guidance, capacity building, and knowledge sharing.</em></p>"
+  },
+  {
+    "id": "faq-36",
+    "question": "What is the PFM Compliance and Enforcement Committee?",
+    "answer": "<p><em>A high-level committee that serves as a body of inquiry on issues relating to commitment control and expenditure measures.</em></p>"
+  },
+  {
+    "id": "faq-37",
+    "question": "What are the functions of the PFM Compliance and Enforcement Committee?",
+    "answer": "<p><em>The committee ensures adherence to the PFM Laws and recommends appropriate sanctions to defaulting individuals and organizations.</em></p>"
+  },
+  {
+    "id": "faq-38",
+    "question": "Do State Owned Enterprises (SOEs) require Commitment Authorisation?",
+    "answer": "<p><em>Yes, per Section 14 of PPA Act 663, once a procurement activity is financed in whole or in part, Commitment Authorisation is required prior to initiating that procurement activity.</em></p>"
+  },
+  {
+    "id": "faq-39",
+    "question": "Is Internally Generated Funds (IGF) Public Funds?",
+    "answer": "<p><em>Yes, it is public funds. Managers of Institution that generates and manage IGF do so on behalf of Government and must therefore apply for authorization.</em></p>"
+  },
+  {
+    "id": "faq-40",
+    "question": "Do Foreign Loans and Grants funded projects require Commitment Authorisation?",
+    "answer": "<p><em>Yes, they do require Commitment Authorisation.</em></p>"
+  },
+  {
+    "id": "faq-41",
+    "question": "Do Development Partners need Commitment Authorisation prior to the signing of a Loan or Grant agreement?",
+    "answer": "<p><em>No, they do not require Commitment Authorization.</em></p>"
+  },
+  {
+    "id": "faq-42",
+    "question": "What is the mandate of the Financial Sector Division?",
+    "answer": "<p><em>The mandate of the Financial Sector Division is to provide policy-based and strategic analysis on Ghana’s financial sector, advise the Hon. Minister on financial sector policies and reforms, and oversee the implementation of strategies to strengthen financial intermediation in Ghana.</em></p>"
+  },
+  {
+    "id": "faq-43",
+    "question": "What are the key institutions in the Financial Sector?",
+    "answer": "<p><em>Key institutions in the financial sector include the financial sector regulators (Bank of Ghana (BoG), Securities and Exchange Commission (SEC), National Insurance Commission (NIC), and the National Pensions Regulatory Authority (NPRA)); Ghana Amalgamated Trust (GAT), Ghana Commodity Exchange (GCX), Development Bank Ghana (DBG), Ghana Incentive-Based Risk Sharing System for Agricultural Lending (GIRSAL), Central Securities Depository (CSD), Ghana Stock Exchange (GSE), Ghana Deposit Protection Corporation (GDPC), Ghana Investment and Securities Institute (GISI), and industry associations (Ghana Association of Banks (GAB), Ghana Insurers Association (GIA), Chamber of Corporate Trustees (CCT), Ghana Securities Industry Association (GSIA), Ghana Microfinance Institutions Network (GHAMFIN), Ghana Fintech and Payment Association (GFPA), among others).</em></p>"
+  },
+  {
+    "id": "faq-44",
+    "question": "What are Special Deposit-taking Institutions (SDIs)?",
+    "answer": "<p><em>SDIs refer to institutions that been licensed by the BoG to engage in the deposit-taking business. They include; Rural and Community Banks, Savings and Loans Companies, Finance Houses, among others.</em></p>"
+  },
+  {
+    "id": "faq-45",
+    "question": "What was Government’s fiscal intervention during the financial sector clean-up?",
+    "answer": "<p><em>Government spent a total of GH₵30.3 billion to clean-up the financial sector by the end of 2024. This comprised GH₵26.9 billion spending for the banks, Savings & Loans companies, Financial Houses, Micro-Finance Institutions, and Asset Management companies. The rest of the cost, GH₵3.3 billion, was spent on Ghana Amalgamated Trust Plc (GAT) , NIB, and CBG.</em></p>"
+  },
+  {
+    "id": "faq-46",
+    "question": "What is the mandate of the Ghana Amalgamated Trust Plc (GAT) in the financial sector?",
+    "answer": "<p><em>The Ghana Amalgamated Trust Plc (GAT) was established to support solvent but undercapitalized indigenous banks following the 2017–2019 banking sector clean-up. It is mandate is to provide equity capital to selected indigenous banks to enable them to meet the Bank of Ghana’s minimum capital requirement, strengthen their balance sheets, and enhance their competitiveness.</em></p>"
+  },
+  {
+    "id": "faq-47",
+    "question": "At what stage is a bank or SDI considered distressed?",
+    "answer": "<p><em>A bank or SDI is considered distressed when it fails to meet regulatory capital requirements, experiences persistent liquidity shortages, records high levels of non-performing loans, or engages in unsafe practices that endanger depositors’ funds. Such institutions typically show signs of insolvency and inability to operate as a going concern.</em></p>"
+  },
+  {
+    "id": "faq-48",
+    "question": "Why are State-owned banks recapitalized?",
+    "answer": "<p><em>State-owned banks are recapitalized to strengthen their capital base, enhance their ability to support government’s economic and developmental agenda, and ensure that they remain competitive. Recapitalization also safeguards jobs, protects depositors’ funds, and ensures that these banks continue to serve as vehicles for driving financial inclusion, industrialization, and sector-specific development financing.</em></p>"
+  },
+  {
+    "id": "faq-49",
+    "question": "What is a microfinance institution?",
+    "answer": "<p><em>A microfinance institution is a non-bank financial institution that provides small loans, savings, and other basic financial services, often to individuals or small businesses without access to regular banks.</em></p>"
+  },
+  {
+    "id": "faq-50",
+    "question": "What is a Credit Union?",
+    "answer": "<p><em>A credit union is a member-based financial cooperative that provides savings, loans, and related financial services to its members, often within a specific community, workplace, or association.</em></p>"
+  },
+  {
+    "id": "faq-51",
+    "question": "What is the role of the capital market in Ghana’s economy?",
+    "answer": "<p><em>The capital market supports the mobilization of long-term funds for businesses, government, and infrastructure projects, thereby supporting economic growth and development.</em></p>"
+  },
+  {
+    "id": "faq-52",
+    "question": "How can one invest in Ghana’s capital market?",
+    "answer": "<p><em>One can invest by opening an account with a licensed broker or investment adviser who will provide guidance in buying and selling securities such as shares and bonds.</em></p>"
+  },
+  {
+    "id": "faq-53",
+    "question": "What is the Capital Market Master Plan (CMMP)?",
+    "answer": "<p><em>The CMMP is a strategic blueprint developed to guide Ghana’s capital market reforms and growth over a 10-year period (2020-2029). This is to promote a deep, efficient, diversified and well-regulated capital market with a full range of products attractive to domestic and international investors.</em></p>"
+  },
+  {
+    "id": "faq-54",
+    "question": "What is the Ghana Stock Exchange (GSE)?",
+    "answer": "<p><em>The GSE is the primary platform for trading securities in Ghana, including shares, bonds, and other financial instruments. It offers a regulated marketplace where investors can buy and sell securities, aiding companies in raising long-term capital and supporting overall economic growth.</em></p>"
+  },
+  {
+    "id": "faq-55",
+    "question": "What is the Ghana Commodities Exchange (GCX)?",
+    "answer": "<p><em>The Ghana Commodity Exchange (GCX) is a Public-Private Partnership that connects commodity producers with buyers through structured markets. It enhances agricultural productivity, expands access to financing, reduces post-harvest losses, improves storage, strengthens market information systems, and boosts capital market liquidity while creating jobs.</em></p>"
+  },
+  {
+    "id": "faq-56",
+    "question": "What is the Ghana Investment and Securities Institute (GISI)?",
+    "answer": "<p><em>The Ghana Investment and Securities Institute (GISI) serves as the training and capacity-building arm of the Securities and Exchange Commission (SEC), tasked with providing securities training for licensing. Its main functions include designing and delivering competency-based training programmes, certification, research, and public education to promote a strong, ethical, and inclusive investment ecosystem.</em></p>"
+  },
+  {
+    "id": "faq-57",
+    "question": "What is the Central Securities Depository (CSD)?",
+    "answer": "<p><em>The Central Securities Depository is the organisation that hosts the electronic system that holds securities in digital form, eliminating the need for physical certificates. The CSD has the records of accounts of investors, facilitates the safe and efficient transfer of securities ownership, supports settlement of trades, and reduces risks associated with paper-based systems.</em></p>"
+  },
+  {
+    "id": "faq-58",
+    "question": "Who are brokers and dealers?",
+    "answer": "<p><em>Brokers and dealers are licensed intermediaries who execute buy and sell orders for clients. Brokers serve as agents for investors, whereas dealers might trade securities for their own accounts. Both are essential in maintaining market liquidity and efficiency.</em></p>"
+  },
+  {
+    "id": "faq-59",
+    "question": "Who are fund managers?",
+    "answer": "<p><em>Fund managers are experts responsible for overseeing pooled investment funds, such as mutual funds, collective investment schemes, and pension funds. They determine which securities to buy or sell, when to trade them, and in what quantities, aiming to meet the fund’s investment goals for their clients.</em></p>"
+  },
+  {
+    "id": "faq-60",
+    "question": "What is a Credit Rating Agency?",
+    "answer": "<p><em>A Credit Rating Agency is responsible for providing independent assessment of a borrower or issuer of financial securities to determine their credit worthiness. The ratings help investors to make informed investment decisions and promote transparency in the markets.</em></p>"
+  },
+  {
+    "id": "faq-61",
+    "question": "What is Financial Bailout?",
+    "answer": "<p><em>Financial bailout can be described as a situation where a government, central bank, or financial institution offers emergency financial support (such as loans/bonds, stocks, and cash) to a struggling financial institution to revive it. The purpose is to prevent collapse, protect jobs, maintain financial stability, and sustain investor confidence.</em></p>"
+  },
+  {
+    "id": "faq-62",
+    "question": "What is a Mark-to-Market (MTM)?",
+    "answer": "<p><em>Mark to market (MTM) is a method of valuing assets and liabilities based on current market conditions. It involves adjusting the value of investments or accounts to reflect their current market price, ensuring that financial statements provide a more accurate picture of an entity’s financial position. This offers investors and institutions an updated valuation of assets and liabilities in real-time and aids in assessing portfolio performance, improving reporting and transparency.</em></p>"
+  },
+  {
+    "id": "faq-63",
+    "question": "What are Collective Investment Schemes?",
+    "answer": "<p><em>A Collective Investment Scheme (CIS) are pools of funds managed by professional fund managers and invested in stocks, bonds, or other securities. This pooling of funds allows investors to access a broader range of investment opportunities than they could not access individually. Investors in a CIS buy shares or units in the scheme, which entitle them to a proportional share of the profits, losses, and expenses generated by the investment portfolio. Eg. Mutual fund, unit Trust, etc.</em></p>"
+  },
+  {
+    "id": "faq-64",
+    "question": "What is development finance, and how does it differ from traditional finance?",
+    "answer": "<p><em>Development finance refers to the use of financial resources and instruments to drive inclusive growth, sustainable development and poverty reduction particularly in sectors and regions often overlooked by traditional finance. Unlike traditional finance, which prioritizes profit and risk, development finance focuses on long-term social and economic impact. In essence, it is about making money work for people and progress, not just for profit. It is typically delivered through Development Finance Institutions (DFIs), or government agencies, channelling capital into areas that help build resilient, inclusive, and sustainable economies. Examples of DFIs are Development Bank Ghana (DBG), Ghana Infrastructure Investment Fund (GIIF), Venture Capital trust Fund (VCTF), Ghana Export Import Bank (GEXIM), Ghana Incentive-Based Risk Sharing System for Agricultural Lending (GIRSAL), Minerals Income Investment Fund (MIIF), etc.</em></p>"
+  },
+  {
+    "id": "faq-65",
+    "question": "How does development finance support economic development?",
+    "answer": "<p><em>DFIs play catalytic role by providing medium and long-term financing, mobilising private capital and derisking investments in priority sectors. They expand access to credit for SMEs and infrastructure, strengthen PFIs and foster innovation to drive inclusive and sustainable growth. It bridges the financing gaps, mobilise private investment, reduces poverty and ensures that growth is inclusive and resilient.</em></p>"
+  },
+  {
+    "id": "faq-66",
+    "question": "What are the main financial instruments used in development financing?",
+    "answer": "<p><em>Development finance uses flexible, tailored instruments to address market gaps, reduce risk, and attract private investment into underserved or high-impact sectors. These tools go beyond providing capital, they help make development projects viable. Key instruments include: <ul><li>Grants: Non-repayable funds for capacity building or humanitarian needs</li><li>Concessional loans: Softer loans than commercial loans with below-market interest rates and longer maturity dates</li><li>Guarantees: Risk-sharing tools to attract private investors or lenders by covering part of the loss in case of default</li><li>Equity investments: Direct capital infusion into enterprises or funds by taking equity stakes.</li><li>Blended finance: Strategic mix of public and private funding. Thus, combining concessional finance with commercial finance to improve the risk-return profile of investments.</li></ul></em></p>"
+  },
+  {
+    "id": "faq-67",
+    "question": "What is the function of DBG?",
+    "answer": "<p><em>Development Bank Ghana was established in 2020 as a wholesale Bank to provide medium to long-term credit to the SME sector, particularly Agriculture, manufacturing, ICT, and high-value services, through Participating Financial Institutions (PFIs).</em></p>"
+  },
+  {
+    "id": "faq-68",
+    "question": "What is Development Bank Ghana Guarantee (DBGG)?",
+    "answer": "<p><em>The DBGG is a Partial Credit Guarantee scheme that provides guarantees part of credit risk on loans extended by PFIs to MSMEs and other eligible borrowers. PCG helps reduce risk for banks and other lenders, encouraging them to extend credit to SMEs and sectors that are usually considered high-risk or underserved. By unlocking credit for SMEs, it supports job creation, private sector growth, industrialization, and economic resilience.</em></p>"
+  },
+  {
+    "id": "faq-69",
+    "question": "Does the DBG Partial Credit Guarantee replace collateral requirements?",
+    "answer": "<p><em>No, but it reduces the collateral burden on borrowers, thereby making loans more accessible and affordable for SMEs.</em></p>"
+  },
+  {
+    "id": "faq-70",
+    "question": "What does Venture Capital Trust Fund seek to achieve?",
+    "answer": "<p><em>VCTF was set up to develop and promote Ghana’s venture capital market by providing equity financing to support SMEs in key sectors of the economy. This intervention is essential in supporting start-ups.</em></p>"
+  },
+  {
+    "id": "faq-71",
+    "question": "What is the mandate of Ghana Infrastructure Investment Fund (GIIF) and how does it support national development?",
+    "answer": "<p><em>GIIF’s mandate is to finance and invest in strategic infrastructure projects that drive Ghana’s economic growth. It provides funding in sectors such as energy, transport, water, housing and ICT through direct investment, co-investments and public private partnerships. By mobilising long-term capital and partnering with private investors, GIIF reduces public debt reliance, creates jobs and drives sustainable growth.</em></p>"
+  },
+  {
+    "id": "faq-72",
+    "question": "What is the mandate of Ghana Eximbank, and which priority sectors does it support?",
+    "answer": "<p><em>The mandate of Ghana EXIM Bank is to promote industrialization and export-led growth by providing financing that enhances value addition, trade competitiveness and import substitution. Its financing products include loans, guarantees, export credit facilities and project financing tailored to business needs. The Bank’s programmes concentrate on strategic sectors such as agriculture and agro-processing, manufacturing, pharmaceuticals and other export-oriented industries.</em></p>"
+  },
+  {
+    "id": "faq-73",
+    "question": "What is GIRSAL’s core mandate and how does it improve lending?",
+    "answer": "<p><em>GIRSAL’s is a risk-sharing and financing mechanism established to de-risk agricultural financing in Ghana and encouraging banks to increase lending to the sector. It was created to overcome the persistently low levels of agricultural financing driven by high perceived risks, collateral constraints and structural challenges.</em></p>"
+  },
+  {
+    "id": "faq-74",
+    "question": "What is Financial Inclusion?",
+    "answer": "<p><em>Financial inclusion refers to individuals and businesses ability to access and utilize affordable and safe financial services (including payments, savings, credit, insurance, and pensions) that meet their needs. It is not just about opening accounts; it is the regular use of the accounts to that improve livelihood.</em></p>"
+  },
+  {
+    "id": "faq-75",
+    "question": "Why is Financial Inclusion important?",
+    "answer": "<p><em>Financial inclusion helps households’ smoothen consumption pattern, manage shocks, build assets, and invest in sectors such as education and health. For businesses, especially MSMEs, it improves access to working capital, supports sales growth through digital payments, and creates jobs. At the national level, it promotes formalization, enhances the efficiency of government-to-person payments, broadens the tax base, and strengthens economic resilience. Importantly, it also advances equity by reducing gender, youth, rural–urban, and disability gaps.</em></p>"
+  },
+  {
+    "id": "faq-76",
+    "question": "What is Financial Technology (Fintech)?",
+    "answer": "<p><em>This is the use of technology to design, deliver, and improve financial services. They include mobile money, digital lending/savings, agent networks, insurtech, regtech, crowdfunding, and instant payments. Fintech provides convenience, expands reach, enables 24/7 remote access to financial services and drives financial inclusion by extending reach through agent networks and USSD/apps that serve communities without bank branches.</em></p>"
+  },
+  {
+    "id": "faq-77",
+    "question": "What measures have been put in place by Government to drive Financial Inclusion?",
+    "answer": "<p><em>Government as part of efforts to deepen financial inclusion has strengthened infrastructure through Ghana Interbank Payment and Settlement System (GhIPSS) instant payments and mobile money interoperability. The Ghana Card has been integrated into financial sector transactions to simplify onboarding. Regulatory enablers such as payment-system laws, e-money, agent-banking frameworks, and a fintech regulatory sandbox for testing fintech initiatives have been developed. In addition, government collections and transfers are being digitized to promote efficiency, complemented by financial literacy and consumer protection programs with clear complaint-resolution channels.</em></p>"
+  },
+  {
+    "id": "faq-78",
+    "question": "What are the barriers to accessing financial services in Ghana?",
+    "answer": "<p><em><ul><li>Documentation and KYC challenges - women, youth, and informal workers do not have the requisite documentation for account opening.</li><li>Costs and distance also pose obstacles, as fees, device and data expenses, and limited rural access points restrict usage.</li><li>Low levels of digital and financial literacy further discourage participation</li></ul></em></p>"
+  },
+  {
+    "id": "faq-79",
+    "question": "How are consumers protected in the financial sector?",
+    "answer": "<p><em>Financial Consumer are protected through: <ul><li>Market-conduct rules – this requires financial institutions to practice fair pricing, responsible lending, clear disclosure, and proper complaint handling.</li><li>Depositors’ money is safeguarded through deposit protection and the segregation of e-money funds.</li><li>Availability of Dispute-resolution Channels including internal complaint desks, regulator-led channels, and mediation or alternative dispute resolution where necessary.</li><li>Enforcement of data privacy and cybersecurity laws to protect customer information.</li><li>Regular financial education and awareness campaigns are carried out to promote awareness and safe use of digital financial services.</li></ul></em></p>"
+  },
+  {
+    "id": "faq-80",
+    "question": "How is Ghana addressing gender gaps in financial inclusion?",
+    "answer": "<p><em><ul><li>Collecting and using sex-disaggregated data – this helps identify gaps and monitor progress.</li><li>Simplified onboarding process through digital ID and agent networks reduces documentation barriers.</li><li>Tailored products such as group savings, micro-insurance, and asset-building schemes address women’s financial needs.</li><li>Entrepreneurship support and guarantee schemes to ease collateral constraints and improve access to credit.</li><li>Financial literacy, digital-skills training, and gender-sensitive delivery models enhance women’s confidence and safety, including protections against gender-based vulnerabilities.</li></ul></em></p>"
+  },
+  {
+    "id": "faq-81",
+    "question": "What is pension?",
+    "answer": "<p><em>Pension is a regular payment that a person receives after retiring from work, usually funded by contributions made during their working years. Contributions are made by employers, employees, or both, and invested by fund managers to generate returns.</em></p>"
+  },
+  {
+    "id": "faq-82",
+    "question": "Why is pension important?",
+    "answer": "<p><em><ul><li>It provides financial security and independence when a contributor is no longer earning a regular income from work.</li><li>It acts as a safety net, allowing an individual to cover living expenses, healthcare costs, and unforeseen needs during retirement without relying solely on family, friends, or government support.</li><li>It also secures an individual’s standard of living and protects them from poverty in old age.</li></ul></em></p>"
+  },
+  {
+    "id": "faq-83",
+    "question": "What is a pension fund?",
+    "answer": "<p><em>A pension fund is an investment fund within the pension scheme which is intended to accumulate during an individual’s working life from contributions and investment income, with the intention of providing income retirement from the purchase of an annuity or in the form of a programmed withdrawal, with the possible option of an addition tax free cash lump sum being paid to the individual.</em></p>"
+  },
+  {
+    "id": "faq-84",
+    "question": "What is the role of the National Pensions Regulatory Authority (NPRA)?",
+    "answer": "<p><em>The National Pensions Regulatory Authority (NPRA) oversees and regulates all three tiers to ensure compliance, licensing of trustees, and protection of contributors’ funds.</em></p>"
+  },
+  {
+    "id": "faq-85",
+    "question": "What is the three-tier pension scheme?",
+    "answer": "<p><em>Ghana’s 3-tier pension system combines social security (Tier 1), private occupational pensions (Tier 2), and voluntary personal savings (Tier 3) to provide a more diversified and secure retirement income framework. <ul><li><strong>Tier 1</strong> is a basic, mandatory, defined-benefit scheme managed by the Social Security and National Insurance Trust (SSNIT). It receives 13.5% of the worker’s basic salary (out of the total 18.5% statutory pension contribution) and offers monthly pensions, survivors’ benefits, invalidity pensions, and emigration benefits. It also guarantees a minimum retirement income.</li><li><strong>Tier 2</strong> is an occupational (mandatory) pension scheme managed by private trustees licensed by the National Pensions Regulatory Authority (NPRA). It is a defined-contribution scheme that deducts 5% of the worker’s salary (out of 18.5%) and offers a lump-sum benefit upon retirement. Funds are privately managed and invested, enabling the growth of retirement savings.</li><li><strong>Tier 3</strong> is a defined-contribution voluntary provident fund and personal pension scheme, managed by licensed corporate trustees and approved fund managers. Contributions are flexible (workers, employers, or both can contribute any agreed amount), encouraging additional retirement savings and offering tax advantages. It supports informal sector workers and anyone seeking to increase retirement income beyond the mandatory first and second tiers.</li></ul></em></p>"
+  },
+  {
+    "id": "faq-86",
+    "question": "How can an informal sector worker contribute to Tier 1?",
+    "answer": "<p><em>An informal sector worker can join Tier 1 by registering with SSNIT as a self-employed contributor and paying 13.5% of their declared earnings regularly. This gives them access to the same retirement and social security benefits as formal employees.</em></p>"
+  },
+  {
+    "id": "faq-87",
+    "question": "What is a provident fund?",
+    "answer": "<p><em>A provident fund is a fully funded, defined contribution scheme in which funds are managed privately and benefits paid as lump sum to the employee or his dependents in case of death. In some cases, it is possible for the employee to draw income prior to retirement to meet specific needs.</em></p>"
+  },
+  {
+    "id": "faq-88",
+    "question": "What incentives exist for voluntary pension scheme (Tier 3)?",
+    "answer": "<p><em>Tier 3 contributions enjoy tax relief up to specified limits (16.5%), encouraging workers, particularly in the informal sector, to save toward retirement. Employers offering Tier 3 schemes can also claim tax deductions on contributions, making it attractive for both parties.</em></p>"
+  },
+  {
+    "id": "faq-89",
+    "question": "What is insurance?",
+    "answer": "<p><em>Insurance is a financial arrangement that protects individuals, businesses, or organizations against potential losses or risks. In simple terms, you pay a fee called a premium to an insurance company, and in return, the insurer promises to compensate you if a specific event occurs.</em></p>"
+  },
+  {
+    "id": "faq-90",
+    "question": "Why is insurance important?",
+    "answer": "<p><em>Insurance protects individuals, businesses, and communities against financial losses from unforeseen events such as accidents, illness, crop failure, or death. It helps households recover quickly, supports business continuity, and contributes to economic stability by pooling risk.</em></p>"
+  },
+  {
+    "id": "faq-91",
+    "question": "What types of insurance are compulsory in Ghana?",
+    "answer": "<p><em>Under Ghana’s Insurance Act, 2021 (Act 1061), several types of insurance are mandatory to protect the public, employees, and businesses. These include motor third-party liability insurance for all vehicle owners; fire insurance for commercial buildings (completed or under construction); public liability insurance for businesses serving the public; professional indemnity insurance for employers of professionals such as doctors, lawyers, and engineers; marine cargo insurance for importers; and employer’s liability insurance (workmen’s compensation) for employers with 15 or more employees.</em></p>"
+  },
+  {
+    "id": "faq-92",
+    "question": "How can one contact relevant authorities in the financial sector for complaints and support?",
+    "answer": "<p><em>For Compliant and education about a bank savings and loans companies, licensed susu enterprises, rural and community banks, finance houses, please contact, BANK OF GHANA Financial Stability Department Head Office Annex Cedi House Tel: 0302 665005 WhatsApp: 0596912354 or 0501502270 Email: market.conduct@bog.gov.gh If it has to do with Insurance, please contact. NATIONAL INSURANCE COMMISSION.</em></p>"
+  },
+  {
+    "id": "faq-93",
+    "question": "What is the current status of Ghana's public debt as of June 2025?",
+    "answer": "<p><em>At end-June 2025, Ghana's provisional public debt has declined significantly to GH¢613,000.6 million, down from GH¢726,680.0 million at end-December 2024. This represents a nominal reduction of over GH¢113,679.4 million and a negative debt accumulation rate of 15.6 percent.</em></p>"
+  },
+  {
+    "id": "faq-94",
+    "question": "How has Ghana's public debt-to-GDP ratio changed?",
+    "answer": "<p><em>The debt-to-GDP ratio dropped sharply to 43.8 percent at end-June 2025, from 61.8 percent at end-2024. This 18-percentage-point drop is largely attributed to the appreciation of the Ghanaian Cedi against major foreign currencies, which lowered the nominal value of external debt.</em></p>"
+  },
+  {
+    "id": "faq-95",
+    "question": "What is the current composition of Ghana's public debt (domestic vs. external)?",
+    "answer": "<p><em>As of end-June 2025, the share of external debt decreased from 57.4 percent at end-December 2024 to 49.0 percent, while domestic debt increased from 42.6 percent to 51.0 percent. This reflects a strategic rebalancing towards domestic financing.</em></p>"
+  },
+  {
+    "id": "faq-96",
+    "question": "How has the foreign debt as a percentage of total public debt changed?",
+    "answer": "<p><em>The external debt as a percentage of total public debt decreased from 57.4% at end-December 2024 to 49% by end-June 2025, largely on account of the appreciation of the Ghana Cedi.</em></p>"
+  },
+  {
+    "id": "faq-97",
+    "question": "What is Ghana's current borrowing strategy?",
+    "answer": "<p><em>In the first half of 2025, government financing operations heavily relied on Government treasury bills, necessitated by the limited long-term issuance options following the Domestic Debt Exchange Programme (DDEP). Government plans to re-enter the bond market soon through tap-ins or reopening of DDEP benchmark bonds, subject to market conditions.</em></p>"
+  },
+  {
+    "id": "faq-98",
+    "question": "How has Ghana's debt sustainability improved?",
+    "answer": "<p><em>Ghana’s debt sustainability has improved significantly, supported by the IMF-ECF programme, the completion of the Domestic Debt Exchange Programme (DDEP), the Eurobond restructuring, and progress on bilateral debt restructuring. The debt-to-GDP ratio is projected to reach 54.3 percent in 2027 and decline further to 52.0 percent in 2028, compared to an earlier projection of 82.0 percent for 2028 when Ghana entered the programme.</em></p>"
+  },
+  {
+    "id": "faq-99",
+    "question": "What is the Medium-Term Debt Strategy (MTDS)?",
+    "answer": "<p><em>The 2025-2028 MTDS aims to, in the near term, reduce refinancing risk and lower debt servicing cost, as well as build cash buffers for liability management and other debt management purposes. External funding will primarily come from disbursements under the IMF-ECF programme, World Bank DPO, and ongoing multilateral and bilateral project loans.</em></p>"
+  },
+  {
+    "id": "faq-100",
+    "question": "What is the debt-to-GDP ratio target and by when does Ghana aim to achieve it?",
+    "answer": "<p><em>Government is expected to achieve a debt-to-GDP target of 55 percent in present value terms by 2028 under the IMF-ECF programme. Additionally, an amendment to the PFM Act in 2025 introduced a legislative debt rule of 45 percent by 2034.</em></p>"
+  },
+  {
+    "id": "faq-101",
+    "question": "What key risk indicators are being monitored in Ghana's debt management?",
+    "answer": "<p><em>Key risks being monitored include solvency, cost of debt, refinancing and interest rate risks, as well as exchange rate exposure. Indicators monitored include public debt-to-GDP ratio, Weighted Average Interest Rate, Average Time to Maturity (ATM), Debt Maturing in 1 Year (% of Total), Average Time to Re-fixing (ATR), Debt Re-fixing in 1 Year (% of Total), FX Debt (% of Total Debt), and ST FX Debt (% of Reserves).</em></p>"
+  },
+  {
+    "id": "faq-102",
+    "question": "What is the current status of the DDEP?",
+    "answer": "<p><em>Government continues to meet its commitment to the DDEP bondholders, having successfully honoured five coupon payments. For the non-tendered bondholders, government in Q1 2025 paid all outstanding debt service obligations since December 2023 and remains current on its debt service obligations to date.</em></p>"
+  },
+  {
+    "id": "faq-103",
+    "question": "Will the Sinking Fund be ring-fenced from future fiscal pressures or reallocation?",
+    "answer": "<p><em>The Sinking Fund is established to specifically build sufficient buffers for prompt redemption of specified loan obligations of Government, following strictly sections 37 to 44 of the PFM Act 921 as amended. The Government has set up both a Cedi Sinking Fund Account and a US Dollar Sinking Fund Account.</em></p>"
+  },
+  {
+    "id": "faq-104",
+    "question": "What is the status of bilateral debt restructuring?",
+    "answer": "<p><em>In January 2025, Ghana signed a Memorandum of Understanding (MoU) with the Official Creditor Committee. On 24th June 2025, Parliament approved the indicative terms of the MoU, followed by the first bilateral agreement signed between the Republic of Ghana and the French Republic on 25th July 2025, with others to follow.</em></p>"
+  },
+  {
+    "id": "faq-105",
+    "question": "What are the criteria used in the selection of the priority projects under the US$250 million disbursement limit?",
+    "answer": "<p><em>The main criterion for the selection of the priority projects was closeness to completion. As a result, projects with a completion status of 70% and above were considered.</em></p>"
+  },
+  {
+    "id": "faq-106",
+    "question": "What is the status of Ghana's credit ratings?",
+    "answer": "<p><em>Ghana was upgraded to B- and CCC+ from Restricted Default (“RD”) and Selective Default (“SD”) by Fitch and S&P, respectively, in the first half of 2025. This swift recovery from credit default marks a historic milestone in Ghana’s economic management, with Moody’s also holding a Caa2 rating with a positive outlook since Oct 2024.</em></p>"
+  },
+  {
+    "id": "faq-107",
+    "question": "What measures are in place to enhance transparency in public debt management?",
+    "answer": "<p><em>Measures include the amendment of the Public Financial Management Act 2016 (Act 921) to introduce tighter fiscal rules (like a debt rule and a fiscal rule for primary surplus), the legislated establishment of an Independent Fiscal Council to monitor adherence to these rules, and the regular publication of accurate public debt data and related updates by the Ministry of Finance.</em></p>"
+  },
+  {
+    "id": "faq-108",
+    "question": "How is the Ministry working with Bank of Ghana to manage liquidity and avoid crowding out?",
+    "answer": "<p><em>The Ministry and the Bank of Ghana maintain constant and consistent coordination on economic matters and fiscal operations through policy dialogues, joint committees, and regular meetings, while remaining firmly committed to upholding the independence of the central bank.</em></p>"
+  },
+  {
+    "id": "faq-109",
+    "question": "What are Specified Entities?",
+    "answer": "<p><em>Specified Entities (SEs) are State-Owned Enterprises (SOEs), Joint Venture Companies (JVCs) and Other State Entities (OSEs).</em></p>"
+  },
+  {
+    "id": "faq-110",
+    "question": "What is a State-Owned Enterprise (SOE)?",
+    "answer": "<p><em>A State- Owned Enterprise (SOE) is an entity wholly or partially controlled by Government, operating in key sectors of the economy such as energy, utilities, transportation, finance, and infrastructure.</em></p>"
+  },
+  {
+    "id": "faq-111",
+    "question": "What is the difference between JVCs, SOEs, and OSEs?",
+    "answer": "<p><em>SOEs are wholly owned or controlled by Government, JVCs are companies in which Government has majority or minority shares and OSEs are entities established by the state other than SOEs.</em></p>"
+  },
+  {
+    "id": "faq-112",
+    "question": "Why are SEs Important?",
+    "answer": "<p><em><ul><li>Provide essential services such as transport, utilities etc</li><li>Create employment and drive industrial growth</li><li>Contribute revenues and dividends to the State</li></ul></em></p>"
+  },
+  {
+    "id": "faq-113",
+    "question": "What legal framework governs SEs?",
+    "answer": "<p><em>The primary laws and regulations include: <ul><li>Public Financial Management Act, 2016 (Act 921) and its accompanying regulations, 2019 (L.I. 2378) - Sets rules for financial plan and reporting, government support, audits and sanctions.</li><li>State Interests and Governance Authority Act, 2019 (Act 990) - Establishes SIGA and defines oversight roles.</li><li>State Ownership Policy (SOP) - Provides policy guidance for managing state equity holdings.</li><li>Companies Act, 2019 (Act 992) - Regulates incorporation and corporate governance of SEs.</li><li>Code of Corporate Governance – Establishes institutional responsibilities for Boards and Managements.</li><li>Executive Audit Directive, 2025 - Design to expose inefficiencies and cover irregularities and safeguard the public interest.</li></ul></em></p>"
+  },
+  {
+    "id": "faq-114",
+    "question": "What roles are played by MoF and SIGA?",
+    "answer": "<p><em>The Ministry of Finance (MoF) develops policy for managing Government’s interest in SEs, whiles SIGA regulates and oversees these entities.</em></p>"
+  },
+  {
+    "id": "faq-115",
+    "question": "How are SE boards appointed?",
+    "answer": "<p><em>Boards of SEs are appointed by the President in consultation with the Council of State, as provided in Article 70(1)(d)(iii) of the 1992 Constitution and SIGA Act, 2019 (Act 990).</em></p>"
+  },
+  {
+    "id": "faq-116",
+    "question": "Who oversees SEs?",
+    "answer": "<p><em>Oversight is shared among but not limited to MoF, SIGA, Sector Ministries, Auditor General (AG) and Public Services Commission.</em></p>"
+  },
+  {
+    "id": "faq-117",
+    "question": "What reporting obligations do SEs have?",
+    "answer": "<p><em>SEs are required to submit audited financial statements and financial plan annually to MoF, SIGA and AG and provide quarterly reports.</em></p>"
+  },
+  {
+    "id": "faq-118",
+    "question": "What happens when they don’t comply?",
+    "answer": "<p><em>Non-compliance can attract sanctions including: <ul><li>Withholding budget support</li><li>Restriction from new borrowing or contracts</li><li>Administrative or legal action (including referral to the Attorney General)</li><li>Removal of Government-appointed Directors.</li></ul></em></p>"
+  },
+  {
+    "id": "faq-119",
+    "question": "Where can the public access information on SEs?",
+    "answer": "<p><em>Annual State Ownership Reports (SOR) are available on MoF and SIGA websites.</em></p>"
+  },
+  {
+    "id": "faq-120",
+    "question": "What reforms have been introduced recently?",
+    "answer": "<p><em><ul><li>Establishment of the SIGA (2019) to serve as a central oversight body of SEs.</li><li>Adoption of the State Ownership Policy (SOP) to clarify institutional roles.</li><li>Presidential Executive Audit Directive (2025) for independent SOE audit.</li><li>Introduction of the SOE performance league table (2020) to benchmark and publish results.</li></ul></em></p>"
+  },
+  {
+    "id": "faq-121",
+    "question": "How does the Ministry engage with the SEs and key stakeholders?",
+    "answer": "<p><em>Through annual policy forum, regular monitoring, stakeholder meetings, and Annual General Meetings where applicable.</em></p>"
+  },
+  {
+    "id": "faq-122",
+    "question": "What is the Public Asset Management Unit (PAMU)?",
+    "answer": "<p><em>The PAMU is a Unit under Public Investment and Assets Division responsible for formulating policies, coordinating, monitoring, and reporting on the management of public assets to ensure their effective use and maintenance.</em></p>"
+  },
+  {
+    "id": "faq-123",
+    "question": "Why is Asset Management important to Government?",
+    "answer": "<p><em>Asset management ensures that public assets are safeguarded, optimally used, properly maintained, and replaced or disposed of in a cost-effective and transparent manner.</em></p>"
+  },
+  {
+    "id": "faq-124",
+    "question": "Is PAMU the same as the Procurement Unit?",
+    "answer": "<p><em>No. Procurement handles the purchase of goods, works, and services. PAMU focuses on the management of assets throughout their lifecycle after procurement.</em></p>"
+  },
+  {
+    "id": "faq-125",
+    "question": "What is the National Fixed Asset Register?",
+    "answer": "<p><em>The National Fixed Asset Register contains a detailed record of all government assets, including descriptions, locations, values, acquisition dates, and custodians.</em></p>"
+  },
+  {
+    "id": "faq-126",
+    "question": "Who maintains the Fixed Asset Register?",
+    "answer": "<p><em>Each Covered Entity through the Fixed Assets Coordinating Unit maintains its register. PAMU consolidates and manages the Register at the national level.</em></p>"
+  },
+  {
+    "id": "faq-127",
+    "question": "Can government assets be used for private purposes?",
+    "answer": "<p><em>No. Utilization of government assets must be in line with relevant laws and policies.</em></p>"
+  },
+  {
+    "id": "faq-128",
+    "question": "What is Asset Disposal?",
+    "answer": "<p><em>The process of removing an asset from the government register when it is obsolete, damaged, or no longer needed.</em></p>"
+  },
+  {
+    "id": "faq-129",
+    "question": "Who approves Asset Disposal?",
+    "answer": "<p><em>The Minister of Finance grants approval to all disposals in line with the Public Financial Management Act 2016, Act 921 and the Public Financial Management (PFM) Regulations, 2019 (L.I.2378).</em></p>"
+  },
+  {
+    "id": "faq-130",
+    "question": "What are the Disposal Requirements?",
+    "answer": "<p><em>MDAs must request for approval to dispose, provide board of survey report, STC valuation report, GRA tax waiver report and Transport Policy (where necessary).</em></p>"
+  },
+  {
+    "id": "faq-131",
+    "question": "Can PAMU assist in setting up an Asset Register?",
+    "answer": "<p><em>Yes. PAMU provides templates, training, and technical support to Covered Entities for the management of their respective asset registers.</em></p>"
+  },
+  {
+    "id": "faq-132",
+    "question": "Does PAMU collaborate with other agencies?",
+    "answer": "<p><em>Yes. PAMU works with the Auditor-General, Controller and Accountant-General’s Department, Public Procurement Authority and other relevant stakeholders.</em></p>"
+  },
+  {
+    "id": "faq-133",
+    "question": "What is PAMU’s long-term vision?",
+    "answer": "<p><em>To create a transparent, efficient, and sustainable public asset management system that safeguards government resources and maximizes value for citizens.</em></p>"
+  },
+  {
+    "id": "faq-134",
+    "question": "What types of projects do the PIPU review?",
+    "answer": "<p><em>All public investment projects regardless of their funding source or budget as indicated in the PFM (PIM) Regulations 2020, L. I.2411.</em></p>"
+  },
+  {
+    "id": "faq-135",
+    "question": "At what stage of project preparation should the PIPU be engaged?",
+    "answer": "<p><em>At all stages throughout the project life cycle.</em></p>"
+  },
+  {
+    "id": "faq-136",
+    "question": "What does Public Investment Plan (PIP)?",
+    "answer": "<p><em>PIP is a plan which is prepared, prioritized, and costed as capital projects approved by cabinet and is consistent with the Medium-term Expenditure Framework.</em></p>"
+  },
+  {
+    "id": "faq-137",
+    "question": "What is Portfolio of Projects (PoP)?",
+    "answer": "<p><em>Portfolio of Projects are investment projects that; (a) have been appraised and granted the necessary approvals in accordance with PFM(PIM) Regulations 2020, (L.I.2411). (b) have received the Seal of Quality by the Minister.</em></p>"
+  },
+  {
+    "id": "faq-138",
+    "question": "What is Seal of Quality (SoQ)?",
+    "answer": "<p><em>SoQ is a certificate granted by the Minister stating that the Ministry of Finance is confident that the investment project has a positive economic and financial Net Present Value, and is technically, financially and economically viable.</em></p>"
+  },
+  {
+    "id": "faq-139",
+    "question": "What types of projects must be submitted to the Public Investment Programme Unit (PIPU) for review?",
+    "answer": "<p><em>All public investment projects, regardless of their funding source or the budget as per the PFM(PIM) Regulations 2020, L.I.2411.</em></p>"
+  },
+  {
+    "id": "faq-140",
+    "question": "What is Public Investment Programme Working Committee (PIPWC)?",
+    "answer": "<p><em>PIPWC is a committee established by the Minister to appraise project documentation and recommend investment projects for grant or denial of the Seal of Quality by the Minister.</em></p>"
+  },
+  {
+    "id": "faq-141",
+    "question": "What makes a project viable?",
+    "answer": "<p><em>The viability of a project is determined when a project is economically, technically and financially viable by checking whether the project is of benefit to the country and aligns with national goals.</em></p>"
+  },
+  {
+    "id": "faq-142",
+    "question": "What is a Public Private Partnership Project?",
+    "answer": "<p><em>A Public Private Partnership (PPP) is a form of contractual arrangement or concession between a contracting authority and a private party for the provision of public infrastructure or public services traditionally provided by the public sector, as a result of which the private party performs part or all of the infrastructure or service delivery functions of Government, and assumes the defined risks over a significant period of time.</em></p>"
+  },
+  {
+    "id": "faq-143",
+    "question": "What is Public Private Partnership Project?",
+    "answer": "<p><em>A Public Private Partnership project means a public infrastructure project or public service implemented under a partnership agreement between a contracting authority and a private party.</em></p>"
+  },
+  {
+    "id": "faq-144",
+    "question": "Is PPP the same as Privatization?",
+    "answer": "<p><em>No. For PPPs, the assets are owned by Government. The private sector firm receives payment for its investments and services over a pre-determined period. After the agreed period expires, and the private sector has received all due payments, the facility is transferred back to Government to manage.</em></p>"
+  },
+  {
+    "id": "faq-145",
+    "question": "Are there any documents or legal instruments to guide PPPs in Ghana?",
+    "answer": "<p><em>Yes. Public Private Partnership Act, 2020 (Act 1039).</em></p>"
+  },
+  {
+    "id": "faq-146",
+    "question": "How are PPP projects funded?",
+    "answer": "<p><em>PPP projects are primarily funded by the private sector. Government and donor or multilateral institutions may also contribute funding or resources when necessary.</em></p>"
+  },
+  {
+    "id": "faq-147",
+    "question": "Why can’t Government use our tax money to build infrastructure but wants to bring in private people?",
+    "answer": "<p><em>Unfortunately, there is so much demand on Government that it is unable to fund all development projects. PPPs offer the opportunity of attracting significant funding and expertise from the private sector to develop infrastructure and provide services on behalf of Government.</em></p>"
+  },
+  {
+    "id": "faq-148",
+    "question": "How does the private party recoup its investments?",
+    "answer": "<p><em>The private sector party may recoup its investments by any of the following: <ul><li>Entirely from the service provided.</li><li>Tariffs or user charges.</li><li>Entirely from Government budgets, which may be fixed or partially fixed.</li><li>A combination of the above.</li></ul></em></p>"
+  },
+  {
+    "id": "faq-149",
+    "question": "Will PPPs result in increase in tariffs and user charges?",
+    "answer": "<p><em>There may be an increase in tariffs, but this will be accompanied by significant improvements in service delivery, and the tariffs will be controlled by a public regulatory body. Tariffs/user charges for public services can only be adjusted by Government. In all cases financial arrangements will be developed to ensure that public services remain affordable and willingness to pay mechanisms are adhered to under PPP projects.</em></p>"
+  },
+  {
+    "id": "faq-150",
+    "question": "What are some of the benefits of PPP arrangements?",
+    "answer": "<p><em><ul><li>Accelerated delivery of needed infrastructure and public services on time and within budget.</li><li>The private sector is encouraged to provide innovative design, technology and financing structures.</li><li>Increased international and domestic investment in public services.</li><li>Risk sharing between Government and Private Sector Partners; and</li><li>It ensures good quality public services and their wider availability.</li></ul></em></p>"
+  },
+  {
+    "id": "faq-151",
+    "question": "Who can initiate a PPP project?",
+    "answer": "<p><em>PPP projects are initiated by the public sector, that is; Ministries, Departments & Agencies (MDAs), or Metropolitan, Municipal & District Assemblies (MMDAs) in consultation with the Public Investment and Assets Division of the Ministry of Finance.</em></p>"
+  },
+  {
+    "id": "faq-152",
+    "question": "What is the typical duration of a PPP contract?",
+    "answer": "<p><em>A typical PPP contract lasts between 5 and 30 years, with some extending even longer depending on the nature/complexity of the project, financing terms, and the allocation of risks between the public and private parties.</em></p>"
+  },
+  {
+    "id": "faq-153",
+    "question": "What kinds of projects qualify as PPP projects?",
+    "answer": "<p><em>Public infrastructure and public service projects qualify as PPP projects.</em></p>"
+  },
+  {
+    "id": "faq-154",
+    "question": "Name some PPP projects under implementation in Ghana.",
+    "answer": "<p><em>Projects such as the National Identification System Project, Foreigner Identity Management System (FIMS) Project, Upgrade of Current Biometric Passport Systems Project, Integrated Recycling and Compost Plants, Liquid Waste Treatment Plant and Automation of Traffic Law Enforcement in Ghana (TRAFFITECHGH) Project are under implementation.</em></p>"
+  },
+  {
+    "id": "faq-155",
+    "question": "How do I register as a supplier/contractor for Ministry of Finance tenders?",
+    "answer": "<p><em>Registration is facilitated by the submission of Company’s introductory letter/profile (including Business Registration Certificates and Public Procurement Authority’s (PPA) Registration Certificate) addressed to the Director, Administration of the Ministry of Finance. P.O. Box MB 40, Ministries, Accra. The Supplier/Contractor/Service Provider should also take steps to be on rolled onto the Ghana Electronic Procurement Systems (GHANEPS). Officials of the PPA are available to offer the necessary assistance.</em></p>"
+  },
+  {
+    "id": "faq-156",
+    "question": "What is GHANEPS?",
+    "answer": "<p><em>GHANEPS (Ghana Electronic Procurement System) is a web-based, collaborative system, developed in accordance with the requirement of public procurement laws, to facilitate public procurement processes in Ghana. It offers a secure, interactive, dynamic environment for carrying out procurement of all categories, complexity or value. GHANEPS supports processes of procuring Goods, Works, Consultancy, Non-Consultancy and Disposal of assets. The system supports various public procurement procedures including user registration, tender notification, tender preparation and submission, online tender evaluation, contract awarding, creation and management of catalogue, creation and management of framework agreements and auctions and payments.</em></p>"
+  },
+  {
+    "id": "faq-157",
+    "question": "Are there specific eligibility criteria for tendering?",
+    "answer": "<p><em>Yes. Criteria vary per tender but typically include: <ul><li>Valid Business Registration Certificates, PPA Registration Certificate, SSNIT Clearance Certificates, GRA Tax Clearance Certificate</li><li>Relevant technical/financial capacity.</li><li>Sector-specific certifications (for example, Works & Housing Certificate for works procurement).</li><li>No debarment records.</li></ul></em></p>"
+  },
+  {
+    "id": "faq-158",
+    "question": "Where are tenders advertised?",
+    "answer": "<p><em>All open tenders are published on the Ghana Electronic Procurement System (GHANEPS) and widely circulated newspapers.</em></p>"
+  },
+  {
+    "id": "faq-159",
+    "question": "Can I submit a tender after the deadline?",
+    "answer": "<p><em>No. Late tenders are automatically rejected per procurement guidelines.</em></p>"
+  },
+  {
+    "id": "faq-160",
+    "question": "How are tenders evaluated?",
+    "answer": "<p><em><ul><li>Technical compliance (scope/Terms of Reference, specifications, Bill of Quantities).</li><li>Price competitiveness.</li><li>Past performance (where applicable).</li></ul></em></p>"
+  },
+  {
+    "id": "faq-161",
+    "question": "What documents must accompany a tender?",
+    "answer": "<p><em>Typically: <ul><li>Tender security or tender securing declaration (if required).</li><li>Statutory documents</li><li>Tender forms & price schedules or Technical & financial proposals (separate sealed envelopes).</li></ul></em></p>"
+  },
+  {
+    "id": "faq-162",
+    "question": "Is tender security mandatory?",
+    "answer": "<p><em>Not for consultancy services and Request for Quotations. Check tender documents (specifically, tender data sheet) for details.</em></p>"
+  },
+  {
+    "id": "faq-163",
+    "question": "How long does payment take after delivering goods/services?",
+    "answer": "<p><em>Payments are usually processed within 28 days after contract signing, but are subject to contract terms.</em></p>"
+  },
+  {
+    "id": "faq-164",
+    "question": "Can contract terms be negotiated after the award is made?",
+    "answer": "<p><em>No. Contracts are binding as awarded. Minor amendments require written approval from the relevant authorities.</em></p>"
+  },
+  {
+    "id": "faq-165",
+    "question": "How do I challenge a tender award decision?",
+    "answer": "<p><em>File a formal complaint: Submit to the Procurement Division within 10 days of award notification.</em></p>"
+  },
+  {
+    "id": "faq-166",
+    "question": "Will my complaint affect future tendering opportunities?",
+    "answer": "<p><em>Complaints are treated confidentially and impartially.</em></p>"
+  },
+  {
+    "id": "faq-167",
+    "question": "How do I qualify for preferential margins (margin of preference)?",
+    "answer": "<p><em>To qualify under Domestic Goods, the following conditions should be met: <ul><li>Where local labour, raw materials and components from within Ghana account for 15 percent or more of the Ex-Works (EXW) price of the product offered.</li><li>Where imported raw materials or components constitute the bulk of the inputs and local labour and additional components are required for processing into finished products and the proportion of domestic value added is equal to 10 percent or more of the Ex Works (EXW) price of the product offered.</li></ul></em></p>"
+  },
+  {
+    "id": "faq-168",
+    "question": "What are the penalties for breaching a contract?",
+    "answer": "<p><em>Penalties may include: <ul><li>Cancellation of Contract</li><li>Liquidated damages for delays.</li><li>Suspension from future tenders.</li><li>Blacklisting for serious violations.</li></ul></em></p>"
+  },
+  {
+    "id": "faq-169",
+    "question": "How do I report unethical practices by procurement staff?",
+    "answer": "<p><em>Contact and lodge complaints with the Ministry’s Compliance Unit.</em></p>"
+  },
+  {
+    "id": "faq-170",
+    "question": "What is the mode of payment?",
+    "answer": "<p><em>Payments are typically made electronically through GIFMIS directly into the supplier’s/contractor’s or consultant’s bank account as registered on the Ghana Integrated Financial Management Information System (GIFMIS). Cheques are increasingly rare but might still be used in some context. In essence, payment relies on verification of delivery/compliance, certification of correctness and funds and authorization of funds.</em></p>"
+  },
+  {
+    "id": "faq-171",
+    "question": "Where can I get real-time support?",
+    "answer": "<p><em>Contact the Ministry’s Help Desk :0800900104.</em></p>"
+  }
 
-          title.addEventListener("click", () => {
-            // Close all other items
-            faqItems.forEach(i => {
-              if (i !== item) {
-                i.classList.remove("open");
-                i.classList.remove("selected");
-                i.querySelector(".faq-icon").textContent = "+";
-              }
+
+
+];
+
+        // ===========================================
+        // MAIN FAQ FUNCTIONALITY
+        // ===========================================
+        document.addEventListener("DOMContentLoaded", function() {
+            // Get the main FAQ section container
+            const faqSection = document.querySelector("#faq-section");
+
+            // ===========================================
+            // DYNAMICALLY GENERATE FAQ ITEMS FROM JSON DATA
+            // ===========================================
+            faqData.forEach(item => {
+                const faqItem = document.createElement("div");
+                faqItem.classList.add("faq-item");
+                faqItem.id = item.id;
+                faqItem.innerHTML = `
+                    <button class="faq-title">
+                        ${item.question}
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-content">
+                        ${item.answer}
+                    </div>
+                `;
+                faqSection.appendChild(faqItem);
             });
 
-            // Toggle current item
-            item.classList.toggle("open");
-            if (item.classList.contains("open")) {
-              item.classList.add("selected");
-            } else {
-              item.classList.remove("selected");
+            // Get all FAQ items after they're created
+            const faqItems = document.querySelectorAll(".faq-item");
+
+            // ===========================================
+            // FAQ TOGGLE FUNCTIONALITY
+            // ===========================================
+            faqItems.forEach(item => {
+                const title = item.querySelector(".faq-title");
+                const icon = item.querySelector(".faq-icon");
+
+                title.addEventListener("click", () => {
+                    // Close all other FAQ items (accordion behavior)
+                    faqItems.forEach(i => {
+                        if (i !== item) {
+                            i.classList.remove("open");
+                            i.classList.remove("selected");
+                            i.querySelector(".faq-icon").textContent = "+";
+                        }
+                    });
+
+                    // Toggle current FAQ item
+                    item.classList.toggle("open");
+                    if (item.classList.contains("open")) {
+                        item.classList.add("selected");
+                    } else {
+                        item.classList.remove("selected");
+                    }
+                    icon.textContent = item.classList.contains("open") ? "−" : "+";
+                });
+            });
+
+            // ===========================================
+            // URL PARAMETER HANDLING FOR DIRECT FAQ ACCESS
+            // ===========================================
+            const params = new URLSearchParams(window.location.search);
+            let id = params.get("id");
+
+            // Normalize ID to match faq-<number> format
+            if (id) {
+                // Remove 'faq-' prefix if present, keep only the number
+                id = id.replace(/^faq-/, "");
+                const targetFaq = document.getElementById(`faq-${id}`);
+
+                if (targetFaq) {
+                    // Reset scroll position of the faq-section
+                    faqSection.scrollTop = 0;
+
+                    // Scroll to the target FAQ with offset for scroll-margin-top
+                    setTimeout(() => {
+                        const rect = targetFaq.getBoundingClientRect();
+                        const sectionRect = faqSection.getBoundingClientRect();
+                        const offsetTop = rect.top - sectionRect.top + faqSection.scrollTop - 30; // Account for scroll-margin-top
+                        faqSection.scrollTo({
+                            top: offsetTop,
+                            behavior: "smooth"
+                        });
+                    }, 500); // Increased delay to ensure DOM rendering
+
+                    // Open and highlight the target FAQ
+                    setTimeout(() => {
+                        faqItems.forEach(i => {
+                            i.classList.remove("open");
+                            i.classList.remove("selected");
+                            i.querySelector(".faq-icon").textContent = "+";
+                        });
+                        targetFaq.classList.add("open");
+                        targetFaq.classList.add("selected");
+                        targetFaq.querySelector(".faq-icon").textContent = "−";
+                    }, 700); // Slightly longer delay for opening
+                } else {
+                    console.warn(`FAQ with ID faq-${id} not found.`);
+                }
             }
-            icon.textContent = item.classList.contains("open") ? "−" : "+";
-          });
         });
-
-        // Handle URL parameter for scrolling and opening
-        const params = new URLSearchParams(window.location.search);
-        let id = params.get("id");
-
-        // Normalize ID to match faq-<number> format
-        if (id) {
-          // Remove 'faq-' prefix if present, keep only the number
-          id = id.replace(/^faq-/, "");
-          const targetFaq = document.getElementById(`faq-${id}`);
-
-          if (targetFaq) {
-            // Reset scroll position of the faq-section
-            faqSection.scrollTop = 0;
-
-            // Scroll to the target FAQ with offset for scroll-margin-top
-            setTimeout(() => {
-              const rect = targetFaq.getBoundingClientRect();
-              const sectionRect = faqSection.getBoundingClientRect();
-              const offsetTop = rect.top - sectionRect.top + faqSection.scrollTop - 30; // Account for scroll-margin-top
-              faqSection.scrollTo({
-                top: offsetTop,
-                behavior: "smooth"
-              });
-            }, 500); // Increased delay to ensure DOM rendering
-
-            // Open and highlight the target FAQ
-            setTimeout(() => {
-              faqItems.forEach(i => {
-                i.classList.remove("open");
-                i.classList.remove("selected");
-                i.querySelector(".faq-icon").textContent = "+";
-              });
-              targetFaq.classList.add("open");
-              targetFaq.classList.add("selected");
-              targetFaq.querySelector(".faq-icon").textContent = "−";
-            }, 700); // Slightly longer delay for opening
-          } else {
-            console.warn(`FAQ with ID faq-${id} not found.`);
-          }
-        }
-      });
     </script>
+
+    <!-- ===========================================
+         FAQ PANEL SCRIPT
+         =========================================== -->
+    <script>
+        // ===========================================
+        // FAQ PANEL FUNCTIONALITY
+        // ===========================================
+        document.addEventListener('DOMContentLoaded', () => {
+            // ===========================================
+            // DOM ELEMENT SELECTORS
+            // ===========================================
+            const fab = document.querySelector('.fab');
+            const faqPanel = document.querySelector('.faq-panel');
+            const closeBtn = document.querySelector('.close-btn');
+            const toggleSuggestionsBtn = document.querySelector('.toggle-suggestions-btn');
+            const searchInput = document.querySelector('.search-input');
+            const suggestionsContainer = document.querySelector('.suggestions');
+            const suggestionsContent = document.querySelector('.suggestions-content');
+            const expandBtn = document.querySelector('.expand-btn');
+            const faqList = document.querySelector('.faq-list');
+  
+            // ===========================================
+            // FAQ DATA FOR PANEL (Categorized)
+            // ===========================================
+            const faqs = [
+                // ===========================================
+                // BUDGET CATEGORY
+                // ===========================================
+                {
+                    "id": 1,
+                    "category": "BUDGET",
+                    "question": "Why are contractors owed up to 2024 not being paid?",
+                    "answer": "All outstanding claims/arrears as at 31st December, 2024 are undergoing audit. Payment will start after validation exercise is..."
+                },
+    {
+      "id": 2,
+      "category": "BUDGET",
+      "question": "How will government pay the arrears after the audit?",
+      "answer": "A provision of GH₵ 13.07 billion was made to take care of validated claims under the arrears vote..."
+    },
+    {
+      "id": 3,
+      "category": "BUDGET",
+      "question": "Who is responsible for preparing the national budget under the PFM Act 921?",
+      "answer": "The Minister for Finance is responsible for preparing and presenting the national budget to Parliament on behalf..."
+    },
+    {
+      "id": 4,
+      "category": "BUDGET",
+      "question": "Why do state Owned Enterprise have to seek commitment authorization?",
+      "answer": "The Public Procurement Act (Amendment), (Act 2025) (Act 1139), requires all procurement entities to obtain a commitment..."
+    },
+    {
+      "id": 5,
+      "category": "BUDGET",
+      "question": "Do MDAs have to seek for commitment authorization for government initiatives (Goods and Services and CAPEX)?",
+      "answer": "Yes, all MDAs must seek commitment authorization for all Government initiatives, both goods and services and..."
+    },
+    {
+      "id": 6,
+      "category": "BUDGET",
+      "question": "Who is responsible for preparing the national budget under the PFM Act 921?",
+      "answer": "The Minister for Finance is responsible for preparing and presenting the national budget to Parliament on behalf..."
+    },
+    {
+      "id": 7,
+      "category": "BUDGET",
+      "question": "What role do Principal Spending Officers (PSOs) play in budget preparation?",
+      "answer": "PSOs prepare budget estimates for their institutions within ceilings and guidelines provided by the Ministry of Finance."
+    },
+    {
+      "id": 8,
+      "category": "BUDGET",
+      "question": "How does Section 21 of the PFM Act ensure that budget preparation aligns with fiscal policy objectives?",
+      "answer": "It requires that budget preparation be guided by the Government’s fiscal strategy document and macroeconomic framework."
+    },
+    {
+      "id": 9,
+      "category": "BUDGET",
+      "question": "What timelines are set out in the PFM Act 921 for annual budget submission and approval?",
+      "answer": "The Minister must present the budget to Parliament not later 15th November of each financial year and..."
+    },
+    {
+      "id": 10,
+      "category": "BUDGET",
+      "question": "What information must be included in the annual budget estimates?",
+      "answer": "Revenue projections, expenditure allocations, financing sources, fiscal targets and policy priorities."
+    },
+    {
+      "id": 11,
+      "category": "BUDGET",
+      "question": "How are ceilings communicated to MDAs during budget preparation?",
+      "answer": "The Ministry of Finance issues budget guidelines and expenditure ceilings to all MDAs to guide in..."
+    },
+    {
+      "id": 12,
+      "category": "BUDGET",
+      "question": "What role does Parliament play in budget oversight?",
+      "answer": "Parliament debates, scrutinizes and approves the annual estimates before the start of the new financial..."
+    },
+    {
+      "id": 13,
+      "category": "BUDGET",
+      "question": "How are Internally Generated Funds (IGFS) treated in budget preparation?",
+      "answer": "IGFs must be prepared and included in the estimates, subject to Ministry of Finance approval."
+    },
+    {
+      "id": 14,
+      "category": "BUDGET",
+      "question": "What mechanisms ensure that budgets reflect national priorities?",
+      "answer": "All MDAs are required to prepare medium term strategy which is drawn from the National Development..."
+    },
+    {
+      "id": 15,
+      "category": "BUDGET",
+      "question": "What is an Appropriation Bill?",
+      "answer": "An Appropriation Bill is a law that authorizes the Government to withdraw and spend money from the Consolidated..."
+    },
+    {
+      "id": 16,
+      "category": "BUDGET",
+      "question": "What is a National Budget Statement and Economic Policy?",
+      "answer": "The National Budget Statement and Economic Policy is a comprehensive document that the Minister for Finance..."
+    },
+    {
+      "id": 17,
+      "category": "BUDGET",
+      "question": "What is a Citizen’s Budget?",
+      "answer": "A citizen’s Budget is a simplified, abridged, and non-technical version of a Government’s official national..."
+    },
+    {
+      "id": 18,
+      "category": "BUDGET",
+      "question": "What is a Budget Hearing?",
+      "answer": "A budget hearing is a formal meeting or series of meetings where public entities – such as government..."
+    },
+    {
+      "id": 19,
+      "category": "BUDGET",
+      "question": "What is Public Financial Management?",
+      "answer": "Public Financial Management (PFM) refers to the system of how a government manages public money. It encompasses..."
+    },
+    {
+      "id": 20,
+      "category": "BUDGET",
+      "question": "What is the Budget Calendar?",
+      "answer": "A budget calendar is an official timetable that sets out the sequence of activities, responsibilities and..."
+    },
+    {
+      "id": 21,
+      "category": "BUDGET",
+      "question": "What is a Mid-year Fiscal Policy Review?",
+      "answer": "A Mid-year Fiscal Policy Review is a formal assessment of a Government’s budget performance and economic..."
+    },
+    {
+      "id": 22,
+      "category": "BUDGET",
+      "question": "What is Budget Ceiling?",
+      "answer": "A budget ceiling is the maximum amount of resources (funds) that the Ministry of Finance (or the..."
+    },
+    {
+      "id": 23,
+      "category": "BUDGET",
+      "question": "What is meant by Budget Implementation Support and Data Integration?",
+      "answer": "Delivering technical assistance to Covered Entities and Statutory Fund Agencies on budget preparation through Oracle Hyperion and..."
+    },
+    {
+      "id": 24,
+      "category": "BUDGET",
+      "question": "What tools or guidelines does the FDU provide for budget preparation at the local level?",
+      "answer": "The Unit issues annual composite budget guidelines, reporting templates and technical manuals to standardize MMDAs budgeting."
+    },
+    {
+      "id": 25,
+      "category": "BUDGET",
+      "question": "What is the District Assembly Common Fund (DACF) and how is it allocated to MMDAs?",
+      "answer": "The DACF is a statutory arrangement backed by the 1992 Constitution to transfer financial resources (not less..."
+    },
+    {
+      "id": 26,
+      "category": "BUDGET",
+      "question": "What are the guidelines governing the implementation of the 2025 Budget?",
+      "answer": "The Ministry of Finance released the 2025 Budget Implementation Instructions, in line with the Public Financial..."
+    },
+         
+    
+    
+    // Compliance (3)
+    {
+      "id": 27,
+      "category": "COMPLIANCE",
+      "question": "What is Commitment Authorisation?",
+      "answer": "A formal approval issued by the Minister for Finance to Public Institutions prior to initiating procurement activities..."
+    },
+    {
+      "id": 28,
+      "category": "COMPLIANCE",
+      "question": "When do you need Commitment Authorisation?",
+      "answer": "Prior to initiating procurement activities (Goods, Service and Works)."
+    },
+    {
+      "id": 29,
+      "category": "COMPLIANCE",
+      "question": "Do you need Commitment Authorisation for both new and ongoing projects?",
+      "answer": "Commitment Authorisation is required for new projects and for ongoing projects that may require additional..."
+    },
+    {
+      "id": 30,
+      "category": "COMPLIANCE",
+      "question": "Is Commitment Authorisation required for all funding sources of Government?",
+      "answer": "Yes, Commitment Authorisation is required for all Government funding sources."
+    },
+    {
+      "id": 31,
+      "category": "COMPLIANCE",
+      "question": "Who can request for Commitment Authorisation?",
+      "answer": "Procurement Entities that intend to undertake procurement activities which commit Government."
+    },
+    {
+      "id": 32,
+      "category": "COMPLIANCE",
+      "question": "How to request for Commitment Authorisation?",
+      "answer": "Procurement Entities write to seek approval from the Minister for Finance detailing the items to be procured..."
+    },
+    {
+      "id": 33,
+      "category": "COMPLIANCE",
+      "question": "What is Commitment Control Compliance Checklist (CCCC)?",
+      "answer": "List of Budget Commitment Control Measures to be in place before funds are committed. These are..."
+    },
+    {
+      "id": 34,
+      "category": "COMPLIANCE",
+      "question": "What is the PFM League Table?",
+      "answer": "Periodic assessment of MDAs based on their compliance with the Public Financial Management Laws..."
+    },
+    {
+      "id": 35,
+      "category": "COMPLIANCE",
+      "question": "What are the core functions of the PFM Compliance Division?",
+      "answer": "Enforce compliance and provide support to Government Institutions implementing PFM laws, policies, and guidelines..."
+    },
+    {
+      "id": 36,
+      "category": "COMPLIANCE",
+      "question": "What is the PFM Compliance and Enforcement Committee?",
+      "answer": "A high-level committee that serves as a body of inquiry on issues relating to commitment..."
+    },
+    {
+      "id": 37,
+      "category": "COMPLIANCE",
+      "question": "What are the functions of the PFM Compliance and Enforcement Committee?",
+      "answer": "The committee ensures adherence to the PFM Laws and recommends appropriate sanctions to defaulting individuals and..."
+    },
+    {
+      "id": 38,
+      "category": "COMPLIANCE",
+      "question": "Do State Owned Enterprises (SOEs) require Commitment Authorisation?",
+      "answer": "Yes, per Section 14 of PPA Act 663, once a procurement activity is financed in..."
+    },
+    {
+      "id": 39,
+      "category": "COMPLIANCE",
+      "question": "Is Internally Generated Funds (IGF) Public Funds?",
+      "answer": "Yes, it is public funds. Managers of Institution that generates and manage IGF do so..."
+    },
+    {
+      "id": 40,
+      "category": "COMPLIANCE",
+      "question": "Do Foreign Loans and Grants funded projects require Commitment Authorisation?",
+      "answer": "Yes, they do require Commitment Authorisation."
+    },
+    {
+      "id": 41,
+      "category": "COMPLIANCE",
+      "question": "Do Development Partners need Commitment Authorisation prior to the signing of a Loan or Grant agreement?",
+      "answer": "No, they do not require Commitment Authorization."
+    },
+  
+          // Financial Sector (3)
+          {
+      "id": 42,
+      "category": "FINANCIAL SECTOR",
+      "question": "What is the mandate of the Financial Sector Division?",
+      "answer": "The mandate of the Financial Sector Division is to provide policy-based and strategic analysis on Ghana’s financial..."
+    },
+    {
+      "id": 43,
+      "category": "FINANCIAL SECTOR",
+      "question": "What are the key institutions in the Financial Sector?",
+      "answer": "Key institutions in the financial sector include the financial sector regulators (Bank of Ghana (BoG), Securities..."
+    },
+    {
+      "id": 44,
+      "category": "FINANCIAL SECTOR",
+      "question": "What are Special Deposit-taking Institutions (SDIs)?",
+      "answer": "SDIs refer to institutions that been licensed by the BoG to engage in the deposit-taking..."
+    },
+    {
+      "id": 45,
+      "category": "FINANCIAL SECTOR",
+      "question": "What was Government’s fiscal intervention during the financial sector clean-up?",
+      "answer": "Government spent a total of GH¢30.3 billion to clean-up the financial sector by the end..."
+    },
+    {
+      "id": 46,
+      "category": "FINANCIAL SECTOR",
+      "question": "What is the mandate of the Ghana Amalgamated Trust Plc (GAT) in the financial sector?",
+      "answer": "The Ghana Amalgamated Trust Plc (GAT) was established to support solvent but undercapitalized indigenous banks following..."
+    },
+    {
+      "id": 47,
+      "category": "FINANCIAL SECTOR",
+      "question": "At what stage is a bank or SDI considered distressed?",
+      "answer": "A bank or SDI is considered distressed when it fails to meet regulatory capital requirements, experiences..."
+    },
+    {
+      "id": 48,
+      "category": "FINANCIAL SECTOR",
+      "question": "Why are State-owned banks recapitalized?",
+      "answer": "State-owned banks are recapitalized to strengthen their capital base, enhance their ability to support government’s economic..."
+    },
+    {
+      "id": 49,
+      "category": "FINANCIAL SECTOR",
+      "question": "What is a microfinance institution?",
+      "answer": "A microfinance institution is a non-bank financial institution that provides small loans, savings, and other..."
+    },
+    {
+      "id": 50,
+      "category": "FINANCIAL SECTOR",
+      "question": "What is a Credit Union?",
+      "answer": "A credit union is a member-based financial cooperative that provides savings, loans, and related financial..."
+    },
+    {
+      "id": 51,
+      "category": "FINANCIAL SECTOR",
+      "question": "What is the role of the capital market in Ghana’s economy?",
+      "answer": "The capital market supports the mobilization of long-term funds for businesses, government, and infrastructure projects, thereby..."
+    },
+    {
+      "id": 52,
+      "category": "FINANCIAL SECTOR",
+      "question": "How can one invest in Ghana’s capital market?",
+      "answer": "One can invest by opening an account with a licensed broker or investment adviser who will..."
+    },
+    {
+      "id": 53,
+      "category": "FINANCIAL SECTOR",
+      "question": "What is the Capital Market Master Plan (CMMP)?",
+      "answer": "The CMMP is a strategic blueprint developed to guide Ghana’s capital market reforms and growth..."
+    },
+    {
+      "id": 54,
+      "category": "FINANCIAL SECTOR",
+      "question": "What is the Ghana Stock Exchange (GSE)?",
+      "answer": "The GSE is the primary platform for trading securities in Ghana, including shares, bonds, and..."
+    },
+    {
+      "id": 55,
+      "category": "FINANCIAL SECTOR",
+      "question": "What is the Ghana Commodities Exchange (GCX)?",
+      "answer": "The Ghana Commodity Exchange (GCX) is a Public-Private Partnership that connects commodity producers with buyers through..."
+    },
+    {
+      "id": 56,
+      "category": "FINANCIAL SECTOR",
+      "question": "What is the Ghana Investment and Securities Institute (GISI)?",
+      "answer": "The Ghana Investment and Securities Institute (GISI) serves as the training and capacity-building arm of the Securities..."
+    },
+    {
+      "id": 57,
+      "category": "FINANCIAL SECTOR",
+      "question": "What is the Central Securities Depository (CSD)?",
+      "answer": "The Central Securities Depository is the organisation that hosts the electronic system that holds securities in..."
+    },
+    {
+      "id": 58,
+      "category": "FINANCIAL SECTOR",
+      "question": "Who are brokers and dealers?",
+      "answer": "Brokers and dealers are licensed intermediaries who execute buy and sell orders for clients. Brokers serve..."
+    },
+    {
+      "id": 59,
+      "category": "FINANCIAL SECTOR",
+      "question": "Who are fund managers?",
+      "answer": "Fund managers are experts responsible for overseeing pooled investment funds, such as mutual funds, collective investment..."
+    },
+    {
+      "id": 60,
+      "category": "FINANCIAL SECTOR",
+      "question": "What is a Credit Rating Agency?",
+      "answer": "A Credit Rating Agency is responsible for providing independent assessment of a borrower or issuer of..."
+    },
+    {
+      "id": 61,
+      "category": "FINANCIAL SECTOR",
+      "question": "What is Financial Bailout?",
+      "answer": "Financial bailout can be described as a situation where a government, central bank, or financial institution..."
+    },
+    {
+      "id": 62,
+      "category": "FINANCIAL SECTOR",
+      "question": "What is a Mark-to-Market (MTM)?",
+      "answer": "Mark to market (MTM) is a method of valuing assets and liabilities based on current market..."
+    },
+    {
+      "id": 63,
+      "category": "FINANCIAL SECTOR",
+      "question": "What are Collective Investment Schemes?",
+      "answer": "A Collective Investment Scheme (CIS) are pools of funds managed by professional fund managers and invested..."
+    },
+    {
+      "id": 64,
+      "category": "FINANCIAL SECTOR",
+      "question": "What is development finance, and how does it differ from traditional finance?",
+      "answer": "Development finance refers to the use of financial resources and instruments to drive inclusive growth, sustainable..."
+    },
+    {
+      "id": 65,
+      "category": "FINANCIAL SECTOR",
+      "question": "How does development finance support economic development?",
+      "answer": "DFIs play catalytic role by providing medium and long-term financing, mobilising private capital and derisking investments..."
+    },
+    {
+      "id": 66,
+      "category": "FINANCIAL SECTOR",
+      "question": "What are the main financial instruments used in development financing?",
+      "answer": "Development finance uses flexible, tailored instruments to address market gaps, reduce risk, and attract private investment..."
+    },
+    {
+      "id": 67,
+      "category": "FINANCIAL SECTOR",
+      "question": "What is the function of DBG?",
+      "answer": "Development Bank Ghana was established in 2020 as a wholesale Bank to provide medium to long-term..."
+    },
+    {
+      "id": 68,
+      "category": "FINANCIAL SECTOR",
+      "question": "What is Development Bank Ghana Guarantee (DBGG)?",
+      "answer": "The DBGG is a Partial Credit Guarantee scheme that provides guarantees part of credit risk on..."
+    },
+    {
+      "id": 69,
+      "category": "FINANCIAL SECTOR",
+      "question": "Does the DBG Partial Credit Guarantee replace collateral requirements?",
+      "answer": "No, but it reduces the collateral burden on borrowers, thereby making loans more accessible and..."
+    },
+    {
+      "id": 70,
+      "category": "FINANCIAL SECTOR",
+      "question": "What does Venture Capital Trust Fund seek to achieve?",
+      "answer": "VCTF was set up to develop and promote Ghana’s venture capital market by providing equity..."
+    },
+    {
+      "id": 71,
+      "category": "FINANCIAL SECTOR",
+      "question": "What is the mandate of Ghana Infrastructure Investment Fund (GIIF) and how does it support national development?",
+      "answer": "GIIF’s mandate is to finance and invest in strategic infrastructure projects that drive Ghana’s economic growth..."
+    },
+    {
+      "id": 72,
+      "category": "FINANCIAL SECTOR",
+      "question": "What is the mandate of Ghana Eximbank, and which priority sectors does it support?",
+      "answer": "The mandate of Ghana EXIM Bank is to promote industrialization and export-led growth by providing financing..."
+    },
+    {
+      "id": 73,
+      "category": "FINANCIAL SECTOR",
+      "question": "What is GIRSAL’s core mandate and how does it improve lending?",
+      "answer": "GIRSAL’s is a risk-sharing and financing mechanism established to de-risk agricultural financing in Ghana and encouraging..."
+    },
+    {
+      "id": 74,
+      "category": "FINANCIAL SECTOR",
+      "question": "What is Financial Inclusion?",
+      "answer": "Financial inclusion refers to individuals and businesses ability to access and utilize affordable and safe financial..."
+    },
+    {
+      "id": 75,
+      "category": "FINANCIAL SECTOR",
+      "question": "Why is Financial Inclusion important?",
+      "answer": "Financial inclusion helps households’ smoothen consumption pattern, manage shocks, build assets, and invest in sectors..."
+    },
+    {
+      "id": 76,
+      "category": "FINANCIAL SECTOR",
+      "question": "What is Financial Technology (Fintech)?",
+      "answer": "This is the use of technology to design, deliver, and improve financial services. They include mobile..."
+    },
+    {
+      "id": 77,
+      "category": "FINANCIAL SECTOR",
+      "question": "What measures have been put in place by Government to drive Financial Inclusion?",
+      "answer": "Government as part of efforts to deepen financial inclusion has strengthened infrastructure through Ghana Interbank Payment..."
+    },
+    {
+      "id": 78,
+      "category": "FINANCIAL SECTOR",
+      "question": "What are the barriers to accessing financial services in Ghana?",
+      "answer": "Documentation and KYC challenges - women, youth, and informal workers do not have the requisite documentation..."
+    },
+    {
+      "id": 79,
+      "category": "FINANCIAL SECTOR",
+      "question": "How are consumers protected in the financial sector?",
+      "answer": "Financial Consumer are protected through: Market-conduct rules – this requires financial institutions to practice fair pricing,..."
+    },
+    {
+      "id": 80,
+      "category": "FINANCIAL SECTOR",
+      "question": "How is Ghana addressing gender gaps in financial inclusion?",
+      "answer": "Collecting and using sex-disaggregated data – this helps identify gaps and monitor progress. Simplified onboarding process..."
+    },
+    {
+      "id": 81,
+      "category": "FINANCIAL SECTOR",
+      "question": "What is pension?",
+      "answer": "Pension is a regular payment that a person receives after retiring from work, usually funded by..."
+    },
+    {
+      "id": 82,
+      "category": "FINANCIAL SECTOR",
+      "question": "Why is pension important?",
+      "answer": "It provides financial security and independence when a contributor is no longer earning a regular income..."
+    },
+    {
+      "id": 83,
+      "category": "FINANCIAL SECTOR",
+      "question": "What is a pension fund?",
+      "answer": "A pension fund is an investment fund within the pension scheme which is intended to accumulate..."
+    },
+    {
+      "id": 84,
+      "category": "FINANCIAL SECTOR",
+      "question": "What is the role of the National Pensions Regulatory Authority (NPRA)?",
+      "answer": "The National Pensions Regulatory Authority (NPRA) oversees and regulates all three tiers to ensure compliance, licensing..."
+    },
+    {
+      "id": 85,
+      "category": "FINANCIAL SECTOR",
+      "question": "What is the three-tier pension scheme?",
+      "answer": "Ghana’s 3-tier pension system combines social security (Tier 1), private occupational pensions (Tier 2), and voluntary..."
+    },
+    {
+      "id": 86,
+      "category": "FINANCIAL SECTOR",
+      "question": "How can an informal sector worker contribute to Tier 1?",
+      "answer": "An informal sector worker can join Tier 1 by registering with SSNIT as a self-employed contributor..."
+    },
+    {
+      "id": 87,
+      "category": "FINANCIAL SECTOR",
+      "question": "What is a provident fund?",
+      "answer": "A provident fund is a fully funded, defined contribution scheme in which funds are managed privately..."
+    },
+    {
+      "id": 88,
+      "category": "FINANCIAL SECTOR",
+      "question": "What incentives exist for voluntary pension scheme (Tier 3)?",
+      "answer": "Tier 3 contributions enjoy tax relief up to specified limits (16.5%), encouraging workers, particularly in the..."
+    },
+    {
+      "id": 89,
+      "category": "FINANCIAL SECTOR",
+      "question": "What is insurance?",
+      "answer": "Insurance is a financial arrangement that protects individuals, businesses, or organizations against potential losses or risks..."
+    },
+    {
+      "id": 90,
+      "category": "FINANCIAL SECTOR",
+      "question": "Why is insurance important?",
+      "answer": "Insurance protects individuals, businesses, and communities against financial losses from unforeseen events such as accidents, illness,..."
+    },
+    {
+      "id": 91,
+      "category": "FINANCIAL SECTOR",
+      "question": "What types of insurance are compulsory in Ghana?",
+      "answer": "Under Ghana’s Insurance Act, 2021 (Act 1061), several types of insurance are mandatory to protect the..."
+    },
+    {
+      "id": 92,
+      "category": "FINANCIAL SECTOR",
+      "question": "How can one contact relevant authorities in the financial sector for complaints and support?",
+      "answer": "For Compliant and education about a bank savings and loans companies, licensed susu enterprises, rural and..."
+    },
+  
+          // Mid-Year Fiscal Policy Review (3)
+          {
+      "id": 93,
+      "category": "2025 MID YEAR FISCAL POLICY Review",
+      "question": "What is the current status of Ghana's public debt as of June 2025?",
+      "answer": "At end-June 2025, Ghana's provisional public debt has declined significantly to GH¢613,000.6 million, down..."
+    },
+    {
+      "id": 94,
+      "category": "2025 MID YEAR FISCAL POLICY Review",
+      "question": "How has Ghana's public debt-to-GDP ratio changed?",
+      "answer": "The debt-to-GDP ratio dropped sharply to 43.8 percent at end-June 2025, from 61.8 percent..."
+    },
+    {
+      "id": 95,
+      "category": "2025 MID YEAR FISCAL POLICY Review",
+      "question": "What is the current composition of Ghana's public debt (domestic vs. external)?",
+      "answer": "As of end-June 2025, Ghana's public debt composition shows a notable shift. The share of..."
+    },
+    {
+      "id": 96,
+      "category": "2025 MID YEAR FISCAL POLICY Review",
+      "question": "How has the foreign debt as a percentage of total public debt changed?",
+      "answer": "The external debt as a percentage of total public debt decreased from 57.4% at..."
+    },
+    {
+      "id": 97,
+      "category": "2025 MID YEAR FISCAL POLICY Review",
+      "question": "What is Ghana's current borrowing strategy?",
+      "answer": "In the first half of 2025, Ghana's government financing operations heavily relied on Government treasury..."
+    },
+    {
+      "id": 98,
+      "category": "2025 MID YEAR FISCAL POLICY Review",
+      "question": "How has Ghana's debt sustainability improved?",
+      "answer": "Government is on track to achieve its debt sustainability target earlier than expected, particularly given..."
+    },
+    {
+      "id": 99,
+      "category": "2025 MID YEAR FISCAL POLICY Review",
+      "question": "What is the Medium-Term Debt Strategy (MTDS)?",
+      "answer": "The 2025-2028 MTDS aims to, in the near term, reduce refinancing risk and lower..."
+    },
+    {
+      "id": 100,
+      "category": "2025 MID YEAR FISCAL POLICY Review",
+      "question": "What is the debt-to-GDP ratio target and by when does Ghana aim to achieve it?",
+      "answer": "Government is expected to achieve a debt-to-GDP target of 55 percent in present value..."
+    },
+    {
+      "id": 101,
+      "category": "2025 MID YEAR FISCAL POLICY Review",
+      "question": "What key risk indicators are being monitored in Ghana's debt management?",
+      "answer": "Key risks being monitored include the solvency, cost of debt, refinancing and interest rate..."
+    },
+    {
+      "id": 102,
+      "category": "2025 MID YEAR FISCAL POLICY Review",
+      "question": "What is the current status of the DDEP?",
+      "answer": "Government continues to meet its commitment to the DDEP bondholders, so far government has successfully..."
+    },
+    {
+      "id": 103,
+      "category": "2025 MID YEAR FISCAL POLICY Review",
+      "question": "Will the Sinking Fund be ring-fenced from future fiscal pressures or reallocation?",
+      "answer": "The operationalisation of the Sinking Fund follows strictly sections 37 to 44 of the PFM..."
+    },
+    {
+      "id": 104,
+      "category": "2025 MID YEAR FISCAL POLICY Review",
+      "question": "What is the status of bilateral debt restructuring?",
+      "answer": "In January 2025, Ghana signed a Memorandum of Understanding (MoU) with the Official Creditor Committee..."
+    },
+    {
+      "id": 105,
+      "category": "2025 MID YEAR FISCAL POLICY Review",
+      "question": "What are the criteria used in the selection of the priority projects under the US$250 million disbursement limit?",
+      "answer": "The main criterion for the selection of the priority projects was closeness to completion..."
+    },
+    {
+      "id": 106,
+      "category": "2025 MID YEAR FISCAL POLICY Review",
+      "question": "What is the status of Ghana's credit ratings?",
+      "answer": "Ghana was upgraded to B- and CCC+ from Restricted Default (“RD”) and Selective Default..."
+    },
+    {
+      "id": 107,
+      "category": "2025 MID YEAR FISCAL POLICY Review",
+      "question": "What measures are in place to enhance transparency in public debt management?",
+      "answer": "Government is committed to enhancing transparency in its public financial management and debt operations. Key..."
+    },
+    {
+      "id": 108,
+      "category": "2025 MID YEAR FISCAL POLICY Review",
+      "question": "How is the Ministry working with Bank of Ghana to manage liquidity and avoid crowding out?",
+      "answer": "The Ministry and the Bank of Ghana, as fiscal and monetary agents respectively, maintain..."
+    },
+  
+          // Public Division and Asset Division (3)
+          {
+      "id": 109,
+      "category": "PUBLIC DIVISION AND ASSET DIVISION",
+      "question": "What are Specified Entities?",
+      "answer": "Specified Entities (SEs) are State-Owned Enterprises (SOEs), Joint Venture Companies (JVCs) and Other State Entities (OSEs)."
+    },
+    {
+      "id": 110,
+      "category": "PUBLIC DIVISION AND ASSET DIVISION",
+      "question": "What is a State-Owned Enterprise (SOE)?",
+      "answer": "A State- Owned Enterprise (SOE) is an entity wholly or partially controlled by Government, operating..."
+    },
+    {
+      "id": 111,
+      "category": "PUBLIC DIVISION AND ASSET DIVISION",
+      "question": "What is the difference between JVCs, SOEs, and OSEs?",
+      "answer": "SOEs are wholly owned or controlled by Government, JVCs are companies in which Government has..."
+    },
+    {
+      "id": 112,
+      "category": "PUBLIC DIVISION AND ASSET DIVISION",
+      "question": "Why are SEs Important?",
+      "answer": "Provide essential services such as transport, utilities etc Create employment and drive industrial growth Contribute..."
+    },
+    {
+      "id": 113,
+      "category": "PUBLIC DIVISION AND ASSET DIVISION",
+      "question": "What legal framework governs SEs?",
+      "answer": "The primary laws and regulations include: Public Financial Management Act, 2016 (Act 921) and its..."
+    },
+    {
+      "id": 114,
+      "category": "PUBLIC DIVISION AND ASSET DIVISION",
+      "question": "What roles are played by MoF and SIGA?",
+      "answer": "The Ministry of Finance (MoF) develops policy for managing Government’s interest in SEs, whiles SIGA..."
+    },
+    {
+      "id": 115,
+      "category": "PUBLIC DIVISION AND ASSET DIVISION",
+      "question": "How are SE boards appointed?",
+      "answer": "Boards of SEs are appointed by the President in consultation with the Council of State, as..."
+    },
+    {
+      "id": 116,
+      "category": "PUBLIC DIVISION AND ASSET DIVISION",
+      "question": "Who oversees SEs?",
+      "answer": "Oversight is shared among but not limited to MoF, SIGA, Sector Ministries, Auditor General..."
+    },
+    {
+      "id": 117,
+      "category": "PUBLIC DIVISION AND ASSET DIVISION",
+      "question": "What reporting obligations do SEs have?",
+      "answer": "SEs are required to submit audited financial statements and financial plan annually to MoF, SIGA..."
+    },
+    {
+      "id": 118,
+      "category": "PUBLIC DIVISION AND ASSET DIVISION",
+      "question": "What happens when they don’t comply?",
+      "answer": "Non-compliance can attract sanctions including: Withholding budget support Restriction from new borrowing or contracts..."
+    },
+    {
+      "id": 119,
+      "category": "PUBLIC DIVISION AND ASSET DIVISION",
+      "question": "Where can the public access information on SEs?",
+      "answer": "Annual State Ownership Reports (SOR) are available on MoF and SIGA websites."
+    },
+    {
+      "id": 120,
+      "category": "PUBLIC DIVISION AND ASSET DIVISION",
+      "question": "What reforms have been introduced recently?",
+      "answer": "Establishment of the SIGA (2019) to serve as a central oversight body of SEs. Adoption..."
+    },
+    {
+      "id": 121,
+      "category": "PUBLIC DIVISION AND ASSET DIVISION",
+      "question": "How does the Ministry engage with the SEs and key stakeholders?",
+      "answer": "Through annual policy forum, regular monitoring, stakeholder meetings, and Annual General Meetings where applicable."
+    },
+    {
+      "id": 122,
+      "category": "PUBLIC DIVISION AND ASSET DIVISION",
+      "question": "What is the Public Asset Management Unit (PAMU)?",
+      "answer": "The PAMU is a Unit under Public Investment and Assets Division responsible for formulating policies, coordinating..."
+    },
+    {
+      "id": 123,
+      "category": "PUBLIC DIVISION AND ASSET DIVISION",
+      "question": "Why is Asset Management important to Government?",
+      "answer": "Asset management ensures that public assets are safeguarded, optimally used, properly maintained, and replaced or..."
+    },
+    {
+      "id": 124,
+      "category": "PUBLIC DIVISION AND ASSET DIVISION",
+      "question": "Is PAMU the same as the Procurement Unit?",
+      "answer": "No. Procurement handles the purchase of goods, works, and services. PAMU focuses on the management..."
+    },
+    {
+      "id": 125,
+      "category": "PUBLIC DIVISION AND ASSET DIVISION",
+      "question": "What is the National Fixed Asset Register?",
+      "answer": "The National Fixed Asset Register contains a detailed record of all government assets, including descriptions..."
+    },
+    {
+      "id": 126,
+      "category": "PUBLIC DIVISION AND ASSET DIVISION",
+      "question": "Who maintains the Fixed Asset Register?",
+      "answer": "Each Covered Entity through the Fixed Assets Coordinating Unit maintains its register. PAMU consolidates and..."
+    },
+    {
+      "id": 127,
+      "category": "PUBLIC DIVISION AND ASSET DIVISION",
+      "question": "Can government assets be used for private purposes?",
+      "answer": "No. Utilization of government assets must be in line with relevant laws and policies."
+    },
+    {
+      "id": 128,
+      "category": "PUBLIC DIVISION AND ASSET DIVISION",
+      "question": "What is Asset Disposal?",
+      "answer": "The process of removing an asset from the government register when it is obsolete, damaged..."
+    },
+    {
+      "id": 129,
+      "category": "PUBLIC DIVISION AND ASSET DIVISION",
+      "question": "Who approves Asset Disposal?",
+      "answer": "The Minister of Finance grants approval to all disposals in line with the Public Financial..."
+    },
+    {
+      "id": 130,
+      "category": "PUBLIC DIVISION AND ASSET DIVISION",
+      "question": "What are the Disposal Requirements?",
+      "answer": "MDAs must request for approval to dispose, provide board of survey report, STC valuation report,..."
+    },
+    {
+      "id": 131,
+      "category": "PUBLIC DIVISION AND ASSET DIVISION",
+      "question": "Can PAMU assist in setting up an Asset Register?",
+      "answer": "Yes. PAMU provides templates, training, and technical support to Covered Entities for the management of..."
+    },
+    {
+      "id": 132,
+      "category": "PUBLIC DIVISION AND ASSET DIVISION",
+      "question": "Does PAMU collaborate with other agencies?",
+      "answer": "Yes. PAMU works with the Auditor-General, Controller and Accountant-General’s Department, Public Procurement Authority and..."
+    },
+    {
+      "id": 133,
+      "category": "PUBLIC DIVISION AND ASSET DIVISION",
+      "question": "What is PAMU’s long-term vision?",
+      "answer": "To create a transparent, efficient, and sustainable public asset management system that safeguards government..."
+    },
+    {
+      "id": 134,
+      "category": "PUBLIC DIVISION AND ASSET DIVISION",
+      "question": "What types of projects do the PIPU review?",
+      "answer": "All public investment projects regardless of their funding source or budget as indicated in..."
+    },
+    {
+      "id": 135,
+      "category": "PUBLIC DIVISION AND ASSET DIVISION",
+      "question": "At what stage of project preparation should the PIPU be engaged?",
+      "answer": "At all stages throughout the project life cycle."
+    },
+    {
+      "id": 136,
+      "category": "PUBLIC DIVISION AND ASSET DIVISION",
+      "question": "What does Public Investment Plan (PIP)?",
+      "answer": "PIP is a plan which is prepared, prioritized, and costed as capital projects approved by..."
+    },
+    {
+      "id": 137,
+      "category": "PUBLIC DIVISION AND ASSET DIVISION",
+      "question": "What is Portfolio of Projects (PoP)?",
+      "answer": "Portfolio of Projects are investment projects that; (a) have been appraised and granted the necessary..."
+    },
+    {
+      "id": 138,
+      "category": "PUBLIC DIVISION AND ASSET DIVISION",
+      "question": "What is Seal of Quality (SoQ)?",
+      "answer": "SoQ is a certificate granted by the Minister stating that the Ministry of Finance is..."
+    },
+    {
+      "id": 139,
+      "category": "PUBLIC DIVISION AND ASSET DIVISION",
+      "question": "What types of projects must be submitted to the Public Investment Programme Unit (PIPU) for review?",
+      "answer": "All public investment projects, regardless of their funding source or the budget as per..."
+    },
+    {
+      "id": 140,
+      "category": "PUBLIC DIVISION AND ASSET DIVISION",
+      "question": "What is Public Investment Programme Working Committee (PIPWC)?",
+      "answer": "PIPWC is a committee established by the Minister to appraise project documentation and recommend investment..."
+    },
+    {
+      "id": 141,
+      "category": "PUBLIC DIVISION AND ASSET DIVISION",
+      "question": "What makes a project viable?",
+      "answer": "The viability of a project is determined when a project is economically, technically and financially..."
+    },
+    {
+      "id": 142,
+      "category": "PUBLIC DIVISION AND ASSET DIVISION",
+      "question": "What is a Public Private Partnership Project?",
+      "answer": "A Public Private Partnership (PPP) is a form of contractual arrangement or concession between a..."
+    },
+    {
+      "id": 143,
+      "category": "PUBLIC DIVISION AND ASSET DIVISION",
+      "question": "What is Public Private Partnership Project?",
+      "answer": "A Public Private Partnership project means a public infrastructure project or public service implemented under..."
+    },
+    {
+      "id": 144,
+      "category": "PUBLIC DIVISION AND ASSET DIVISION",
+      "question": "Is PPP the same as Privatization?",
+      "answer": "No. For PPPs, the assets are owned by Government. The private sector firm receives payment..."
+    },
+    {
+      "id": 145,
+      "category": "PUBLIC DIVISION AND ASSET DIVISION",
+      "question": "Are there any documents or legal instruments to guide PPPs in Ghana?",
+      "answer": "Yes. Public Private Partnership Act, 2020 (Act 1039)."
+    },
+    {
+      "id": 146,
+      "category": "PUBLIC DIVISION AND ASSET DIVISION",
+      "question": "How are PPP projects funded?",
+      "answer": "PPP projects are primarily funded by the private sector. Government and donor or multilateral institutions..."
+    },
+    {
+      "id": 147,
+      "category": "PUBLIC DIVISION AND ASSET DIVISION",
+      "question": "Why can’t Government use our tax money to build infrastructure but wants to bring in private people?",
+      "answer": "Unfortunately, there is so much demand on Government that it is unable to fund all..."
+    },
+    {
+      "id": 148,
+      "category": "PUBLIC DIVISION AND ASSET DIVISION",
+      "question": "How does the private party recoup its investments?",
+      "answer": "The private sector party may recoup its investments by any of the following: i. Entirely..."
+    },
+    {
+      "id": 149,
+      "category": "PUBLIC DIVISION AND ASSET DIVISION",
+      "question": "Will PPPs result in increase in tariffs and user charges?",
+      "answer": "There may be an increase in tariffs, but this will be accompanied by significant improvements..."
+    },
+    {
+      "id": 150,
+      "category": "PUBLIC DIVISION AND ASSET DIVISION",
+      "question": "What are some of the benefits of PPP arrangements?",
+      "answer": "Accelerated delivery of needed infrastructure and public services on time and within budget. The private..."
+    },
+    {
+      "id": 151,
+      "category": "PUBLIC DIVISION AND ASSET DIVISION",
+      "question": "Who can initiate a PPP project?",
+      "answer": "PPP projects are initiated by the public sector, that is; Ministries, Departments & Agencies (MDAs), or..."
+    },
+    {
+      "id": 152,
+      "category": "PUBLIC DIVISION AND ASSET DIVISION",
+      "question": "What is the typical duration of a PPP contract?",
+      "answer": "A typical PPP contract lasts between 5 and 30 years, with some extending even longer..."
+    },
+    {
+      "id": 153,
+      "category": "PUBLIC DIVISION AND ASSET DIVISION",
+      "question": "What kinds of projects qualify as PPP projects?",
+      "answer": "Public infrastructure and public service projects qualify as PPP projects."
+    },
+    {
+      "id": 154,
+      "category": "PUBLIC DIVISION AND ASSET DIVISION",
+      "question": "Name some PPP projects under implementation in Ghana.",
+      "answer": "Projects such as the National Identification System Project, Foreigner Identity Management System (FIMS) Project, Upgrade..."
+    },
+  
+          // Procurement (3)
+          {
+      "id": 155,
+      "category": "PROCUREMENT",
+      "question": "How do I register as a supplier/contractor for Ministry of Finance tenders?",
+      "answer": "Registration is facilitated by the submission of Company’s introductory letter/profile (including Business Registration Certificates and Public Procurement..."
+    },
+    {
+      "id": 156,
+      "category": "PROCUREMENT",
+      "question": "What is GHANEPS?",
+      "answer": "GHANEPS (Ghana Electronic Procurement System) is a web-based, collaborative system, developed in accordance with the requirement..."
+    },
+    {
+      "id": 157,
+      "category": "PROCUREMENT",
+      "question": "Are there specific eligibility criteria for tendering?",
+      "answer": "Yes. Criteria vary per tender but typically include: Valid Business Registration Certificates, PPA Registration Certificate,..."
+    },
+    {
+      "id": 158,
+      "category": "PROCUREMENT",
+      "question": "Where are tenders advertised?",
+      "answer": "All open tenders are published on the Ghana Electronic Procurement System (GHANEPS) and widely circulated newspapers."
+    },
+    {
+      "id": 159,
+      "category": "PROCUREMENT",
+      "question": "Can I submit a tender after the deadline?",
+      "answer": "No. Late tenders are automatically rejected per procurement guidelines."
+    },
+    {
+      "id": 160,
+      "category": "PROCUREMENT",
+      "question": "How are tenders evaluated?",
+      "answer": "Technical compliance (scope/Terms of Reference, specifications, Bill of Quantities). Price competitiveness. Past performance (where applicable)."
+    },
+    {
+      "id": 161,
+      "category": "PROCUREMENT",
+      "question": "What documents must accompany a tender?",
+      "answer": "Tender security or tender securing declaration (if required). Statutory documents Tender forms & price..."
+    },
+    {
+      "id": 162,
+      "category": "PROCUREMENT",
+      "question": "Is tender security mandatory?",
+      "answer": "Not for consultancy services and Request for Quotations. Check tender documents (specifically, tender data..."
+    },
+    {
+      "id": 163,
+      "category": "PROCUREMENT",
+      "question": "How long does payment take after delivering goods/services?",
+      "answer": "Payments are usually processed within 28 days after contract signing, but are subject to contract..."
+    },
+    {
+      "id": 164,
+      "category": "PROCUREMENT",
+      "question": "Can contract terms be negotiated after the award is made?",
+      "answer": "No. Contracts are binding as awarded. Minor amendments require written approval from the relevant..."
+    },
+    {
+      "id": 165,
+      "category": "PROCUREMENT",
+      "question": "How do I challenge a tender award decision?",
+      "answer": "File a formal complaint: Submit to the Procurement Division within 10 days of award..."
+    },
+    {
+      "id": 166,
+      "category": "PROCUREMENT",
+      "question": "Will my complaint affect future tendering opportunities?",
+      "answer": "Complaints are treated confidentially and impartially."
+    },
+    {
+      "id": 167,
+      "category": "PROCUREMENT",
+      "question": "How do I qualify for preferential margins (margin of preference)?",
+      "answer": "To qualify under Domestic Goods, the following conditions should be met; 1. Where local..."
+    },
+    {
+      "id": 168,
+      "category": "PROCUREMENT",
+      "question": "What are the penalties for breaching a contract?",
+      "answer": "Cancellation of Contract Liquidated damages for delays. Suspension from future tenders. Blacklisting for serious violations."
+    },
+    {
+      "id": 169,
+      "category": "PROCUREMENT",
+      "question": "How do I report unethical practices by procurement staff?",
+      "answer": "Contact and lodge complaints with the Ministry’s Compliance Unit."
+    },
+    {
+      "id": 170,
+      "category": "PROCUREMENT",
+      "question": "What is the mode of payment?",
+      "answer": "Payments are typically made electronically through GIFMIS directly into the supplier’s/contractor’s or consultant’s bank account..."
+    },
+    {
+      "id": 171,
+      "category": "PROCUREMENT",
+      "question": "Where can I get real-time support?",
+      "answer": "Contact the Ministry’s Help Desk :0800900104."
+    }
+            ];
+
+            // ===========================================
+            // SUGGESTIONS DATA
+            // ===========================================
+            const allSuggestions = [
+                "2025 budget statement economic policy",
+                "2025 Mid Year Fiscal Policy Review",
+                "2024 MDAs Annual Budget Performance Report",
+                "2024 Budget Highlights",
+                "2024 Mid Year Fiscal Policy Review"
+            ];
+
+            // ===========================================
+            // SUGGESTION URL MAPPING
+            // Maps suggestion text to target URLs
+            // ===========================================
+            const suggestionUrlMap = {
+                "2025 budget statement economic policy": "https://mofep.gov.gh/sites/default/files/budget-statements/2025-Budget-Statement-and-Economic-Policy_v5.pdf",
+                "2025 Mid Year Fiscal Policy Review": "https://mofep.gov.gh/sites/default/files/budget-statements/2025-Mid-Year-Fiscal-Policy-Review.pdf",
+                "2024 MDAs Annual Budget Performance Report": "https://mofep.gov.gh/sites/default/files/budget-statements/2024-MDAs-Annual-Budget-Performance-Report.pdf",
+                "2024 Budget Highlights": "https://mofep.gov.gh/sites/default/files/budget-statements/2024%20-Budget-Highlights_.pdf",
+                "2024 Mid Year Fiscal Policy Review": "https://mofep.gov.gh/sites/default/files/budget-statements/2024%20Mid-Year-Policy-Review_new.pdf"
+            };
+  
+            // ===========================================
+            // EVENT LISTENERS
+            // ===========================================
+            
+            // Floating Action Button - Toggle FAQ Panel
+            fab.addEventListener('click', () => {
+                faqPanel.classList.toggle('active');
+            });
+
+            // Close Button - Close FAQ Panel and Reset State
+            closeBtn.addEventListener('click', () => {
+                faqPanel.classList.remove('active');
+                suggestionsContainer.classList.remove('active');
+                searchInput.value = '';
+                updateSuggestions('');
+                renderFAQs(faqs);
+                suggestionsContainer.classList.remove('expanded');
+                expandBtn.textContent = 'Show all';
+            });
+
+            // Click Outside - Close Panel When Clicking Outside
+            document.addEventListener('click', (e) => {
+                if (faqPanel.classList.contains('active') &&
+                    !faqPanel.contains(e.target) &&
+                    !suggestionsContainer.contains(e.target) &&
+                    !fab.contains(e.target)) {
+                    faqPanel.classList.remove('active');
+                    suggestionsContainer.classList.remove('active');
+                    searchInput.value = '';
+                    updateSuggestions('');
+                    renderFAQs(faqs);
+                    suggestionsContainer.classList.remove('expanded');
+                    expandBtn.textContent = 'Show all';
+                }
+            });
+
+            // Toggle Suggestions Button - Show/Hide Suggestions Panel
+            toggleSuggestionsBtn.addEventListener('click', () => {
+                suggestionsContainer.classList.toggle('active');
+            });
+
+            // Expand Button - Expand/Collapse Suggestions
+            expandBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                suggestionsContainer.classList.toggle('expanded');
+                expandBtn.textContent = suggestionsContainer.classList.contains('expanded') ? 'Show less' : 'Show all';
+            });
+  
+            // ===========================================
+            // UTILITY FUNCTIONS
+            // ===========================================
+            
+            // Category management (driven strictly by faq.category)
+            let CATEGORY_ORDER = [];
+
+            // Group FAQs by category for organized display
+            function groupByCategory(faqsToDisplay) {
+                const groups = {};
+                CATEGORY_ORDER = [];
+                faqsToDisplay.forEach(f => {
+                    const cat = f.category || 'OTHER';
+                    if (!groups[cat]) {
+                        groups[cat] = [];
+                        CATEGORY_ORDER.push(cat);
+                    }
+                    groups[cat].push(f);
+                });
+                return groups;
+            }
+  
+            // Render FAQs in the panel with category grouping
+            function renderFAQs(faqsToDisplay) {
+                faqList.innerHTML = '';
+                
+                // Show "No results" message if no FAQs to display
+                if (!faqsToDisplay || faqsToDisplay.length === 0) {
+                    const empty = document.createElement('div');
+                    empty.className = 'faq-category';
+                    empty.innerHTML = '<div class="faq-category-title">No results</div>';
+                    faqList.appendChild(empty);
+                    return;
+                }
+
+                // Group FAQs by category and render
+                const groups = groupByCategory(faqsToDisplay);
+                CATEGORY_ORDER.forEach(categoryName => {
+                    const items = groups[categoryName];
+                    if (!items || items.length === 0) return;
+
+                    // Create category section
+                    const section = document.createElement('div');
+                    section.className = 'faq-category';
+
+                    // Create category header
+                    const header = document.createElement('div');
+                    header.className = 'faq-category-title';
+                    header.textContent = categoryName;
+                    section.appendChild(header);
+
+                    // Create FAQ items for this category
+                    items.forEach(faq => {
+                        const faqId = `faq-${faq.id}`;
+                        const faqElement = document.createElement('div');
+                        faqElement.className = 'faq-item';
+                        faqElement.innerHTML = `
+                            <div class="faq-question">${faq.question}</div>
+                            <div class="faq-answer">${faq.answer}</div>
+                            <a href="./faqs.html?id=${faqId}" class="read-more-btn">Read More</a>
+                        `;
+                        
+                        // Handle read more link click
+                        const readMoreLink = faqElement.querySelector('.read-more-btn');
+                        readMoreLink.addEventListener('click', () => {
+                            try {
+                                localStorage.setItem('selectedFaq', JSON.stringify(faq));
+                            } catch (_) {}
+                        });
+                        
+                        // Handle FAQ item click for expand/collapse
+                        faqElement.addEventListener('click', (e) => {
+                            e.stopPropagation();
+                            const isFocused = faqElement.classList.contains('focused');
+                            document.querySelectorAll('.faq-item').forEach(item => {
+                                item.classList.remove('focused');
+                            });
+                            faqElement.classList.toggle('expanded');
+                            if (!isFocused) {
+                                faqElement.classList.add('focused');
+                            }
+                        });
+                        
+                        section.appendChild(faqElement);
+                    });
+
+                    faqList.appendChild(section);
+                });
+            }
+  
+            // Update suggestions based on search query
+            function updateSuggestions(query) {
+                // Clear previous suggestions but keep the expand button
+                const chips = suggestionsContent.querySelectorAll('.suggestion-chip');
+                chips.forEach(chip => chip.remove());
+                
+                if (!query) {
+                    // Show default suggestions when query is empty
+                    allSuggestions.slice(0, 6).forEach(suggestion => {
+                        const chip = createSuggestionChip(suggestion);
+                        suggestionsContent.insertBefore(chip, expandBtn);
+                    });
+                    return;
+                }
+
+                // Filter suggestions based on query
+                const filtered = allSuggestions.filter(suggestion =>
+                    suggestion.toLowerCase().includes(query.toLowerCase())
+                );
+
+                // Display filtered suggestions
+                filtered.forEach(suggestion => {
+                    const chip = createSuggestionChip(suggestion);
+                    suggestionsContent.insertBefore(chip, expandBtn);
+                });
+            }
+
+            // Create a suggestion chip element
+            function createSuggestionChip(text) {
+                const chip = document.createElement('a');
+                chip.className = 'suggestion-chip';
+                chip.textContent = text;
+                const slugUrl = '/' + text.toLowerCase().replace(/[^a-z0-9\s]/g, '').replace(/\s+/g, '-');
+                chip.href = suggestionUrlMap[text] || slugUrl;
+                chip.target = '_blank';
+                chip.rel = 'noopener noreferrer';
+                chip.addEventListener('click', (e) => {
+                    e.stopPropagation(); // Prevent triggering suggestions expand
+                    // Navigation is handled by the href
+                });
+                return chip;
+            }
+  
+            // ===========================================
+            // SEARCH FUNCTIONALITY
+            // ===========================================
+            searchInput.addEventListener('input', () => {
+                const query = searchInput.value;
+                updateSuggestions(query);
+                
+                // Filter FAQs based on search query
+                const filtered = faqs.filter(faq =>
+                    faq.question.toLowerCase().includes(query.toLowerCase()) ||
+                    faq.answer.toLowerCase().includes(query.toLowerCase())
+                );
+                
+                // Render filtered results or all FAQs if no query
+                renderFAQs(filtered.length ? filtered : faqs);
+            });
+
+            // ===========================================
+            // INITIALIZATION
+            // ===========================================
+            // Initialize with default suggestions and FAQs
+            updateSuggestions('');
+            renderFAQs(faqs);
+        });
+    </script>
+    
 </body>
 </html>

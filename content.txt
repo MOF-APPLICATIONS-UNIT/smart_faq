@@ -1,0 +1,981 @@
+Budget
+
+---------------
+
+ 1.Why are contractors owed up to 2024 not being paid?
+
+All outstanding claims/arrears as at 31st December, 2024 are undergoing audit. Payment will start after validation exercise is completed.
+
+2.How will government pay the arrears after the audit?
+
+A provision of GH₵ 13.07 billion was made to take care of validated claims under the arrears vote for 2025.
+
+3.Why do state Owned Enterprise have to seek commitment authorization?
+
+The Public Procurement Act (Amendment), (Act 2025) (Act 1139), requires all procurement entities to obtain a commitment authorization from the Minister for Finance before commencing any procurement process.
+
+4.Do MDAs have to seek for commitment authorization for government initiatives (Goods and Services and CAPEX)?
+
+Yes, all MDAs must seek commitment authorization for all Government initiatives, both goods and services and capital expenditure.
+
+5.Who is responsible for preparing the national budget under the PFM Act 921?
+
+The Minister for Finance is responsible for preparing and presenting the national budget to Parliament on behalf of the President.
+
+6.What role do Principal Spending Officers (PSOs) play in budget preparation?
+
+PSOs prepare budget estimates for their institutions within ceilings and guidelines provided by the Ministry of Finance.
+
+7.How does Section 21 of the PFM Act ensure that budget preparation aligns with fiscal policy objectives?
+
+It requires that budget preparation be guided by the Government’s fiscal strategy document and macroeconomic framework.
+
+8.What timelines are set out in the PFM Act 921 for annual budget submission and approval?
+
+The Minister must present the budget to Parliament not later 15th November of each financial year and approved by 31st December
+
+9.What information must be included in the annual budget estimates?
+
+Revenue projections, expenditure allocations, financing sources, fiscal targets and policy priorities.
+
+10.How are ceilings communicated to MDAs during budget preparation?
+
+The Ministry of Finance issues budget guidelines and expenditure ceilings to all MDAs to guide in the preparation of their budget.
+
+11.What role does Parliament play in budget oversight?
+
+Parliament debates, scrutinizes and approves the annual estimates before the start of the new financial year.
+
+12.How are Internally Generated Funds (IGFS) treated in budget preparation?
+
+IGFs must be prepared and included in the estimates, subject to Ministry of Finance approval.
+
+13.What mechanisms ensure that budgets reflect national priorities?
+
+All MDAs are required to prepare medium term strategy which is drawn from the National Development Plan based on their vision and mission.
+
+14.What is an Appropriation Bill?
+
+An Appropriation Bill is a law that authorizes the Government to withdraw and spend money from the Consolidated Fund (or public treasury) for specific purposes within a given financial year. It is the legal instrument that gives effect to the budget after it has been presented to Parliament and approved.
+
+15.What is a National Budget Statement and Economic Policy?
+
+The National Budget Statement and Economic Policy is a comprehensive document that the Minister for Finance presents to Parliament on behalf of the President. It outlines the Government’s fiscal and economic intentions for the upcoming financial year, as required by the Public Financial Management Act, 2016 (Act 921) and Articles 179 and 180 of the 1992 Constitution.
+
+16.What is a Citizen’s Budget?
+
+A citizen’s Budget is a simplified, abridged, and non-technical version of a Government’s official national budget statement. Its primary purpose is to make complex public financial information accessible and understandable to the public, including those without a background in economics or finance.
+
+17.What is a Budget Hearing?
+
+A budget hearing is a formal meeting or series of meetings where public entities – such as government Ministries, Department and Agencies (MDAs) or Local Government – present and defend their budget proposals with Ministry of Finance or the General Assembly.
+
+18.What is Public Financial Management?
+
+Public Financial Management (PFM) refers to the system of how a government manages public money. It encompasses all the processes and institutions involved in the collection of public revenues, the allocation of these resources, their spending, accounting for them, and reporting on their use. In essence, PFM is the backbone of effective Governance and service delivery. It dictates how a country’s financial resources are mobilized and deployed to achieve its national development goals, such as providing quality education, healthcare. Infrastructure and maintaining security.
+
+19.What is the Budget Calendar?
+
+A budget calendar is an official timetable that sets out the sequence of activities, responsibilities and deadlines for preparing, approving, implementing and reviewing the Government’s budget within a financial year. It ensures that all stakeholders (Ministries, Department and Agencies, Parliament and the Public) know what must be done, by whom and when to keep the budget process timely and coordinated.
+
+20.What is a Mid-year Fiscal Policy Review?
+
+A Mid-year Fiscal Policy Review is a formal assessment of a Government’s budget performance and economic outlook, conducted midway through the financial year. (it is usually done in July).
+
+21.What is Budget Ceiling?
+
+A budget ceiling is the maximum amount of resources (funds) that the Ministry of Finance (or the central budget authority) allocates to Ministries, Department and Agencies (MDAs) during the budget preparation process. It acts as a spending limit or cap, ensuring that proposed expenditure by each MDA stays within the overall resource envelope of the Government.
+
+22.What is meant by Budget Implementation Support and Data Integration?
+
+Delivering technical assistance to Covered Entities and Statutory Fund Agencies on budget preparation through Oracle Hyperion and facilitating the integration of approved budget and project data into the GIFMIS platform is key to the national budget. The support provided include Implementation Support and Expenditure Tracking : providing ongoing technical assistance for budget execution on GIFMIS and supporting the monitoring of budget performance through the Ministry of Finance’s Expenditure Tracking System. Through these integrated functions, BTAS plays a critical role in ensuring the stability of budgeting systems, maintaining the integrity of financial data, supporting fiscal transparency and enabling compliance with public financial management standards across Government operations. Specifically, the Budget implementation and data integration function : 
+
+    make available monthly Budget implementation reports
+    make available the monthly log of requests for re-allocation and codes creations.
+    coordinate the review and streamlining of GIFMIS business processes, and
+    responsible for GIFMIS training and GIFMIS related workflow issues.
+
+23.What tools or guidelines does the FDU provide for budget preparation at the local level?
+
+The Unit issues annual composite budget guidelines, reporting templates and technical manuals to standardize MMDAs budgeting.
+
+24.What is the District Assembly Common Fund (DACF) and how is it allocated to MMDAs?
+
+The DACF is a statutory arrangement backed by the 1992 Constitution to transfer financial resources (not less than 5% of total tax revenue) to MMDAs for developmental projects. The allocation is based on a formula approved by Parliament.
+
+25.What are the guidelines governing the implementation of the 2025 Budget?
+
+The Ministry of Finance released the 2025 Budget Implementation Instructions, in line with the Public Financial Management Act,2016 (Act 921). These instructions guide Principal Account Holders (Ministers) and Principal Spending Officers (Chief Director) in executing the Appropriation Act, 2025 (Act 1126) and emphasizes alignment with the IMF-Supported PC-PEG (Post-COVID-19 Programme for Economic Growth).
+
+
+
+
+COMPLIANCE
+--------------
+1.What is Commitment Authorisation?
+
+A formal approval issued by the Minister for Finance to Public Institutions prior to initiating procurement activities Section 24 (1) (A)&(B), Public Procurement Amendment Act (Act 1139).
+
+2.When do you need Commitment Authorisation?
+
+Prior to initiating procurement activities (Goods, Service and Works).
+
+3.Do you need Commitment Authorisation for both new and ongoing projects?
+
+Commitment Authorisation is required for new projects and for ongoing projects that may require additional funding exceeding 15% of the original contract price.
+
+4.Is Commitment Authorisation required for all funding sources of Government?
+
+Yes, Commitment Authorisation is required for all Government funding sources.
+
+5.Who can request for Commitment Authorisation?
+
+Procurement Entities that intend to undertake procurement activities which commit Government.
+
+6.How to request for Commitment Authorisation?
+
+Procurement Entities write to seek approval from the Minister for Finance detailing the items to be procured and their estimated cost. The letter must state the source of funding for each item and confirm the availability of funds that cover the amount requested. The request must be routed through the mother Ministry of the requesting institution.
+
+7.What is Commitment Control Compliance Checklist (CCCC)?
+
+List of Budget Commitment Control Measures to be in place before funds are committed. These are authenticated by the Head of Internal Audit of the requesting Institution, who, if satisfied, issues a certificate. This certificate is required prior to signing of a contract. Signing the contract without the certified CCCC is an affront to the PFM Laws and it is a sanctionable offence.
+
+8.What is the PFM League Table?
+
+Periodic assessment of MDAs based on their compliance with the Public Financial Management Laws of Ghana.
+
+9.What are the core functions of the PFM Compliance Division?
+
+Enforce compliance and provide support to Government Institutions implementing PFM laws, policies, and guidelines by offering technical guidance, capacity building, and knowledge sharing.
+
+10.What is the PFM Compliance and Enforcement Committee?
+
+A high-level committee that serves as a body of inquiry on issues relating to commitment control and expenditure measures.
+
+11.What are the functions of the PFM Compliance and Enforcement Committee?
+
+The committee ensures adherence to the PFM Laws and recommends appropriate sanctions to defaulting individuals and organizations.
+
+12.Do State Owned Enterprises (SOEs) require Commitment Authorisation?
+
+Yes, per Section 14 of PPA Act 663, once a procurement activity is financed in whole or in part, Commitment Authorisation is required prior to initiating that procurement activity.
+
+13.Is Internally Generated Funds (IGF) Public Funds?
+
+Yes, it is public funds. Managers of Institution that generates and manage IGF do so on behalf of Government and must therefore apply for authorization.
+
+14.Do Foreign Loans and Grants funded projects require Commitment Authorisation?
+
+Yes, they do require Commitment Authorisation.
+
+15.Do Development Partners need Commitment Authorisation prior to the signing of a Loan or Grant agreement?
+
+No, they do not require Commitment Authorization.
+
+
+
+FINANCIAL SECTOR 
+------
+1.What is the mandate of the Financial Sector Division?
+
+The mandate of the Financial Sector Division is to provide policy-based and strategic analysis on Ghana’s financial sector, advise the Hon. Minister on financial sector policies and reforms, and oversee the implementation of strategies to strengthen financial intermediation in Ghana.
+
+
+2.What are the key institutions in the Financial Sector?
+
+Key institutions in the financial sector include the financial sector regulators (Bank of Ghana (BoG), Securities and Exchange Commission (SEC), National Insurance Commission (NIC), and the National Pensions Regulatory Authority (NPRA)); Ghana Amalgamated Trust (GAT), Ghana Commodity Exchange (GCX), Development Bank Ghana (DBG), Ghana Incentive-Based Risk Sharing System for Agricultural Lending (GIRSAL), Central Securities Depository (CSD), Ghana Stock Exchange (GSE), Ghana Deposit Protection Corporation (GDPC), Ghana Investment and Securities Institute (GISI), and industry associations (Ghana Association of Banks (GAB), Ghana Insurers Association (GIA), Chamber of Corporate Trustees (CCT), Ghana Securities Industry Association (GSIA), Ghana Microfinance Institutions Network (GHAMFIN), Ghana Fintech and Payment Association (GFPA), among others).
+
+3.What are Special Deposit-taking Institutions (SDIs)?
+
+SDIs refer to institutions that been licensed by the BoG to engage in the deposit-taking business. They include; Rural and Community Banks, Savings and Loans Companies, Finance Houses, among others.
+
+4.What was Government’s fiscal intervention during the financial sector clean-up?
+
+Government spent a total of GH¢30.3 billion to clean-up the financial sector by the end of 2024. This comprised GH¢26.9 billion spending for the banks, Savings & Loans companies, Financial Houses, Micro-Finance Institutions, and Asset Management companies. The rest of the cost, GH¢3.3 billion, was spent on Ghana Amalgamated Trust Plc (GAT) , NIB, and CBG.
+
+5.What is the mandate of the Ghana Amalgamated Trust Plc (GAT) in the financial sector?
+
+The Ghana Amalgamated Trust Plc (GAT) was established to support solvent but undercapitalized indigenous banks following the 2017–2019 banking sector clean-up. It is mandate is to provide equity capital to selected indigenous banks to enable them to meet the Bank of Ghana’s minimum capital requirement, strengthen their balance sheets, and enhance their competitiveness.
+
+6.At what stage is a bank or SDI considered distressed?
+
+A bank or SDI is considered distressed when it fails to meet regulatory capital requirements, experiences persistent liquidity shortages, records high levels of non-performing loans, or engages in unsafe practices that endanger depositors’ funds. Such institutions typically show signs of insolvency and inability to operate as a going concern.
+
+7.Why are State-owned banks recapitalized?
+
+State-owned banks are recapitalized to strengthen their capital base, enhance their ability to support government’s economic and developmental agenda, and ensure that they remain competitive. Recapitalization also safeguards jobs, protects depositors’ funds, and ensures that these banks continue to serve as vehicles for driving financial inclusion, industrialization, and sector-specific development financing.
+
+8.What is a microfinance institution?
+
+A microfinance institution is a non-bank financial institution that provides small loans, savings, and other basic financial services, often to individuals or small businesses without access to regular banks.
+
+9.What is a Credit Union?
+
+A credit union is a member-based financial cooperative that provides savings, loans, and related financial services to its members, often within a specific community, workplace, or association.
+
+10.What is the role of the capital market in Ghana’s economy?
+
+The capital market supports the mobilization of long-term funds for businesses, government, and infrastructure projects, thereby supporting economic growth and development.
+
+11.How can one invest in Ghana’s capital market?
+
+One can invest by opening an account with a licensed broker or investment adviser who will provide guidance in buying and selling securities such as shares and bonds.
+
+12.What is the Capital Market Master Plan (CMMP)?
+
+The CMMP is a strategic blueprint developed to guide Ghana’s capital market reforms and growth over a 10-year period (2020-2029). This is to promote a deep, efficient, diversified and well-regulated capital market with a full range of products attractive to domestic and international investors.
+
+13.What is the Ghana Stock Exchange (GSE)?
+
+The GSE is the primary platform for trading securities in Ghana, including shares, bonds, and other financial instruments. It offers a regulated marketplace where investors can buy and sell securities, aiding companies in raising long-term capital and supporting overall economic growth.
+
+14.What is the Ghana Commodities Exchange (GCX)?
+
+The Ghana Commodity Exchange (GCX) is a Public-Private Partnership that connects commodity producers with buyers through structured markets. It enhances agricultural productivity, expands access to financing, reduces post-harvest losses, improves storage, strengthens market information systems, and boosts capital market liquidity while creating jobs.
+
+15.What is the Ghana Investment and Securities Institute (GISI)?
+
+The Ghana Investment and Securities Institute (GISI) serves as the training and capacity-building arm of the Securities and Exchange Commission (SEC), tasked with providing securities training for licensing. Its main functions include designing and delivering competency-based training programmes, certification, research, and public education to promote a strong, ethical, and inclusive investment ecosystem.
+
+16.What is the Central Securities Depository (CSD)?
+
+The Central Securities Depository is the organisation that hosts the electronic system that holds securities in digital form, eliminating the need for physical certificates. The CSD has the records of accounts of investors, facilitates the safe and efficient transfer of securities ownership, supports settlement of trades, and reduces risks associated with paper-based systems.
+
+17.Who are brokers and dealers?
+
+Brokers and dealers are licensed intermediaries who execute buy and sell orders for clients. Brokers serve as agents for investors, whereas dealers might trade securities for their own accounts. Both are essential in maintaining market liquidity and efficiency.
+
+18.Who are fund managers?
+
+Fund managers are experts responsible for overseeing pooled investment funds, such as mutual funds, collective investment schemes, and pension funds. They determine which securities to buy or sell, when to trade them, and in what quantities, aiming to meet the fund’s investment goals for their clients.
+
+19.What is a Credit Rating Agency?
+
+A Credit Rating Agency is responsible for providing independent assessment of a borrower or issuer of financial securities to determine their credit worthiness. The ratings help investors to make informed investment decisions and promote transparency in the markets.
+
+20.What is Financial Bailout?
+
+Financial bailout can be described as a situation where a government, central bank, or financial institution offers emergency financial support (such as loans/bonds, stocks, and cash) to a struggling financial institution to revive it. The purpose is to prevent collapse, protect jobs, maintain financial stability, and sustain investor confidence.
+
+21.What is a Mark-to-Market (MTM)?
+
+Mark to market (MTM) is a method of valuing assets and liabilities based on current market conditions. It involves adjusting the value of investments or accounts to reflect their current market price, ensuring that financial statements provide a more accurate picture of an entity’s financial position. This offers investors and institutions an updated valuation of assets and liabilities in real-time and aids in assessing portfolio performance, improving reporting and transparency.
+
+22.What are Collective Investment Schemes?
+
+A Collective Investment Scheme (CIS) are pools of funds managed by professional fund managers and invested in stocks, bonds, or other securities. This pooling of funds allows investors to access a broader range of investment opportunities than they could not access individually. Investors in a CIS buy shares or units in the scheme, which entitle them to a proportional share of the profits, losses, and expenses generated by the investment portfolio. Eg. Mutual fund, unit Trust, etc.
+
+23.What is development finance, and how does it differ from traditional finance?
+
+Development finance refers to the use of financial resources and instruments to drive inclusive growth, sustainable development and poverty reduction particularly in sectors and regions often overlooked by traditional finance. Unlike traditional finance, which prioritizes profit and risk, development finance focuses on long-term social and economic impact. In essence, it is about making money work for people and progress, not just for profit. It is typically delivered through Development Finance Institutions (DFIs), or government agencies, channelling capital into areas that help build resilient, inclusive, and sustainable economies. Examples of DFIs are Development Bank Ghana (DBG), Ghana Infrastructure Investment Fund (GIIF), Venture Capital trust Fund (VCTF), Ghana Export Import Bank (GEXIM), Ghana Incentive-Based Risk Sharing System for Agricultural Lending (GIRSAL), Minerals Income Investment Fund (MIIF), etc.
+
+24.How does development finance support economic development?
+
+DFIs play catalytic role by providing medium and long-term financing, mobilising private capital and derisking investments in priority sectors. They expand access to credit for SMEs and infrastructure, strengthen PFIs and foster innovation to drive inclusive and sustainable growth. It bridges the financing gaps, mobilise private investment, reduces poverty and ensures that growth is inclusive and resilient.
+
+25.What are the main financial instruments used in development financing?
+
+Development finance uses flexible, tailored instruments to address market gaps, reduce risk, and attract private investment into underserved or high-impact sectors. These tools go beyond providing capital, they help make development projects viable. Key instruments include:
+
+     Grants: Non-repayable funds for capacity building or humanitarian needs
+     Concessional loans: Softer loans than commercial loans with below-market interest rates and longer maturity dates
+    Guarantees: Risk-sharing tools to attract private investors or lenders by covering part of the loss in case of default
+    Equity investments: Direct capital infusion into enterprises or funds by taking equity stakes.
+    Blended finance: Strategic mix of public and private funding. Thus, combining concessional finance with commercial finance to improve the risk-return profile of investments.
+
+26.What is the function of DBG?
+
+Development Bank Ghana was established in 2020 as a wholesale Bank to provide medium to long-term credit to the SME sector, particularly Agriculture, manufacturing, ICT, and high-value services, through Participating Financial Institutions (PFIs).
+
+27.What is Development Bank Ghana Guarantee (DBGG)?
+
+The DBGG is a Partial Credit Guarantee scheme that provides guarantees part of credit risk on loans extended by PFIs to MSMEs and other eligible borrowers. PCG helps reduce risk for banks and other lenders, encouraging them to extend credit to SMEs and sectors that are usually considered high-risk or underserved. By unlocking credit for SMEs, it supports job creation, private sector growth, industrialization, and economic resilience.
+
+28.Does the DBG Partial Credit Guarantee replace collateral requirements?
+
+No, but it reduces the collateral burden on borrowers, thereby making loans more accessible and affordable for SMEs.
+
+29.What does Venture Capital Trust Fund seek to achieve?
+
+VCTF was set up to develop and promote Ghana’s venture capital market by providing equity financing to support SMEs in key sectors of the economy. This intervention is essential in supporting start-ups.
+
+30.What is the mandate of Ghana Infrastructure Investment Fund (GIIF) and how does it support national development?
+
+GIIF’s mandate is to finance and invest in strategic infrastructure projects that drive Ghana’s economic growth. It provides funding in sectors such as energy, transport, water, housing and ICT through direct investment, co-investments and public private partnerships. By mobilising long-term capital and partnering with private investors, GIIF reduces public debt reliance, creates jobs and drives sustainable growth.
+
+31.What is the mandate of Ghana Eximbank, and which priority sectors does it support?
+
+The mandate of Ghana EXIM Bank is to promote industrialization and export-led growth by providing financing that enhances value addition, trade competitiveness and import substitution. Its financing products include loans, guarantees, export credit facilities and project financing tailored to business needs. The Bank’s programmes concentrate on strategic sectors such as agriculture and agro-processing, manufacturing, pharmaceuticals and other export-oriented industries.
+
+32.What is GIRSAL’s core mandate and how does it improve lending?
+
+GIRSAL’s is a risk-sharing and financing mechanism established to de-risk agricultural financing in Ghana and encouraging banks to increase lending to the sector. It was created to overcome the persistently low levels of agricultural financing driven by high perceived risks, collateral constraints and structural challenges.
+
+33.What is Financial Inclusion?
+
+Financial inclusion refers to individuals and businesses ability to access and utilize affordable and safe financial services (including payments, savings, credit, insurance, and pensions) that meet their needs. It is not just about opening accounts; it is the regular use of the accounts to that improve livelihood.
+
+34.Why is Financial Inclusion important?
+
+Financial inclusion helps households’ smoothen consumption pattern, manage shocks, build assets, and invest in sectors such as education and health. For businesses, especially MSMEs, it improves access to working capital, supports sales growth through digital payments, and creates jobs. At the national level, it promotes formalization, enhances the efficiency of government-to-person payments, broadens the tax base, and strengthens economic resilience. Importantly, it also advances equity by reducing gender, youth, rural–urban, and disability gaps.
+
+35.What is Financial Technology (Fintech)?
+
+This is the use of technology to design, deliver, and improve financial services. They include mobile money, digital lending/savings, agent networks, insurtech, regtech, crowdfunding, and instant payments. Fintech provides convenience, expands reach, enables 24/7 remote access to financial services and drives financial inclusion by extending reach through agent networks and USSD/apps that serve communities without bank branches.
+
+36.What measures have been put in place by Government to drive Financial Inclusion?
+
+Government as part of efforts to deepen financial inclusion has strengthened infrastructure through Ghana Interbank Payment and Settlement System (GhIPSS) instant payments and mobile money interoperability. The Ghana Card has been integrated into financial sector transactions to simplify onboarding. Regulatory enablers such as payment-system laws, e-money, agent-banking frameworks, and a fintech regulatory sandbox for testing fintech initiatives have been developed. In addition, government collections and transfers are being digitized to promote efficiency, complemented by financial literacy and consumer protection programs with clear complaint-resolution channels.
+
+37.What are the barriers to accessing financial services in Ghana?
+
+    Documentation and KYC challenges - women, youth, and informal workers do not have the requisite documentation for account opening.
+    Costs and distance also pose obstacles, as fees, device and data expenses, and limited rural access points restrict usage.
+    Low levels of digital and financial literacy further discourage participation
+
+38.How are consumers protected in the financial sector?
+
+Financial Consumer are protected through:
+
+    Market-conduct rules – this requires financial institutions to practice fair pricing, responsible lending, clear disclosure, and proper complaint handling.
+    Depositors’ money is safeguarded through deposit protection and the segregation of e-money funds.
+    Availability of Dispute-resolution Channels including internal complaint desks, regulator-led channels, and mediation or alternative dispute resolution where necessary.
+     Enforcement of data privacy and cybersecurity laws to protect customer information.
+    Regular financial education and awareness campaigns are carried out to promote awareness and safe use of digital financial services.
+
+39.How is Ghana addressing gender gaps in financial inclusion?
+
+    Collecting and using sex-disaggregated data – this helps identify gaps and monitor progress.
+    Simplified onboarding process through digital ID and agent networks reduces documentation barriers.
+    Tailored products such as group savings, micro-insurance, and asset-building schemes address women’s financial needs.
+    Entrepreneurship support and guarantee schemes to ease collateral constraints and improve access to credit.
+    Financial literacy, digital-skills training, and gender-sensitive delivery models enhance women’s confidence and safety, including protections against gender-based vulnerabilities.
+
+40.What is pension?
+
+Pension is a regular payment that a person receives after retiring from work, usually funded by contributions made during their working years. Contributions are made by employers, employees, or both, and invested by fund managers to generate returns.
+
+41.Why is pension important?
+
+    It provides financial security and independence when a contributor is no longer earning a regular income from work.
+    It acts as a safety net, allowing an individual to cover living expenses, healthcare costs, and unforeseen needs during retirement without relying solely on family, friends, or government support.
+    It also secures an individual’s standard of living and protects them from poverty in old age.
+
+42.What is a pension fund?
+
+A pension fund is an investment fund within the pension scheme which is intended to accumulate during an individual’s working life from contributions and investment income, with the intention of providing income retirement from the purchase of an annuity or in the form of a programmed withdrawal, with the possible option of an addition tax free cash lump sum being paid to the individual.
+
+43.What is the role of the National Pensions Regulatory Authority (NPRA)?
+
+The National Pensions Regulatory Authority (NPRA) oversees and regulates all three tiers to ensure compliance, licensing of trustees, and protection of contributors’ funds.
+
+44.What is the three-tier pension scheme?
+
+Ghana’s 3-tier pension system combines social security (Tier 1), private occupational pensions (Tier 2), and voluntary personal savings (Tier 3) to provide a more diversified and secure retirement income framework.
+
+Tier 1 is a basic, mandatory, defined-benefit scheme managed by the Social Security and National Insurance Trust (SSNIT). It receives 13.5% of the worker’s basic salary (out of the total 18.5% statutory pension contribution) and offers monthly pensions, survivors’ benefits, invalidity pensions, and emigration benefits. It also guarantees a minimum retirement income.
+
+Tier 2 is an occupational (mandatory) pension scheme managed by private trustees licensed by the National Pensions Regulatory Authority (NPRA). It is a defined-contribution scheme that deducts 5% of the worker’s salary (out of 18.5%) and offers a lump-sum benefit upon retirement. Funds are privately managed and invested, enabling the growth of retirement savings.
+
+Tier 3 is a defined-contribution voluntary provident fund and personal pension scheme, managed by licensed corporate trustees and approved fund managers. Contributions are flexible (workers, employers, or both can contribute any agreed amount), encouraging additional retirement savings and offering tax advantages. It supports informal sector workers and anyone seeking to increase retirement income beyond the mandatory first and second tiers.
+
+45.How can an informal sector worker contribute to Tier 1?
+
+An informal sector worker can join Tier 1 by registering with SSNIT as a self-employed contributor and paying 13.5% of their declared earnings regularly. This gives them access to the same retirement and social security benefits as formal employees.
+
+46.What is a provident fund?
+
+A provident fund is a fully funded, defined contribution scheme in which funds are managed privately and benefits paid as lump sum to the employee or his dependents in case of death. In some cases, it is possible for the employee to draw income prior to retirement to meet specific needs.
+
+47.What incentives exist for voluntary pension scheme (Tier 3)?
+
+Tier 3 contributions enjoy tax relief up to specified limits (16.5%), encouraging workers, particularly in the informal sector, to save toward retirement. Employers offering Tier 3 schemes can also claim tax deductions on contributions, making it attractive for both parties.
+
+48.What is insurance?
+
+Insurance is a financial arrangement that protects individuals, businesses, or organizations against potential losses or risks. In simple terms, you pay a fee called a premium to an insurance company, and in return, the insurer promises to compensate you if a specific event occurs.
+
+49.Why is insurance important?
+
+Insurance protects individuals, businesses, and communities against financial losses from unforeseen events such as accidents, illness, crop failure, or death. It helps households recover quickly, supports business continuity, and contributes to economic stability by pooling risk.
+
+50.What types of insurance are compulsory in Ghana?
+
+Under Ghana’s Insurance Act, 2021 (Act 1061), several types of insurance are mandatory to protect the public, employees, and businesses. These include motor third-party liability insurance for all vehicle owners; fire insurance for commercial buildings (completed or under construction); public liability insurance for businesses serving the public; professional indemnity insurance for employers of professionals such as doctors, lawyers, and engineers; marine cargo insurance for importers; and employer’s liability insurance (workmen’s compensation) for employers with 15 or more employees.
+
+51.How can one contact relevant authorities in the financial sector for complaints and support?
+
+For Compliant and education about a bank savings and loans companies, licensed susu enterprises, rural and community banks, finance houses, please contact, BANK OF GHANA Financial Stability Department Head Office Annex Cedi House Tel: 0302 665005 WhatsApp: 0596912354 or 0501502270 Email: market.conduct@bog.gov.gh If it has to do with Insurance, please contact. NATIONAL INSURANCE COMMISSION.
+
+
+2025 MID YEAR FISCAL POLICY Review
+Debt Status, Composition and Performance
+
+1.What is the current status of Ghana's public debt as of June 2025?
+
+At end-June 2025, Ghana's provisional public debt has declined significantly to GH¢613,000.6 million, down from GH¢726,680.0 million at end-December 2024. This represents a nominal reduction of over GH¢113,679.4 million and a negative debt accumulation rate of 15.6 percent, compared to a positive debt accumulation rate of 22.1 percent same period last year.
+
+2.How has Ghana's public debt-to-GDP ratio changed?
+
+The debt-to-GDP ratio dropped sharply to 43.8 percent at end-June 2025, from 61.8 percent at end-2024. This 18-percentage-point drop supports Government's commitment to debt sustainability, fiscal discipline and prudent debt management efforts. The reduction is largely attributed to the appreciation of the Ghanaian Cedi against major foreign currencies (e.g. US Dollar, Great British Pound and the Euro), which lowered the nominal value of external debt.
+
+3.What is the current composition of Ghana's public debt (domestic vs. external)?
+
+As of end-June 2025, Ghana's public debt composition shows a notable shift. The share of external debt decreased from 57.4 percent at end-December 2024 to 49.0 percent end-June 2025, while domestic debt increased from 42.6 percent at end-December 2024 to 51.0 percent at end-June 2025. This shift reflects a strategic rebalancing towards domestic financing, aimed at reducing exposure to external market volatility and enhancing debt sustainability.
+
+4.How has the foreign debt as a percentage of total public debt changed?
+
+The external debt as a percentage of total public debt decreased from 57.4% at end-December 2024 to 49% by end-June 2025, largely on account of the appreciation of the Ghana Cedi.
+
+Borrowing and Issuance Strategy
+
+5.What is Ghana's current borrowing strategy?
+
+In the first half of 2025, Ghana's government financing operations heavily relied on Government treasury bills. This approach was necessitated by the limited long-term issuance options following the Domestic Debt Exchange Programme (DDEP). Government plans to re-enter the bond market soon through tap-ins or reopening of DDEP benchmark bonds, subject to market conditions.
+
+Debt Sustainability and Fiscal Outlook
+
+6. How has Ghana's debt sustainability improved?
+
+Government is on track to achieve its debt sustainability target earlier than expected, particularly given the recent appreciation of the Ghana Cedi, when factored into the debt sustainability analysis. Ghana’s debt sustainability has improved significantly, supported by the IMF-ECF programme, the completion of the Domestic Debt Exchange Programme (DDEP), the Eurobond restructuring, and progress on bilateral debt restructuring. Under the IMF-ECF programme, the Government aims to reduce the debt-to-GDP ratio to 55 percent in present value terms by 2028. According to the IMF’s Fourth Review Report, this ratio is projected to reach 54.3 percent in 2027 and decline further to 52.0 percent in 2028, compared to an earlier projection of 82.0 percent for 2028 when Ghana entered the programme, marking a significant 30 percentage point reduction. The Government remains committed to maintaining fiscal discipline through the continued implementation of prudent policies to ensure long-term fiscal and debt sustainability.
+
+7.What is the Medium-Term Debt Strategy (MTDS)?
+
+The 2025-2028 MTDS aims to, in the near term, reduce refinancing risk and lower debt servicing cost, as well as build cash buffers for liability management and other debt management purposes.
+
+External funding will primarily come from disbursements under the IMF-ECF programme, World Bank DPO, and ongoing multilateral and bilateral project loans. Domestic financing for the 2025 Budget will involve T-Bills issuance while building buffers to mitigate risks from market volatility.
+
+ 
+
+8.What is the debt-to-GDP ratio target and by when does Ghana aim to achieve it?
+
+Government is expected to achieve a debt-to-GDP target of 55 percent in present value terms by 2028 under IMF-ECF programme. In addition, Government in 2025 amended the Public Financial Management Act 2016 (Act 921) to introduce a debt rule of a debt-to-GDP ratio of 45 percent by 2034, complementing efforts on fiscal discipline. This legislative amendment underscores the government's commitment to long-term fiscal prudence and debt sustainability.
+
+Risk Exposure and Management
+
+9.What key risk indicators are being monitored in Ghana's debt management?
+
+Key risks being monitored include the solvency, cost of debt, refinancing and interest rate risks, as well as exchange rate exposure. Indicators monitored are public debt-to-GDP ratio, Weighted Average Interest Rate, Average Time to Maturity (ATM) in years, Debt Maturing in 1 Year (% of Total), Average Time to Re-fixing (ATR) in years, Debt Re-fixing in 1 Year (% of Total), FX Debt (% of Total Debt), and ST FX Debt (% of Reserves). Government continues to monitor these indicators to support its debt strategy and other policies.
+
+Domestic Debt Exchange Programme (DDEP) and the IMF Programme
+
+10.What is the current status of the DDEP?
+
+Government continues to meet its commitment to the DDEP bondholders, so far government has successfully honoured five coupon payments to the tendered bondholders. For the non-tendered bondholders, government in Q1 2025 paid all outstanding debt service obligations since December 2023 and remains current on its debt service obligations to date.
+
+Also, Government has made adequate provisions to meet all debt service obligations for 2025 and beyond.
+
+11.Will the Sinking Fund be ring-fenced from future fiscal pressures or reallocation?
+
+The operationalisation of the Sinking Fund follows strictly sections 37 to 44 of the PFM Act 921 as amended, which states that the Sinking Fund is established to specifically build sufficient buffers for prompt redemption of specified loan obligations of Government. This was reiterated in the Mid-Year Fiscal Policy Review with commitment to build cash buffers to cater for maturities in 2027/28 and beyond. Government has set up a cedi Sinking Fund Account and a US Dollar Sinking Fund Account.
+
+Debt Restructuring
+
+12.What is the status of bilateral debt restructuring?
+
+In January 2025, Ghana signed a Memorandum of Understanding (MoU) with the Official Creditor Committee. On 24th June 2025, Parliament approved the indicative terms of the MoU, which was followed by the first bilateral agreement signed between the Republic of Ghana and the French Republic on 25th July 2025, with others to follow.
+
+13.What are the criteria used in the selection of the priority projects under the US$250 million disbursement limit?
+
+The main criterion for the selection of the priority projects was closeness to completion. As a result, projects with completion status of 70% and above were considered.
+
+Investor Concerns and Confidence
+
+14.What is the status of Ghana's credit ratings?
+
+Ghana was upgraded to B- and CCC+ from Restricted Default (“RD”) and Selective Default (“SD”) by Fitch and S&P, respectively, in the first half of 2025. The rating agencies cited exchange rate gains, reduced debt, and progress on restructuring. This swift recovery from credit default marks a historic milestone in Ghana’s economic management. Moody’s rating on Ghana is at Caa2 since Oct 2024 with a positive outlook. This is expected to send positive signals to lenders and market participants.
+
+Coordination and Transparency Measures
+
+15.What measures are in place to enhance transparency in public debt management?
+
+Government is committed to enhancing transparency in its public financial management and debt operations. Key measures include the amendment of the Public Financial Management Act 2016 (Act 921) to tighten fiscal rules and ensure discipline, example being an introduction of debt rule and a fiscal rule for primary surplus. Furthermore, the establishment of an Independent Fiscal Council is legislated to monitor adherence to these fiscal rules. In addition, the Ministry remains committed to providing accurate debt information and regularly publishing public debt data and related updates for stakeholder use. Some of the publications are listed in the table below.
+
+S/N
+	
+
+Repo
+	
+
+Dissemination
+	
+
+Frequency
+	
+
+Latest Publication
+
+1
+	
+
+Public Debt Report
+	
+
+MOF website
+	
+
+ Annually
+	
+
+2024 Annual Public Debt Report
+
+2
+	
+
+Public Debt Statistical Bulletin
+	
+
+MOF website
+	
+
+ Quarterly
+	
+
+Quarter 1, 2025 Bulletin
+
+3
+	
+
+Public Debt Newsletter
+	
+
+MOF website
+	
+
+ Monthly
+	
+
+June 2025 Newsletter
+
+4
+	
+
+Investor Call Presentation
+	
+
+MOF website
+	
+
+Quarterly
+	
+
+2024 Invertor Presentation
+
+5
+	
+
+Debt Management Strategy
+	
+
+MOF website
+	
+
+Annually
+	
+
+Quarter 1, 2025
+
+6
+	
+
+Annual Borrowing Plan
+	
+
+MOF website
+	
+
+Annually
+	
+
+2024 ABP
+
+7
+	
+
+Issuance Calendar
+	
+
+MOF website
+	
+
+Quarterly
+	
+
+Oct-Dec 2024 Calendar
+
+8
+	
+
+Auction Data
+	
+
+MOF website
+	
+
+weekly
+	
+
+28 Jul 2025 Weekly Auction Data
+
+9
+	
+
+Debt operations
+	
+
+MOF website
+	  	
+
+Update on restructuring
+
+ 
+
+16.How is the Ministry working with Bank of Ghana to manage liquidity and avoid crowding out?
+
+The Ministry and the Bank of Ghana, as fiscal and monetary agents respectively, maintain constant and consistent coordination on economic matters and fiscal operations. This coordination is sustained through policy dialogues, joint committees, and regular meetings. Nonetheless, the Ministry remains firmly committed to upholding the independence of the central bank.
+
+
+PUBLIC DIVISION AND ASSET DIVISION
+------------
+1.What are Specified Entities?
+
+Specified Entities (SEs) are State-Owned Enterprises (SOEs), Joint Venture Companies (JVCs) and Other State Entities (OSEs).
+
+2.What is a State-Owned Enterprise (SOE)?
+
+A State- Owned Enterprise (SOE) is an entity wholly or partially controlled by Government, operating in key sectors of the economy such as energy, utilities, transportation, finance, and infrastructure.
+
+3.What is the difference between JVCs, SOEs, and OSEs?
+
+SOEs are wholly owned or controlled by Government, JVCs are companies in which Government has majority or minority shares and OSEs are entities established by the state other than SOEs.
+
+4. Why are SEs Important?
+
+    Provide essential services such as transport, utilities etc
+    Create employment and drive industrial growth
+    Contribute revenues and dividends to the State
+
+5. What legal framework governs SEs?
+
+The primary laws and regulations include:
+
+    Public Financial Management Act, 2016 (Act 921) and its accompanying regulations, 2019 (L.I. 2378) - Sets rules for financial plan and reporting, government support, audits and sanctions.
+    State Interests and Governance Authority Act, 2019 (Act 990) - Establishes SIGA and defines oversight roles.
+    State Ownership Policy (SOP) - Provides policy guidance for managing state equity holdings.
+    Companies Act, 2019 (Act 992) - Regulates incorporation and corporate governance of SEs.
+
+     Code of Corporate Governance – Establishes institutional responsibilities for Boards and Managements.
+
+    Executive Audit Directive, 2025 - Design to expose inefficiencies and cover irregularities and safeguard the public interest.
+
+6.What roles are played by MoF and SIGA?
+
+The Ministry of Finance (MoF) develops policy for managing Government’s interest in SEs, whiles SIGA regulates and oversees these entities.
+
+7.How are SE boards appointed?
+
+Boards of SEs are appointed by the President in consultation with the Council of State, as provided in Article 70(1)(d)(iii) of the 1992 Constitution and SIGA Act, 2019 (Act 990).
+
+8.Who oversees SEs?
+
+Oversight is shared among but not limited to MoF, SIGA, Sector Ministries, Auditor General (AG) and Public Services Commission.
+
+9. What reporting obligations do SEs have?
+
+SEs are required to submit audited financial statements and financial plan annually to MoF, SIGA and AG and provide quarterly reports.
+
+10. What happens when they don’t comply?
+
+    Non-compliance can attract sanctions including:
+    Withholding budget support
+    Restriction from new borrowing or contracts
+    Administrative or legal action (including referral to the Attorney General)
+    Removal of Government-appointed Directors.
+
+11. Where can the public access information on SEs?
+
+Annual State Ownership Reports (SOR) are available on MoF and SIGA websites.
+
+12. What reforms have been introduced recently?
+
+    Establishment of the SIGA (2019) to serve as a central oversight body of SEs.
+    Adoption of the State Ownership Policy (SOP) to clarify institutional roles.
+    Presidential Executive Audit Directive (2025) for independent SOE audit.
+    Introduction of the SOE performance league table (2020) to benchmark and publish results.
+
+13. How does the Ministry engage with the SEs and key stakeholders?
+
+Through annual policy forum, regular monitoring, stakeholder meetings, and Annual General Meetings where applicable.
+
+14. What is the Public Asset Management Unit (PAMU)?
+
+The PAMU is a Unit under Public Investment and Assets Division responsible for formulating policies, coordinating, monitoring, and reporting on the management of public assets to ensure their effective use and maintenance.
+
+15. Why is Asset Management important to Government?
+
+Asset management ensures that public assets are safeguarded, optimally used, properly maintained, and replaced or disposed of in a cost-effective and transparent manner.
+
+16. Is PAMU the same as the Procurement Unit?
+
+No. Procurement handles the purchase of goods, works, and services. PAMU focuses on the management of assets throughout their lifecycle after procurement.
+
+17. What is the National Fixed Asset Register?
+
+The National Fixed Asset Register contains a detailed record of all government assets, including descriptions, locations, values, acquisition dates, and custodians.
+
+18. Who maintains the Fixed Asset Register?
+
+Each Covered Entity through the Fixed Assets Coordinating Unit maintains its register. PAMU consolidates and manages the Register at the national level.
+
+19. Can government assets be used for private purposes?
+
+No. Utilization of government assets must be in line with relevant laws and policies.
+
+20. What is Asset Disposal?
+
+The process of removing an asset from the government register when it is obsolete, damaged, or no longer needed.
+
+21. Who approves Asset Disposal?
+
+The Minister of Finance grants approval to all disposals in line with the Public Financial Management Act 2016, Act 921 and the Public Financial Management (PFM) Regulations, 2019 (L.I.2378).
+
+22. What are the Disposal Requirements?
+
+MDAs must request for approval to dispose, provide board of survey report, STC valuation report, GRA tax waiver report and Transport Policy (where necessary).
+
+23. Can PAMU assist in setting up an Asset Register?
+
+Yes. PAMU provides templates, training, and technical support to Covered Entities for the management of their respective asset registers.
+
+24. Does PAMU collaborate with other agencies?
+
+Yes. PAMU works with the Auditor-General, Controller and Accountant-General’s Department, Public Procurement Authority and other relevant stakeholders.
+
+25. What is PAMU’s long-term vision?
+
+To create a transparent, efficient, and sustainable public asset management system that safeguards government resources and maximizes value for citizens.
+
+26. What types of projects do the PIPU review?
+
+All public investment projects regardless of their funding source or budget as indicated in the PFM (PIM) Regulations 2020, L. I.2411.
+
+27. At what stage of project preparation should the PIPU be engaged?
+
+At all stages throughout the project life cycle.
+
+28. What does Public Investment Plan (PIP)?
+
+PIP is a plan which is prepared, prioritized, and costed as capital projects approved by cabinet and is consistent with the Medium-term Expenditure Framework.
+
+29. What is Portfolio of Projects (PoP)?
+
+Portfolio of Projects are investment projects that;
+
+(a) have been appraised and granted the necessary approvals in accordance with PFM(PIM) Regulations 2020, (L.I.2411).
+
+(b) have received the Seal of Quality by the Minister.
+
+30. What is Seal of Quality (SoQ)?
+
+SoQ is a certificate granted by the Minister stating that the Ministry of Finance is confident that the investment project has a positive economic and financial Net Present Value, and is technically, financially and economically viable.
+
+31. What types of projects must be submitted to the Public Investment Programme Unit (PIPU) for review?
+
+All public investment projects, regardless of their funding source or the budget as per the PFM(PIM) Regulations 2020, L.I.2411.
+
+32. What is Public Investment Programme Working Committee (PIPWC)?
+
+PIPWC is a committee established by the Minister to appraise project documentation and recommend investment projects for grant or denial of the Seal of Quality by the Minister.
+
+33. What makes a project viable?
+
+The viability of a project is determined when a project is economically, technically and financially viable by checking whether the project is of benefit to the country and aligns with national goals.
+
+34. What is a Public Private Partnership Project?
+
+A Public Private Partnership (PPP) is a form of contractual arrangement or concession between a contracting authority and a private party for the provision of public infrastructure or public services traditionally provided by the public sector, as a result of which the private party performs part or all of the infrastructure or service delivery functions of Government, and assumes the defined risks over a significant period of time.
+
+35. What is Public Private Partnership Project?
+
+A Public Private Partnership project means a public infrastructure project or public service implemented under a partnership agreement between a contracting authority and a private party.
+
+36. Is PPP the same as Privatization?
+
+No. For PPPs, the assets are owned by Government. The private sector firm receives payment for its investments and services over a pre-determined period.
+
+After the agreed period expires, and the private sector has received all due payments, the facility is transferred back to Government to manage.
+
+37. Are there any documents or legal instruments to guide PPPs in Ghana?
+
+Yes. Public Private Partnership Act, 2020 (Act 1039).
+
+38. How are PPP projects funded?
+
+PPP projects are primarily funded by the private sector. Government and donor or multilateral institutions may also contribute funding or resources when necessary.
+
+39. Why can’t Government use our tax money to build infrastructure but wants to bring in private people?
+
+Unfortunately, there is so much demand on Government that it is unable to fund all development projects. PPPs offer the opportunity of attracting significant funding and expertise from the private sector to develop infrastructure and provide services on behalf of Government.
+
+40. How does the private party recoup its investments?
+
+The private sector party may recoup its investments by any of the following:
+
+i. Entirely from the service provided.
+
+ii. Tariffs or user charges.
+
+iii. Entirely from Government budgets, which may be fixed or partially fixed.
+
+iv. A combination of the above.
+
+41. Will PPPs result in increase in tariffs and user charges?
+
+There may be an increase in tariffs, but this will be accompanied by significant improvements in service delivery, and the tariffs will be controlled by a public regulatory body. Tariffs/user charges for public services can only be adjusted by Government. In all cases financial arrangements will be developed to ensure that public services remain affordable and willingness to pay mechanisms are adhered to under PPP projects.
+
+42. What are some of the benefits of PPP arrangements?
+
+i. Accelerated delivery of needed infrastructure and public services on time and within budget.
+
+ii. The private sector is encouraged to provide innovative design, technology and financing structures.
+
+iii.Increased international and domestic investment in public services.
+
+iv.Risk sharing between Government and Private Sector Partners; and
+
+v. It ensures good quality public services and their wider availability.
+
+43. Who can initiate a PPP project?
+
+PPP projects are initiated by the public sector, that is; Ministries, Departments & Agencies (MDAs), or Metropolitan, Municipal & District Assemblies (MMDAs) in consultation with the Public Investment and Assets Division of the Ministry of Finance.
+
+44. What is the typical duration of a PPP contract?
+
+A typical PPP contract lasts between 5 and 30 years, with some extending even longer depending on the nature/complexity of the project, financing terms, and the allocation of risks between the public and private parties.
+
+45. What kinds of projects qualify as PPP projects?
+
+Public infrastructure and public service projects qualify as PPP projects.
+
+46. Name some PPP projects under implementation in Ghana.
+
+Projects such as the National Identification System Project, Foreigner Identity Management System (FIMS) Project, Upgrade of Current Biometric Passport Systems Project, Integrated Recycling and Compost Plants, Liquid Waste Treatment Plant and Automation of Traffic Law Enforcement in Ghana (TRAFFITECHGH) Project are under implementation.
+
+
+
+PROCUREMENT
+-----
+
+ REGISTRATION & ELIGIBILITY
+
+1. How do I register as a supplier/contractor for Ministry of Finance tenders?
+
+Registration is facilitated by the submission of Company’s introductory letter/profile (including Business Registration Certificates and Public Procurement Authority’s (PPA) Registration Certificate) addressed to the Director, Administration of the Ministry of Finance. P.O. Box MB 40, Ministries, Accra.
+
+The Supplier/Contractor/Service Provider should also take steps to be on rolled onto the Ghana Electronic Procurement Systems (GHANEPS). Officials of the PPA are available to offer the necessary assistance.
+
+2.What is GHANEPS?
+
+GHANEPS (Ghana Electronic Procurement System) is a web-based, collaborative system, developed in accordance with the requirement of public procurement laws, to facilitate public procurement processes in Ghana. It offers a secure, interactive, dynamic environment for carrying out procurement of all categories, complexity or value.
+
+GHANEPS supports processes of procuring Goods, Works, Consultancy, Non-Consultancy and Disposal of assets. The system supports various public procurement procedures including user registration, tender notification, tender preparation and submission, online tender evaluation, contract awarding, creation and management of catalogue, creation and management of framework agreements and auctions and payments.
+
+3.Are there specific eligibility criteria for tendering?
+
+Yes. Criteria vary per tender but typically include:
+
+    Valid Business Registration Certificates, PPA Registration Certificate, SSNIT Clearance
+    Certificates, GRA Tax Clearance Certificate
+    Relevant technical/financial capacity.
+    Sector-specific certifications (for example, Works & Housing Certificate for works
+    procurement).
+    No debarment records.
+
+TENDER PROCESSES
+
+4.Where are tenders advertised?
+
+All open tenders are published on the Ghana Electronic Procurement System (GHANEPS) and widely circulated newspapers.
+
+5.Can I submit a tender after the deadline?
+
+No. Late tenders are automatically rejected per procurement guidelines.
+
+6.How are tenders evaluated?
+
+    Technical compliance (scope/Terms of Reference, specifications, Bill of Quantities).
+    Price competitiveness.
+    Past performance (where applicable).
+
+DOCUMENTATION & COMPLIANCE
+
+7.What documents must accompany a tender?
+
+Typically:
+
+    Tender security or tender securing declaration (if required).
+    Statutory documents
+    Tender forms & price schedules or Technical & financial proposals (separate sealed envelopes).
+
+8.Is tender security mandatory?
+
+Not for consultancy services and Request for Quotations. Check tender documents (specifically, tender data sheet) for details.
+
+ PAYMENTS & CONTRACTS
+
+9.How long does payment take after delivering goods/services?
+
+Payments are usually processed within 28 days after contract signing, but are subject to contract terms.
+
+10.Can contract terms be negotiated after the award is made?
+
+No. Contracts are binding as awarded. Minor amendments require written approval from the relevant authorities.
+
+ 
+
+COMPLAINTS & DISPUTES
+
+11.Question: How do I challenge a tender award decision?
+
+File a formal complaint:
+
+Submit to the Procurement Division within 10 days of award notification.
+
+12.Will my complaint affect future tendering opportunities?
+
+Complaints are treated confidentially and impartially.
+
+13.How do I qualify for preferential margins (margin of preference)?
+
+To qualify under Domestic Goods, the following conditions should be met;
+
+1. Where local labour, raw materials and components from within Ghana account for 15 percent or more of the Ex-Works (EXW) price of the product offered.
+
+2. Where imported raw materials or components constitute the bulk of the inputs and local labour and additional components are required for processing into finished products and the proportion of domestic value added is equal to 10 percent or more of the Ex Works (EXW) price of the product offered.
+
+POST-AWARD OBLIGATIONS
+
+14.What are the penalties for breaching a contract?
+
+Penalties may include:
+
+    Cancellation of Contract
+    Liquidated damages for delays.
+    Suspension from future tenders.
+    Blacklisting for serious violations.
+
+15.How do I report unethical practices by procurement staff?
+
+Contact and lodge complaints with the Ministry’s Compliance Unit.
+
+PAYMENT/FUNDS DISBURSEMENT
+
+16.What is the mode of payment?
+
+Payments are typically made electronically through GIFMIS directly into the supplier’s/contractor’s or consultant’s bank account as registered on the Ghana Integrated Financial Management Information System (GIFMIS). Cheques are increasingly rare but might still be used in some context.
+
+In essence, payment relies on verification of delivery/compliance, certification of correctness and funds and authorization of funds.
+
+17.Where can I get real-time support?
+
+Contact the Ministry’s Help Desk :0800900104.
